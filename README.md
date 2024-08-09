@@ -1,8 +1,8 @@
-# Mestrado em Economia do Setor Público na Universidade Federal da Paraíba 
+# Mestrado em Economia do Setor Público
+# Universidade Federal da Paraíba 
 <div align="center">
   <img src="Brasão_UFPB.png" alt="UFPB">
 </div>
-![Capa do Repositório](Brasão_UFPB.png)
 
 ## Tema da dissertação: Avaliação de risco em processos de aposentadoria no âmbito do Tribunal de Contas do Estado da Paraíba: uma aplicação baseada em aprendizagem de máquina supervisionada
 
