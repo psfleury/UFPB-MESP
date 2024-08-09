@@ -1,7 +1,7 @@
 # UFPB-MESP
 # Mestrado em Economia do Setor Público na Universidade Federal da Paraíba - Materiais Complementares
 
-![Capa do Repositório](caminho-da-imagem-no-repo.png)
+![Capa do Repositório](Brasão_UFPB.png)
 
 ## Sobre este repositório
 
