@@ -1,6 +1,8 @@
 <div align="center"><img src="Brasão_UFPB.png" alt="UFPB"></div>
-<p align="center">  <span style="font-size: 20px;"><strong>Universidade Federal da Paraíba</strong></span></p>
-<p align="center">  <span style="font-size: 15px;"><strong>Mestrado em Economia do Setor Público</strong></span></p>
+
+<p align="center">  <span style="font-size: 100px;"><strong>Universidade Federal da Paraíba</strong></span></p>
+
+<p align="center">  <span style="font-size: 80px;"><strong>Mestrado em Economia do Setor Público</strong></span></p>
 
 ## Tema da dissertação: Avaliação de risco em processos de aposentadoria no âmbito do Tribunal de Contas do Estado da Paraíba: uma aplicação baseada em aprendizagem de máquina supervisionada
 
