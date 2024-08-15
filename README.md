@@ -12,10 +12,10 @@
 
 Este repositório contém materiais complementares e referências utilizadas durante a elaboração da dissertação. Aqui você encontrará:
 
-- Artigos e papers relevantes
+- Referências bibliográficas
 - Códigos Python e R utilizados
-- HTMLs com o detalhamento da consolidação da base de dados e da análise exploratória
-- [Link para o trabalho completo](link-para-o-seu-trabalho)
+- Detalhamento da formação, consolidação e análise exploratória dos dados
+- Detalhamento da aplicação dos modelos e obtenção dos resultados
 
 Sinta-se à vontade para explorar os arquivos e usar o que for útil. Qualquer dúvida, estou à disposição para discutir as ideias e materiais apresentados aqui:
 
