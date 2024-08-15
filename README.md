@@ -1,4 +1,6 @@
-# Mestrado em Economia do Setor Público
+<p align="center">
+  <strong># Mestrado em Economia do Setor Público</strong>
+</p>
 # Universidade Federal da Paraíba 
 <div align="center">
   <img src="Brasão_UFPB.png" alt="UFPB">
