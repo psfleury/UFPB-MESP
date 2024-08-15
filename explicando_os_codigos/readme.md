@@ -1,1 +1,1 @@
-
+Nesta pasta contém o arquivo "MESP_Previdencia_Final.qmd", por meio do qual é geral o arquivo "XXX.html", no qual é feita a explanação de todas as etapas seguidas, desde a formação do banco de dados, passando pela análise exploratória, até a obtenção da base pré-treinamento.
