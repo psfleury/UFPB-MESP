@@ -1,8 +1,8 @@
 <div align="center"><img src="Brasão_UFPB.png" alt="UFPB"></div>
 
-<h1 align="center">**Universidade Federal da Paraíba**</h1>
+<h1 align="center">Universidade Federal da Paraíba</h1>
 
-<h2 align="center">**Mestrado em Economia do Setor Público**</h2>
+<h2 align="center">Mestrado em Economia do Setor Público</h2>
 
 **Autor:** Pedro de Souza Fleury
 
