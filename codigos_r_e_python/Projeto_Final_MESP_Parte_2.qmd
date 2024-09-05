@@ -1,0 +1,1261 @@
+---
+# title: "Dissertação de Mestrado em Economia do Setor Público (MESP) - UFPB"
+# author: "Pedro de Souza Fleury"
+# date: 06/11/2024
+format:
+  html:
+    toc: true
+    toc-expand: 2
+    code-fold: false
+editor: visual
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+```
+
+```{=html}
+<style>
+
+/* Estilo para centralizar a imagem no topo */
+.header-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px; /* Espaçamento abaixo da imagem */
+}
+
+.header-image {
+  max-width: 150px; /* Ajuste a largura conforme necessário */
+  height: auto; /* Mantém a proporção da imagem */
+}
+
+  /* Ajustar o tamanho da fonte do sumário */
+  nav#TOC {
+    font-size: 0.7em; /* Ajuste o valor conforme necessário */
+  }
+  
+/* Justificação de texto e recuo */
+
+.figure {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  margin-bottom: 1em;
+}
+.figure .fig-cap {
+  margin-bottom: 0.5em;
+  text-align: center;
+}
+
+p {
+  text-align: justify;
+  text-indent: 4em; /* Ajuste este valor conforme necessário */
+  line-height: 1.5; /* Ajuste a altura da linha para melhor legibilidade */
+  margin-bottom: 1em; /* Espaçamento entre parágrafos */
+}
+
+/* Estilo de cabeçalhos */
+h1, h2, h3, h4, h5, h6 {
+  color: #007acc; /* Cor dos cabeçalhos */
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+/* Títulos */
+h1 {
+  font-size: 2em;
+  border-bottom: 2px solid #2c3e50;
+  padding-bottom: 0.3em;
+}
+
+h2 {
+  font-size: 1.5em;
+  border-bottom: 1px solid #2c3e50;
+  padding-bottom: 0.2em;
+}
+
+h3 {
+  font-size: 1.25em;
+}
+
+/* Fontes e cores */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f5f5f5;
+    color: #333;
+    margin: 0;
+    padding: 0;
+  }
+
+  .author, .date {
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 20px;
+  }
+
+
+/* Estilo de links */
+a {
+  color: #3498db;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Estilo de listas */
+ul, ol {
+  margin-left: 20px; /* Espaçamento à esquerda para toda a lista */
+  padding-left: 0; /* Remove o preenchimento padrão */
+}
+
+ul li, ol li {
+  list-style-position: outside; /* Garante que o bullet esteja fora do bloco de texto */
+  margin-left: 0; /* Remove margem adicional entre bullet e texto */
+  padding-left: 0; /* Remove preenchimento adicional entre bullet e texto */
+}
+
+/* Estilo de blocos de código */
+pre {
+  background-color: #f3f3f3;
+  padding: 1em;
+  border: 1px solid #ddd;
+  overflow-x: auto;
+}
+
+code {
+  background-color: #f7f7f7;
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+}
+
+/* Estilo da informação do autor */
+.author-info {
+  font-size: 1.2em;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: #00c6ff;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+  .abstract {
+    border-left: 5px solid #007acc;
+    padding-left: 15px;
+    margin-bottom: 20px;
+    background-color: #e8f4fc;
+  }
+
+/* Estilo para tabelas */
+.table-container {
+  font-size: 0.9em;
+  max-height: 500px; /* Define a altura máxima da janela da tabela */
+  overflow-y: auto; /* Adiciona uma barra de rolagem vertical */
+  margin-bottom: 20px; /* Espaçamento inferior para as tabelas */
+  border: 1px solid #ddd; /* Adiciona uma borda ao redor da tabela */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra sutil para destaque */
+}
+
+table {
+  width: 100%; /* Garante que a tabela ocupe toda a largura do contêiner */
+  border-collapse: collapse; /* Remove os espaços entre as células */
+}
+
+table, th, td {
+  border: 1px solid #ddd; /* Adiciona bordas às células da tabela */
+  padding: 8px; /* Espaçamento interno das células */
+  text-align: left; /* Alinha o texto à esquerda */
+}
+
+th {
+  background-color: #f2f2f2; /* Cor de fundo para os cabeçalhos das colunas */
+}
+
+/* Estilo para blocos de código */
+.code-container {
+  font-size: 0.9em;
+  max-height: 500px; /* Define a altura máxima da janela do código */
+  overflow-y: auto; /* Adiciona uma barra de rolagem vertical */
+  margin-bottom: 20px; /* Espaçamento inferior para os blocos de código */
+  border: 1px solid #ddd; /* Adiciona uma borda ao redor do bloco de código */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra sutil para destaque */
+  background-color: #f7f7f7; /* Cor de fundo para os blocos de código */
+}
+
+.no-indent {
+  text-indent: 0; /* Remove o recuo */
+  margin-left: 0; /* Garante que a margem esquerda também seja zerada */
+}
+
+.footnote {
+  position: relative;
+  cursor: pointer;
+}
+
+.footnote::after {
+  content: attr(data-footnote);
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  transform: translateX(-50%);
+  background-color: #fff;
+  color: #000;
+  padding: 10px;
+  border-radius: 10px;
+  white-space: nowrap;
+  font-size: 1.2em;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s;
+  pointer-events: none;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  font-family: inherit;
+  max-width: none; /* Remove qualquer limite na largura */
+  z-index: 10;
+  text-align: left; /* Garante que o texto dentro do tooltip esteja alinhado à esquerda */
+  margin-left: 0; /* Remove qualquer margem que possa estar causando o espaço */
+  display: block;
+  width: auto;
+  
+}
+
+.footnote:hover::after {
+  opacity: 1;
+  visibility: visible;
+}
+</style>
+```
+```{=html}
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const tables = document.querySelectorAll("table");
+    tables.forEach(table => {
+        const wrapper = document.createElement("div");
+        wrapper.className = "table-container";
+        table.parentNode.insertBefore(wrapper, table);
+        wrapper.appendChild(table);
+    });
+    const codeBlocks = document.querySelectorAll("pre");
+    codeBlocks.forEach(block => {
+        const wrapper = document.createElement("div");
+        wrapper.className = "code-container";
+        block.parentNode.insertBefore(wrapper, block);
+        wrapper.appendChild(block);
+    });
+});
+
+</script>
+```
+```{=html}
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  // Obter todas as notas de rodapé
+  const footnotes = document.querySelectorAll("sup.footnote a");
+
+  footnotes.forEach(footnote => {
+    const targetId = footnote.getAttribute("href").substring(1);
+    const noteText = document.querySelector(`#${targetId}`).textContent.trim();
+    const backrefIndex = noteText.lastIndexOf("↩");
+    
+    // Remover o backref "↩" do texto da nota de rodapé
+    const cleanNoteText = noteText.substring(0, backrefIndex).trim();
+    
+    // Definir o texto da nota de rodapé como o conteúdo do tooltip
+    footnote.parentElement.setAttribute("data-footnote", cleanNoteText);
+  });
+});
+</script>
+```
+<!-- HTML para a imagem no topo -->
+
+```{=html}
+<div class="header-image-container">
+    <img src="Brasão_UFPB.png" alt="UFPB" class="header-image">
+</div>
+```
+
+<p class="no-indent">**Universidade Federal da Paraíba - UFPB**</p>
+
+<p class="no-indent">**Programa de Pós Graduação em Economia do Setor Público - PPESP**</p>
+
+<p class="no-indent">**Dissertação de Mestrado**</p>
+
+<p class="no-indent">**Título**: Avaliação de risco em processos de aposentadoria no âmbito do Tribunal de Contas do Estado da Paraíba: uma aplicação baseada em aprendizagem de máquina supervisionada.</p>
+
+<p class="no-indent">**Autor**: Pedro de Souza Fleury</p>
+
+<p class="no-indent">**Data**: `r Sys.Date()`</p>
+
+# Da preparação do ambiente de trabalho e da importação das bibliotecas que serão utilizadas
+
+Inicialmente, fixa-se o diretório de trabalho padrão, onde constarão todos os arquivos e documentos necessários à aplicação dos modelos. Em seguida, são incorporadas as bibliotecas que serão necessárias para a execução do código. O código utilizado para tais passos é apresentado abaixo:
+
+```{python}
+#| echo: true
+#| eval: true
+
+# Definindo o diretório de trabalho
+import os 
+os.chdir("C:/Users/pedro/OneDrive/01 - Backups/Área de Trabalho/R/Projeto_Final_MESP")
+
+import sqlite3  # Biblioteca para interagir com bancos de dados SQLite, permitindo criar, consultar e modificar bases de dados.
+
+import pandas as pd  # Biblioteca para manipulação e análise de dados em DataFrames.
+
+import numpy as np  # Biblioteca para manipulação eficiente de arrays e funções matemáticas.
+
+import matplotlib.pyplot as plt #
+
+import seaborn as sns  # Biblioteca para visualização de dados baseada no Matplotlib.
+
+from sklearn.model_selection import train_test_split  # Função para dividir os dados em conjuntos de treino e teste.
+
+from sklearn.pipeline import Pipeline  # Utilitário para criação de pipelines que integram várias etapas de processamento.
+
+from sklearn.preprocessing import OneHotEncoder  # Codificador para transformar variáveis categóricas em binárias.
+
+from sklearn import model_selection, preprocessing, linear_model, naive_bayes, metrics, svm, tree, neighbors  # Módulos diversos do scikit-learn para modelagem, pré-processamento, e métricas.
+
+from sklearn.ensemble import RandomForestClassifier  # Classificador baseado em florestas aleatórias para tarefas de classificação.
+
+from sklearn.compose import ColumnTransformer  # Ferramenta para aplicar transformações diferentes a colunas específicas.
+
+from sklearn.metrics import confusion_matrix  # Função para calcular a matriz de confusão, avaliando o desempenho do modelo.
+
+from sklearn.metrics import classification_report  # Gera um relatório com métricas de classificação como precisão, recall e F1.
+
+from random import seed  # Função para definir uma semente para a geração de números aleatórios, garantindo reprodutibilidade.
+
+import matplotlib.pyplot as plt  # Biblioteca para criação de gráficos e visualizações.
+
+from sklearn.neural_network import MLPClassifier  # Classificador baseado em redes neurais de perceptron multicamadas.
+
+from sklearn.ensemble import AdaBoostClassifier  # Classificador que utiliza a técnica de boosting adaptativo para melhorar a precisão.
+
+from sklearn.ensemble import GradientBoostingClassifier  # Classificador que utiliza a técnica de boosting por gradiente para melhorar o desempenho.
+
+from sklearn.ensemble import ExtraTreesClassifier  # Classificador baseado em árvores de decisão com amostras aleatórias extras.
+
+from sklearn.ensemble import BaggingClassifier  # Classificador que utiliza a técnica de bagging para melhorar a robustez e precisão.
+
+```
+
+# Da preparação para aplicação dos modelos
+
+Preliminarmente, é necessário importar a tabela_pretreinamento, obtida após a Análise Exploratória de Dados. Vejamos:
+
+```{python}
+#| echo: true
+#| eval: true
+
+import tabulate
+
+# Conectar ao banco de dados SQLite
+conn = sqlite3.connect('mesp_previdencia_R_2.db')
+
+# Criar um objeto cursor para executar comandos SQL
+cursor = conn.cursor()
+
+# Exemplo de consulta SELECT
+consulta = """SELECT * from tabela_pretreinamento;
+"""
+
+dados_final = pd.read_sql_query(consulta, conn)
+
+# Fechar a conexão
+conn.close()
+
+# Gerar visualização dos dados
+html_table_a = tabulate.tabulate(dados_final.head(10), headers='keys', tablefmt='html')
+
+html_table_a
+
+```
+
+## Conversão de tipos
+
+Em seguida, é necessário converter os tipos dos campos categóricos, para futura aplicação do OneHotEncoder:
+
+```{python}
+#| echo: true
+#| eval: true
+
+# Transformar variáveis categóricas em tipo "category"
+dados_final['nr_proc'] = dados_final['nr_proc'].astype("category")
+dados_final['jurisdicionado'] = dados_final['jurisdicionado'].astype("category")
+dados_final['ano'] = dados_final['ano'].astype("category")
+dados_final['orgao'] = dados_final['orgao'].astype("category")
+dados_final['carreira'] = dados_final['carreira'].astype("category")
+dados_final['cargo'] = dados_final['cargo'].astype("category")
+dados_final['flag_aposesp'] = dados_final['flag_aposesp'].astype("category")
+dados_final['meio_publi'] = dados_final['meio_publi'].astype("category")
+dados_final['regra_apos'] = dados_final['regra_apos'].astype("category")
+dados_final['qtd_vinculos'] = dados_final['qtd_vinculos'].astype("category")
+dados_final['qtd_vinculos_pub'] = dados_final['qtd_vinculos_pub'].astype("category")
+dados_final['qtd_vinculos_priv'] = dados_final['qtd_vinculos_priv'].astype("category")
+dados_final['qtd_vinculos_mesmo_cargo'] = dados_final['qtd_vinculos_mesmo_cargo'].astype("category")
+dados_final['qtd_vinculos_mesma_carreira'] = dados_final['qtd_vinculos_mesma_carreira'].astype("category")
+dados_final['p_vencimento'] = dados_final['p_vencimento'].astype("category")
+dados_final['p_ats'] = dados_final['p_ats'].astype("category")
+dados_final['p_proventos'] = dados_final['p_proventos'].astype("category")
+dados_final['p_gratificacao'] = dados_final['p_gratificacao'].astype("category")
+dados_final['p_vantpessoal'] = dados_final['p_vantpessoal'].astype("category")
+dados_final['p_insalubridade'] = dados_final['p_insalubridade'].astype("category")
+dados_final['p_adcqualificacao'] = dados_final['p_adcqualificacao'].astype("category")
+dados_final['p_representacao'] = dados_final['p_representacao'].astype("category")
+dados_final['p_antecipacao'] = dados_final['p_antecipacao'].astype("category")
+dados_final['p_indenizatorio'] = dados_final['p_indenizatorio'].astype("category")
+dados_final['ind_sm'] = dados_final['ind_sm'].astype("category")
+
+```
+
+## Composição das classes
+
+Tal como já fora feito na AED, vejamos a composição das classes do **dataset**: 
+
+```{python}
+#| echo: true
+#| eval: true
+
+# Calcula as contagens e os percentuais
+class_counts = dados_final['rotulo'].value_counts()
+class_percent = 100 * class_counts / class_counts.sum()
+
+# Cria o gráfico de barras
+fig, ax = plt.subplots(figsize=(8, 6))
+ax = class_counts.plot.bar(ylim=(0, class_counts.max() * 1.1))
+
+# Adiciona os percentuais em cima de cada barra
+for i, count in enumerate(class_counts):
+    percent = class_percent[i]
+    ax.text(i, count + 0.02 * class_counts.max(), f'{percent:.1f}%', ha='center', va='bottom')
+
+# Remove a borda superior
+ax.spines['top'].set_visible(False)
+
+# Exibe o gráfico
+plt.show()
+
+```
+
+## Segmentação do dataset
+Feito isso, é desejável que a base de dados seja segmentada em bases de treino (x_train e y_train) e de teste (x_valid e y_valid). Para tanto, deve ser mantida a proporção das classes observada na base completa, razão pela qual se utiliza o comando ***stratify***. Vejamos:
+
+```{python}
+#| echo: true
+#| eval: true
+
+# Separar dataset em bases de treino (train) e teste (valid) mantendo proporção dos labels (estratify) e com uma seed aleatoriamente escolhida
+features = dados_final[['nr_proc', 'jurisdicionado', 'ano', 'orgao', 'carreira', 'cargo', 'flag_aposesp', 'meio_publi', 'regra_apos', 'qtd_vinculos', 'qtd_vinculos_pub', 'qtd_vinculos_priv', 'qtd_vinculos_mesmo_cargo', 'qtd_vinculos_mesma_carreira', 'p_vencimento', 'p_ats', 'p_proventos', 'p_gratificacao', 'p_vantpessoal', 'p_insalubridade', 'p_adcqualificacao', 'p_representacao', 'p_antecipacao', 'p_indenizatorio', 'ind_sm']]
+label = dados_final['rotulo']
+x_train, x_valid, y_train, y_valid = model_selection.train_test_split(features, label, random_state=857, stratify=label)
+
+```
+
+Vejamos, após a segmentação, as dimensões das bases resultantes:
+
+```{python}
+#| echo: true
+#| eval: true
+
+# Dimensões dos dataframes gerados com o train_test_split
+print(x_train.shape)
+print(y_train.shape)
+print(x_valid.shape)
+print(y_valid.shape)
+
+```
+
+## Parametrizando o pré-processamento das features
+
+Além disso, devem ser parametrizadas as transformações que serão feitas nos atributos para aplicação dos modelos. Como nesta pesquisa só há campos categóricos, será aplicado somente o OneHotEncoder, o qual é usado para transformar variáveis categóricas em variáveis **dummy**, também conhecidas como variáveis indicadoras. Ele converte cada categoria em uma nova coluna binária, onde um valor de 1 indica a presença da categoria e 0 a ausência:
+
+```{python}
+#| echo: true
+#| eval: true
+
+categorical_features = ['nr_proc', 'jurisdicionado', 'ano', 'orgao', 'carreira', 'cargo', 'flag_aposesp', 'meio_publi', 'regra_apos', 'qtd_vinculos', 'qtd_vinculos_pub', 'qtd_vinculos_priv', 'qtd_vinculos_mesmo_cargo', 'qtd_vinculos_mesma_carreira', 'p_vencimento', 'p_ats', 'p_proventos', 'p_gratificacao', 'p_vantpessoal', 'p_insalubridade', 'p_adcqualificacao', 'p_representacao', 'p_antecipacao', 'p_indenizatorio', 'ind_sm']
+categorical_transformer = OneHotEncoder(handle_unknown="ignore")
+
+preprocessor = ColumnTransformer(
+    transformers=[
+        ("categorical columns", categorical_transformer, categorical_features)
+    ]
+)
+
+```
+
+## Preparando dataframe e função para geração de matrizes de confusão
+
+Antes de rodar os modelos, é importante que haja estruturas de dados tanto para armazenar as predições de cada modelo para cada processo da base de teste (global_df) quanto para armazenar as matrizes de confusão dos modelos contemplados (confusion_matrix_df). Vejamos a criação dessas estruturas:
+```{python}
+#| echo: true
+#| eval: true
+
+global global_df
+global_df = pd.DataFrame({'nr_proc': x_valid['nr_proc'], 'y_valid': y_valid})
+
+# Criar um DataFrame para armazenar a matriz de confusão
+confusion_matrix_df = pd.DataFrame(columns=['Model', 'TN', 'FP', 'FN', 'TP'])
+
+# Função para adicionar uma matriz de confusão ao DataFrame criado
+def add_confusion_matrix(model_name, confusion_matrix):
+    global confusion_matrix_df
+
+    # Extrair os valores da matriz de confusão
+    TN, FP, FN, TP = confusion_matrix.ravel()
+
+    # Criar um DataFrame temporário para a matriz de confusão atual
+    df = pd.DataFrame({
+        'Model': [model_name],
+        'TN': [TN],
+        'FP': [FP],
+        'FN': [FN],
+        'TP': [TP]
+    })
+
+    confusion_matrix_df = pd.concat([confusion_matrix_df, df], ignore_index=True)
+
+```
+
+## Criando função para treinamento dos modelos
+
+Em sequência, é importante criar função que parametriza o treinamento de um modelo definido como ***input***, realiza e preenche tanto as classificações geradas pelos modelos no dataframe df_global quanto as matrizes de confusão no dataframe confusion_matrix_df. Vejamos:
+```{python}
+#| echo: true
+#| eval: true
+
+# Cria função que parametriza o treinamento de um modelo definido como input, faz suas predições, cria a matriz de confusão e preenche um dataframe global de informações importantes para o modelo rodado
+
+def train_model(classifier, feature_vector_train, label, feature_vector_valid, label_valid, titulo_mapa, is_neural_net=False):
+  clf = Pipeline(steps=[("preprocessor", preprocessor), ("classifier", classifier)])
+  clf.fit(feature_vector_train, label)
+  pred_test = clf.predict(feature_vector_valid)
+  conf_mat = confusion_matrix(label_valid, pred_test)
+  add_confusion_matrix(titulo_mapa, conf_mat)
+  global_df[titulo_mapa] = pred_test
+
+```
+
+# Aplicação dos modelos
+
+## Treinando os 11 modelos
+
+Em seguida, é feito o chamamento reiterado da função "train_model" para cada um dos 11 modelos classificadores. Ao rodar tal função, são efetivadas as seguintes tarefas, para cada modelo:
+
+<p class="no-indent">- ajuste das features de treinamento com os rótulos de treinamento;</p>
+
+<p class="no-indent">- predições dos processos da base de teste e seu armazenamento no dataframe global_df;</p>
+
+<p class="no-indent">- cálculo e armazenamento as matrizes de confusão no dataframe confusion_matrix_df.</p>
+
+Vejamos:
+```{python}
+#| echo: true
+#| eval: true
+
+# parametrização do classificador de cada modelo
+
+classificador={
+               "Logistic Regression":linear_model.LogisticRegression(max_iter = 50000),
+               "Naive Bayes": naive_bayes.MultinomialNB(),
+               "KNN": neighbors.KNeighborsClassifier(),
+               "SVM": svm.SVC(),
+               "Decision Tree": tree.DecisionTreeClassifier(random_state=42),
+               "Random Forest":RandomForestClassifier(random_state=42),
+               "Bagging":BaggingClassifier(random_state=42),
+               "MLPClassifier": MLPClassifier(hidden_layer_sizes=(15,15,15,15), activation='relu', solver='adam', alpha=0.0001,
+                                             batch_size='auto', learning_rate='constant', learning_rate_init=0.001,
+                                             power_t=0.5, max_iter=200000, shuffle=True, random_state=847, tol=0.0001,
+                                             verbose=False, warm_start=True, momentum=0.9, nesterovs_momentum=True, early_stopping=False,
+                                             validation_fraction=0.1, beta_1=0.9, beta_2=0.999, epsilon=1e-08, n_iter_no_change=100, max_fun=15000),
+               "ADA": AdaBoostClassifier(n_estimators=100, algorithm="SAMME",),
+               "Gradient Boost": GradientBoostingClassifier(n_estimators=100, learning_rate=1.0,max_depth=1, random_state=0),
+               "Extratree"     : ExtraTreesClassifier(n_estimators=10, max_depth=None, min_samples_split=2, random_state=0)
+            }
+            
+# Chamada reiterada da função criada para o treinamento de cada modelo e sua aplicação na base de teste            
+for i , (clf_name, classifier) in enumerate (classificador.items()):
+    train_model(classifier, x_train, y_train, x_valid, y_valid, clf_name)
+
+```
+
+## Da identificação da escolha coletiva
+
+A partir do dataframe com as predições (classificações) geradas por todos os modelos em relação aos processos constantes da base de teste (global_df), identifica-se a escolha coletiva derivada da classificação majoritária dos modelos:
+```{python}
+#| echo: true
+#| eval: true
+
+# Transformar as classificações na classe 0 como -1, para poder afetar a soma
+global_df_adjust = global_df.copy()
+colunas_nao_binarias = ['nr_proc', 'y_valid']
+colunas_binarias = [coluna for coluna in global_df_adjust.columns if coluna not in colunas_nao_binarias]
+global_df_adjust[colunas_binarias] = global_df_adjust[colunas_binarias].replace(0, -1)
+global_df_adjust['Soma_Modelos']=global_df_adjust[colunas_binarias].sum(axis=1)
+
+# Após realizar a soma, converte -1 em 0 de volta
+colunas_nao_binarias = ['nr_proc', 'y_valid', 'Soma_Modelos']
+colunas_binarias = [coluna for coluna in global_df_adjust.columns if coluna not in colunas_nao_binarias]
+global_df_adjust[colunas_binarias] = global_df_adjust[colunas_binarias].replace(-1, 0)
+
+# Calcula o módulo da soma das classificações
+global_df_adjust['Modulo_Soma'] = global_df_adjust['Soma_Modelos'].abs()
+
+# Calcula a escolha coletiva a partir da escolha majoritária dos modelos
+global_df_adjust['Class_Coletiva'] = global_df_adjust.Soma_Modelos.apply(lambda x: 1 if x >=0 else 0)
+
+# Gerar visualização dos dados
+html_table_x = tabulate.tabulate(global_df_adjust.head(10), headers='keys', tablefmt='html')
+
+html_table_x
+
+```
+
+## Segmentando indicadores de acordo com subconjuntos da base de teste
+
+O módulo da soma das classificações anteriormente obtidas nos permite capturar o grau de consenso entre as classificações dos modelos. O raciocínio da avaliação do consenso por meio da soma é o seguinte:
+
+<p class="no-indent">- Quando o módulo da soma é igual a 11, significa que todos os modelos concordaram;</p>
+
+<p class="no-indent">- Quando o módulo da soma é igual a 9, significa que 10 modelos concordaram (+-10) e um foi contrário (-+1);</p>
+
+<p class="no-indent">- Quando o módulo da soma é igual a 7, significa que 9 modelos concordaram (+-9) e 2 foram contrários (-+2);</p>
+
+<p class="no-indent">- Quando o módulo da soma é igual a 5, significa que 8 modelos concordaram (+-8) e 3 foram contrários (-+3);</p>
+
+<p class="no-indent">- Quando o módulo da soma é igual a 3, significa que 7 modelos concordaram (+-7) e 4 foram contrários (-+4);</p>
+
+<p class="no-indent">- Quando o módulo da soma é igual a 1, significa que 6 modelos concordaram (+-6) e 3 foram contrários (-+5).</p>
+
+
+Como o problema enfrentado é de classificação binária, sempre haverá concordância de ao menos 6 modelos, razão pela qual os exemplos acima contemplam a base de teste completa.
+
+Iterando nesses subconjuntos da base de teste, é possível avaliar os modelos e a escolha coletiva **para cada grau de consenso**, obtendo-se a matriz de confusão e o ***classification_report*** específicos para cada subconjunto. Vejamos:
+```{python}
+#| echo: true
+#| eval: true
+
+# Crie um DataFrame vazio para armazenar os resultados
+df_consolidado = pd.DataFrame()
+
+# Mapeamento de nomes dos subconjuntos de dados
+comite_names = {
+    11: "Subconjunto Consenso 11",
+    9: "Subconjunto Consenso 10",
+    7: "Subconjunto Consenso 9",
+    5: "Subconjunto Consenso 8",
+    3: "Subconjunto Consenso 7",
+    1: "Subconjunto Consenso 6"
+}
+
+# Nome das colunas dos modelos preditivos
+model_columns = [
+    'Logistic Regression', 'Naive Bayes', 'KNN', 'SVM',
+    'Decision Tree', 'Random Forest', 'Bagging',
+    'MLPClassifier', 'ADA', 'Gradient Boost', 'Extratree'
+]
+
+# Iterar sobre os possíveis valores de módulo soma, decrescendo de 11 a 1, de 2 em 2
+for i in range(11, 0, -2):
+    # Selecionar registros que compõem o subconjunto
+    transfor_n = global_df_adjust.loc[global_df_adjust['Modulo_Soma'] == i].copy()
+
+    # Aplicar a transformação nos valores de Soma_Modelos
+    transfor_n_report = transfor_n['Soma_Modelos'].apply(lambda x: 1 if x >= 0 else 0)
+
+    # Gerar o relatório de classificação para a escolha coletiva do subconjunto de dados
+    dicio = classification_report(transfor_n['y_valid'].values, transfor_n_report.values, digits=6, output_dict=True)
+    dicio.pop("accuracy")
+    dicio.pop("macro avg")
+    dicio.pop("weighted avg")
+
+    # Gerar a matriz de confusão para a escolha coletiva
+    conf_mat_cs = confusion_matrix(transfor_n['y_valid'], transfor_n_report)
+    comite_name = comite_names.get(i)
+    add_confusion_matrix(comite_name, conf_mat_cs)
+
+    # Transformar o dicionário resultante em DataFrame e adicionar uma coluna para a iteração
+    df_temp = pd.DataFrame(dicio).T
+    df_temp["Modelo"] = comite_name
+    df_temp["Classe"] = df_temp.index
+
+    # Concatenar o DataFrame temporário ao DataFrame consolidado
+    df_consolidado = pd.concat([df_consolidado, df_temp])
+
+    # Calcular a matriz de confusão para cada modelo individual no subconjunto de dados
+    for model in model_columns:
+        print("teste3-{model}")
+        y_pred = transfor_n[model]
+        y_true = transfor_n['y_valid']
+        conf_matrix = confusion_matrix(y_true, y_pred)
+        add_confusion_matrix(f"{comite_name} - {model}", conf_matrix)
+
+        # Gerar o relatório de classificação para cada modelo individual
+        dicio_model = classification_report(y_true, y_pred, digits=6, output_dict=True)
+        dicio_model.pop("accuracy")
+        dicio_model.pop("macro avg")
+        dicio_model.pop("weighted avg")
+
+        # Transformar o dicionário resultante em DataFrame e adicionar uma coluna para a iteração
+        df_temp_model = pd.DataFrame(dicio_model).T
+        df_temp_model["Modelo"] = f"{comite_name} - {model}"
+        df_temp_model["Classe"] = df_temp_model.index
+
+        # Concatenar o DataFrame temporário ao DataFrame consolidado
+        df_consolidado = pd.concat([df_consolidado, df_temp_model])
+
+
+```
+
+
+## Obtendo os resultados de cada modelo na base de teste completa
+
+Além dos dados referentes à aplicação dos modelos nos subconjuntos da base de teste, é importante que se tenha também os dados da aplicação dos modelos à base de testes completa:
+
+```{python}
+#| echo: true
+#| eval: true
+
+# Obter o classification report de cada modelo
+rl = classification_report(y_valid, global_df['Logistic Regression'], digits=6, output_dict=True)
+nb = classification_report(y_valid, global_df['Naive Bayes'], digits=6, output_dict=True)
+knn = classification_report(y_valid, global_df['KNN'], digits=6, output_dict=True)
+svm = classification_report(y_valid, global_df['SVM'], digits=6, output_dict=True)
+ad = classification_report(y_valid, global_df['Decision Tree'], digits=6, output_dict=True)
+fr = classification_report(y_valid, global_df['Random Forest'], digits=6, output_dict=True)
+bag = classification_report(y_valid, global_df['Bagging'], digits=6, output_dict=True)
+mlpc = classification_report(y_valid, global_df['MLPClassifier'], digits=6, output_dict=True)
+ada = classification_report(y_valid, global_df['ADA'], digits=6, output_dict=True)
+gboo = classification_report(y_valid, global_df['Gradient Boost'], digits=6, output_dict=True)
+xt = classification_report(y_valid, global_df['Extratree'], digits=6, output_dict=True)
+
+
+# Consolidar os dicionários em um único dicionário de dicionários
+reports_dict = {'Logistic Regression': rl,
+                'Naive Bayes': nb,
+                'KNN': knn,
+                'SVM': svm,
+                'Decision Tree': ad,
+                'Random Forest': fr,
+                'Bagging': bag,
+                'MLPClassifier': mlpc,
+                'ADA': ada,
+                'Gradient Boost': gboo,
+                'Extratree': xt}
+
+# Lista para armazenar os dados consolidados
+consolidated_data = []
+
+# Iterar sobre os dicionários de classification_report de cada modelo
+for model_name, report_dict in reports_dict.items():
+    # Iterar sobre as classes de cada modelo
+    for class_name, metrics_dict in report_dict.items():
+        # Verificar se metrics_dict é um dicionário válido
+        if isinstance(metrics_dict, dict):
+            # Adicionar um novo dicionário com os indicadores, incluindo o nome do modelo e o nome da classe
+            consolidated_data.append({'Modelo': model_name, 'Classe': class_name, **metrics_dict})
+
+
+# Criar DataFrame a partir dos dados consolidados
+consolidated_df = pd.DataFrame(consolidated_data)
+
+
+consolidated_df = consolidated_df.loc[consolidated_df['Classe'].isin(['0', '1'])]
+
+# Consolidando os classification reports dos subconjuntos com os do modelos na base completa
+df_final = pd.concat([consolidated_df, df_consolidado], ignore_index=True)
+
+```
+
+## Consolidando os classification reports com as matrizes de confusão
+
+Para que se possa avaliar os resultados, é importante que os indicadores do ***classification report*** (precisão, revocação, f1-score e acurácia) e as matrizes de confusão estejam consolidados em uma só tabela. Além disso, deve ser calculado o indicador de benefício/custo de cada registro. Vejamos:
+
+```{python}
+#| echo: true
+#| eval: true
+
+# Transformar o DataFrame usando pivot_table
+transformed_df = df_final.pivot_table(index='Modelo', columns='Classe', values=['precision', 'recall', 'f1-score', 'support'])
+
+# Renomear as colunas para refletir as classes
+transformed_df.columns = [f'{indicator}_{class_}' for indicator, class_ in transformed_df.columns]
+
+# Resetar o índice para garantir que 'Modelo' seja uma coluna
+transformed_df = transformed_df.reset_index()
+
+# Mesclar os DataFrames usando os campos de cruzamento diferentes
+transformed_df = pd.merge(transformed_df, confusion_matrix_df, left_on='Modelo', right_on='Model')
+
+ordem_colunas = ['Modelo','TN', 'FP', 'FN', 'TP', 'f1-score_0', 'f1-score_1', 'precision_0', 'precision_1', 'recall_0', 'recall_1', 'support_0', 'support_1']
+
+transformed_df = transformed_df[ordem_colunas]
+
+test_base_size = y_valid.shape[0]
+transformed_df["Beneficio"] = transformed_df["TN"]
+transformed_df["Custo"] = transformed_df["FN"]
+transformed_df["Beneficio/Custo"] = transformed_df["Beneficio"] / transformed_df["Custo"]
+coluna_para_ordenar = 'Beneficio/Custo'
+transformed_df = transformed_df.sort_values(by=coluna_para_ordenar, ascending=False)
+
+transformed_df['Accuracy'] = (transformed_df['TN'] + transformed_df['TP']) / (transformed_df['support_0'] + transformed_df['support_1'])
+transformed_df = transformed_df.drop_duplicates()
+
+# Gerar a tabela com tabulate
+html_table_2 = tabulate.tabulate(transformed_df.head(150), headers='keys', tablefmt='html')
+
+html_table_2
+
+```
+
+# Realizando a validação cruzada de dados
+
+## Aplicando os modelos em 150 particionamentos distintos do dataset entre base de treino e base de teste
+
+O código visto até agora nos proporcionou os indicadores e a matriz de confusão de cada modelo para a base de teste completa e para cada subconjunto de dados obtidos de acordo com o grau de consenso verificado entre os modelos. Todavia, os resultados derivados do código apresentado são todos dependentes da forma como a o ***dataset*** completo foi dividido entre a base de treinamento e a base teste, na execução do comando ***train_test_split***. 
+
+Nesse contexto, para evitar que os resultados apresentados sejam enviesados por uma divisão particular dos dados que possa ter favorecido ou prejudicado determinado(s) modelo(s), todo o código, a partir do tópico **"Segmentação do dataset"**, passa a ser incluído em uma estrutura de código "for ... loop", a ser reiterado 150 vezes, variando o indicador de iteração entre 0 e 149. Esse indicador, chamado ***rnd_int***, passa a fazer as vezes do parâmetro ***random_state*** da função ***train_test_split***, de forma que, em cada iteração do código, o ***dataset*** completo seja dividido de forma distinta.
+
+Assim, em cada ***loop*** do código, vão sendo armazenados, no dataframe consolidador global chamado ***cons_transformed_df***, os dados de ***classification_report*** e das matrizes de confusão da base de testes específica daquela iteração. 
+
+Vejamos o código completo:
+
+```{python}
+#| echo: true
+#| eval: false
+
+for rnd_ind in range(0, 150):
+    # Separar dataset em bases de treino (train) e teste (valid)
+    # mantendo proporção dos labels (estratify) e com uma seed aleatoriamente escolhida
+    features = dados_final[['nr_proc', 'jurisdicionado', 'ano', 'orgao', 'carreira', 'cargo', 'flag_aposesp', 'meio_publi', 'regra_apos', 'qtd_vinculos', 'qtd_vinculos_pub', 'qtd_vinculos_priv', 'qtd_vinculos_mesmo_cargo', 'qtd_vinculos_mesma_carreira', 'p_vencimento', 'p_ats', 'p_proventos', 'p_gratificacao', 'p_vantpessoal', 'p_insalubridade', 'p_adcqualificacao', 'p_representacao', 'p_antecipacao', 'p_indenizatorio', 'ind_sm']]
+    label = dados_final['rotulo']
+    x_train, x_valid, y_train, y_valid = model_selection.train_test_split(features, label, random_state=rnd_ind, stratify=label)
+
+    # Parametrizando o pré-processamento das features
+
+    categorical_features = ['nr_proc', 'jurisdicionado', 'ano', 'orgao', 'carreira', 'cargo', 'flag_aposesp', 'meio_publi', 'regra_apos', 'qtd_vinculos', 'qtd_vinculos_pub', 'qtd_vinculos_priv', 'qtd_vinculos_mesmo_cargo', 'qtd_vinculos_mesma_carreira', 'p_vencimento', 'p_ats', 'p_proventos', 'p_gratificacao', 'p_vantpessoal', 'p_insalubridade', 'p_adcqualificacao', 'p_representacao', 'p_antecipacao', 'p_indenizatorio', 'ind_sm']
+    categorical_transformer = OneHotEncoder(handle_unknown="ignore")
+
+    preprocessor = ColumnTransformer(
+        transformers=[
+            ("categorical columns", categorical_transformer, categorical_features)
+        ]
+    )
+
+    global global_df
+    global_df = pd.DataFrame({'nr_proc': x_valid['nr_proc'], 'y_valid': y_valid})
+
+    # Criar um DataFrame global vazio
+    confusion_matrix_df = pd.DataFrame(columns=['Model', 'TN', 'FP', 'FN', 'TP'])
+
+    # Função para adicionar uma matriz de confusão ao DataFrame global
+    def add_confusion_matrix(model_name, confusion_matrix):
+        global confusion_matrix_df
+
+        # Extrair os valores da matriz de confusão
+        TN, FP, FN, TP = confusion_matrix.ravel()
+
+        # Criar um DataFrame temporário para a matriz de confusão atual
+        df = pd.DataFrame({
+            'Model': [model_name],
+            'TN': [TN],
+            'FP': [FP],
+            'FN': [FN],
+            'TP': [TP]
+        })
+
+        confusion_matrix_df = pd.concat([confusion_matrix_df, df], ignore_index=True)
+
+    # Cria função que parametriza o treinamento de um modelo definido como input, faz suas predições, cria a matriz de confusão e preenche um dataframe global de informações importantes para o modelo rodado
+
+    def train_model(classifier, feature_vector_train, label, feature_vector_valid, label_valid, titulo_mapa, is_neural_net=False):
+      clf = Pipeline(steps=[("preprocessor", preprocessor), ("classifier", classifier)])
+      clf.fit(feature_vector_train, label)
+      pred_test = clf.predict(feature_vector_valid)
+      conf_mat = confusion_matrix(label_valid, pred_test)
+      add_confusion_matrix(titulo_mapa, conf_mat)
+      global_df[titulo_mapa] = pred_test
+
+
+    import numpy as np
+    import pandas as pd
+    import seaborn as sns
+    from sklearn.model_selection import train_test_split
+    from sklearn.pipeline import Pipeline
+    from sklearn.preprocessing import OneHotEncoder
+    from sklearn import model_selection, preprocessing, linear_model, naive_bayes, metrics, svm, tree, neighbors
+    from sklearn.ensemble import RandomForestClassifier
+    from sklearn.compose import ColumnTransformer
+    from sklearn.metrics import confusion_matrix
+    from sklearn.metrics import classification_report
+    from random import seed
+    import matplotlib.pyplot as plt
+    from sklearn.neural_network import MLPClassifier
+    from sklearn.ensemble import AdaBoostClassifier
+    from sklearn.ensemble import GradientBoostingClassifier
+    from sklearn.ensemble import ExtraTreesClassifier
+    from sklearn.ensemble import BaggingClassifier
+
+    ### Função das previsões do Comitê Classificador:
+    classificador={
+                   "Logistic Regression":linear_model.LogisticRegression(max_iter = 50000),
+                   "Naive Bayes": naive_bayes.MultinomialNB(),
+                   "KNN": neighbors.KNeighborsClassifier(n_neighbors=5, algorithm='auto'),
+                   "SVM": svm.SVC(),
+                   "Decision Tree": tree.DecisionTreeClassifier(random_state=rnd_ind),
+                   "Random Forest":RandomForestClassifier(random_state=rnd_ind),
+                   "Bagging":BaggingClassifier(random_state=rnd_ind),
+                   "MLPClassifier": MLPClassifier(hidden_layer_sizes=(15,15,15,15), activation='relu', solver='adam', alpha=0.0001,
+                                                 batch_size='auto', learning_rate='constant', learning_rate_init=0.001,
+                                                 power_t=0.5, max_iter=200000, shuffle=True, random_state=rnd_ind, tol=0.0001,
+                                                 verbose=False, warm_start=True, momentum=0.9, nesterovs_momentum=True, early_stopping=False,
+                                                 validation_fraction=0.1, beta_1=0.9, beta_2=0.999, epsilon=1e-08, n_iter_no_change=100, max_fun=15000),
+                   "ADA": AdaBoostClassifier(n_estimators=100, algorithm="SAMME",),
+                   "Gradient Boost": GradientBoostingClassifier(n_estimators=100, learning_rate=1.0,max_depth=1, random_state=rnd_ind),
+                   "Extratree"     : ExtraTreesClassifier(n_estimators=10, max_depth=None, min_samples_split=2, random_state=rnd_ind)
+                }
+    for i , (clf_name, classifier) in enumerate (classificador.items()):
+        train_model(classifier, x_train, y_train, x_valid, y_valid, clf_name)
+
+    global_df_adjust = global_df.copy()
+    colunas_nao_binarias = ['nr_proc', 'y_valid']
+    colunas_binarias = [coluna for coluna in global_df_adjust.columns if coluna not in colunas_nao_binarias]
+    global_df_adjust[colunas_binarias] = global_df_adjust[colunas_binarias].replace(0, -1)
+
+    global_df_adjust['Soma_Modelos']=global_df_adjust[colunas_binarias].sum(axis=1)
+    colunas_nao_binarias = ['nr_proc', 'y_valid', 'Soma_Modelos']
+    colunas_binarias = [coluna for coluna in global_df_adjust.columns if coluna not in colunas_nao_binarias]
+    global_df_adjust[colunas_binarias] = global_df_adjust[colunas_binarias].replace(-1, 0)
+    global_df_adjust['Modulo_Soma'] = global_df_adjust['Soma_Modelos'].abs()
+    global_df_adjust['Class_Coletiva'] = global_df_adjust.Soma_Modelos.apply(lambda x: 1 if x >=0 else 0)
+
+
+    import pandas as pd
+    from sklearn.metrics import classification_report, confusion_matrix
+    import numpy as np
+
+    # Crie um DataFrame vazio para armazenar os resultados
+    df_consolidado = pd.DataFrame()
+
+    # Mapeamento de nomes dos subconjuntos de dados
+    comite_names = {
+        11: "Subconjunto Consenso 11",
+        9: "Subconjunto Consenso 10",
+        7: "Subconjunto Consenso 9",
+        5: "Subconjunto Consenso 8",
+        3: "Subconjunto Consenso 7",
+        1: "Subconjunto Consenso 6"
+    }
+
+    # Nome das colunas dos modelos preditivos
+    model_columns = [
+        'Logistic Regression', 'Naive Bayes', 'KNN', 'SVM',
+        'Decision Tree', 'Random Forest', 'Bagging',
+        'MLPClassifier', 'ADA', 'Gradient Boost', 'Extratree'
+    ]
+
+    # Iterar sobre os possíveis valores de módulo soma (modulo_soma = 11 é consenso unânime, =9 é consenso de 10, =7 consenso de 9, =5 consenso de 8, =3 consenso de 7, =1 consenso de 6)
+    for i in range(11, 0, -2):
+        # Selecionar registros que compõem o subconjunto
+        transfor_n = global_df_adjust.loc[global_df_adjust['Modulo_Soma'] == i].copy()
+
+        # Aplicar a transformação nos valores de Soma_Modelos
+        transfor_n_report = transfor_n['Soma_Modelos'].apply(lambda x: 1 if x >= 0 else 0)
+
+        # Gerar o relatório de classificação para a escolha coletiva do subconjunto de dados
+        dicio = classification_report(transfor_n['y_valid'].values, transfor_n_report.values, digits=6, output_dict=True)
+        dicio.pop("accuracy")
+        dicio.pop("macro avg")
+        dicio.pop("weighted avg")
+
+        # Gerar a matriz de confusão para a escolha coletiva
+        conf_mat_cs = confusion_matrix(transfor_n['y_valid'], transfor_n_report)
+        comite_name = comite_names.get(i)
+        add_confusion_matrix(comite_name, conf_mat_cs)
+
+        # Transformar o dicionário resultante em DataFrame e adicionar uma coluna para a iteração
+        df_temp = pd.DataFrame(dicio).T
+        df_temp["Modelo"] = comite_name
+        df_temp["Classe"] = df_temp.index
+
+        # Concatenar o DataFrame temporário ao DataFrame consolidado
+        df_consolidado = pd.concat([df_consolidado, df_temp])
+
+        # Calcular a matriz de confusão para cada modelo individual no subconjunto de dados
+        for model in model_columns:
+            y_pred = transfor_n[model]
+            y_true = transfor_n['y_valid']
+            conf_matrix = confusion_matrix(y_true, y_pred)
+            add_confusion_matrix(f"{comite_name} - {model}", conf_matrix)
+
+            # Gerar o relatório de classificação para cada modelo individual
+            dicio_model = classification_report(y_true, y_pred, digits=6, output_dict=True)
+            dicio_model.pop("accuracy")
+            dicio_model.pop("macro avg")
+            dicio_model.pop("weighted avg")
+
+            # Transformar o dicionário resultante em DataFrame e adicionar uma coluna para a iteração
+            df_temp_model = pd.DataFrame(dicio_model).T
+            df_temp_model["Modelo"] = f"{comite_name} - {model}"
+            df_temp_model["Classe"] = df_temp_model.index
+
+            # Concatenar o DataFrame temporário ao DataFrame consolidado
+            df_consolidado = pd.concat([df_consolidado, df_temp_model])
+
+    import pandas as pd
+
+    rl = classification_report(y_valid, global_df['Logistic Regression'], digits=6, output_dict=True)
+    nb = classification_report(y_valid, global_df['Naive Bayes'], digits=6, output_dict=True)
+    knn = classification_report(y_valid, global_df['KNN'], digits=6, output_dict=True)
+    svm = classification_report(y_valid, global_df['SVM'], digits=6, output_dict=True)
+    ad = classification_report(y_valid, global_df['Decision Tree'], digits=6, output_dict=True)
+    fr = classification_report(y_valid, global_df['Random Forest'], digits=6, output_dict=True)
+    bag = classification_report(y_valid, global_df['Bagging'], digits=6, output_dict=True)
+    mlpc = classification_report(y_valid, global_df['MLPClassifier'], digits=6, output_dict=True)
+    ada = classification_report(y_valid, global_df['ADA'], digits=6, output_dict=True)
+    gboo = classification_report(y_valid, global_df['Gradient Boost'], digits=6, output_dict=True)
+    xt = classification_report(y_valid, global_df['Extratree'], digits=6, output_dict=True)
+
+    # Consolidar os dicionários em um único dicionário de dicionários
+    reports_dict = {'Logistic Regression': rl,
+                    'Naive Bayes': nb,
+                    'KNN': knn,
+                    'SVM': svm,
+                    'Decision Tree': ad,
+                    'Random Forest': fr,
+                    'Bagging': bag,
+                    'MLPClassifier': mlpc,
+                    'ADA': ada,
+                    'Gradient Boost': gboo,
+                    'Extratree': xt}
+
+    # Lista para armazenar os dados consolidados
+    consolidated_data = []
+
+    # Iterar sobre os dicionários de classification_report de cada modelo
+    for model_name, report_dict in reports_dict.items():
+        # Iterar sobre as classes de cada modelo
+        for class_name, metrics_dict in report_dict.items():
+            # Verificar se metrics_dict é um dicionário válido
+            if isinstance(metrics_dict, dict):
+                # Adicionar um novo dicionário com os indicadores, incluindo o nome do modelo e o nome da classe
+                consolidated_data.append({'Modelo': model_name, 'Classe': class_name, **metrics_dict})
+
+
+    # Criar DataFrame a partir dos dados consolidados
+    consolidated_df = pd.DataFrame(consolidated_data)
+
+    consolidated_df = consolidated_df.loc[consolidated_df['Classe'].isin(['0', '1'])]
+
+    df_final = pd.concat([consolidated_df, df_consolidado], ignore_index=True)
+
+    import pandas as pd
+
+    # Transformar o DataFrame usando pivot_table
+    transformed_df = df_final.pivot_table(index='Modelo', columns='Classe', values=['precision', 'recall', 'f1-score', 'support'])
+
+    # Renomear as colunas para refletir as classes
+    transformed_df.columns = [f'{indicator}_{class_}' for indicator, class_ in transformed_df.columns]
+
+    # Resetar o índice para garantir que 'Modelo' seja uma coluna
+    transformed_df = transformed_df.reset_index()
+
+    # Mesclar os DataFrames usando os campos de cruzamento diferentes
+    transformed_df = pd.merge(transformed_df, confusion_matrix_df, left_on='Modelo', right_on='Model')
+
+    ordem_colunas = ['Modelo','TN', 'FP', 'FN', 'TP', 'f1-score_0', 'f1-score_1', 'precision_0', 'precision_1', 'recall_0', 'recall_1', 'support_0', 'support_1']
+
+    transformed_df = transformed_df[ordem_colunas]
+
+    test_base_size = y_valid.shape[0]
+    transformed_df["Beneficio"] = transformed_df["TN"]
+    transformed_df["Custo"] = transformed_df["FN"]
+    transformed_df["Beneficio/Custo"] = transformed_df["Beneficio"] / transformed_df["Custo"]
+    coluna_para_ordenar = 'Beneficio/Custo'
+    transformed_df = transformed_df.sort_values(by=coluna_para_ordenar, ascending=False)
+
+    transformed_df['Accuracy'] = (transformed_df['TN'] + transformed_df['TP']) / (transformed_df['support_0'] + transformed_df['support_1'])
+    transformed_df = transformed_df.drop_duplicates()
+
+    transf_df_iteracao = transformed_df.copy()
+
+    # Adiciona uma coluna 'Iteracao' para indicar o número da iteração
+    transf_df_iteracao['Iteracao'] = rnd_ind
+
+    # Concatenar  cons_transformed_df acumulado com os registros da nova iteração
+    cons_transformed_df = pd.concat([cons_transformed_df, transf_df_iteracao], ignore_index=True)
+
+```
+
+Vejamos como ficou uma amostra do dataframe "cons_transformed_df" após a realização das 150 iterações:
+
+```{python}
+#| echo: false
+#| eval: true
+
+import pandas as pd
+import tabulate
+
+# Importando o arquivo Excel para um dataframe
+cons_transformed_df = pd.read_excel('cons_transformed_df.xlsx')
+
+# Gerar a tabela com tabulate
+html_table_aac = tabulate.tabulate(cons_transformed_df.head(332), headers='keys', tablefmt='html')
+
+html_table_aac
+```
+
+## Calculando os intervalos de confiança da escolha coletiva
+
+A partir do dataframe consolidado ***cons_transformed_df***, é possível calcular os intervalos de confiança da escolha coletiva para cada subconjunto estabelecido de acordo com o grau de consenso, com confiança de 95%. Vejamos:
+
+```{python}
+#| echo: true
+#| eval: true
+
+colunas_para_remover = [coluna for coluna in cons_transformed_df.columns if any(substring in coluna for substring in ["f1-score", "precision", "recall", "Accuracy", "support"])]
+
+cons_transformed_df = cons_transformed_df.drop(columns=colunas_para_remover)
+
+colunas_para_remover = ['Beneficio', 'Custo']
+
+cons_transformed_df = cons_transformed_df.drop(columns=colunas_para_remover)
+
+cons_transformed_df_coletivas = cons_transformed_df[cons_transformed_df['Modelo'].str.contains('Consenso') & ~cons_transformed_df['Modelo'].str.contains('-')]
+
+# Filtrar as linhas onde "Modelo" contém '6', '7' ou '8'
+filtered_678df = cons_transformed_df_coletivas[cons_transformed_df_coletivas['Modelo'].str.contains('6|7|8')]
+
+grouped_678df = filtered_678df.groupby(['Iteracao']).agg({
+    'TN': 'sum',
+    'FP': 'sum',
+    'FN': 'sum',
+    'TP': 'sum'
+}).reset_index()
+
+# Adicionar uma coluna "Modelo" indicando o agrupamento
+grouped_678df['Modelo'] = 'Subconjunto Consenso 8 ou menos modelos'
+grouped_678df['Beneficio/Custo'] = grouped_678df['TN'] / grouped_678df['FN']
+
+# Filtrar as linhas onde "Modelo" contém '9', '10' ou '11'
+filtered_91011df = cons_transformed_df_coletivas[cons_transformed_df_coletivas['Modelo'].str.contains('9|10|11')]
+
+# Agrupar por "Iteracao" e somar as colunas desejadas, mantendo o "Modelo"
+grouped_91011df = filtered_91011df.groupby(['Iteracao']).agg({
+    'TN': 'sum',
+    'FP': 'sum',
+    'FN': 'sum',
+    'TP': 'sum'
+}).reset_index()
+
+# Adicionar uma coluna "Modelo" indicando o agrupamento
+grouped_91011df['Modelo'] = 'Subconjunto Consenso 9 ou mais modelos'
+grouped_91011df['Beneficio/Custo'] = grouped_91011df['TN'] / grouped_91011df['FN']
+
+# Adicionar as linhas derivadas do agrupamento ao dataframe original
+cons_transformed_df_coletivas = pd.concat([cons_transformed_df_coletivas, grouped_678df, grouped_91011df], ignore_index=True)
+
+import scipy.stats as stats
+import numpy as np
+
+# Supondo que o dataframe se chame cons_transformed_df
+# Função para calcular a margem de erro e o intervalo de confiança
+def calc_confidence_interval(data, confidence=0.95):
+    n = len(data)
+    mean = np.mean(data)
+    stderr = stats.sem(data)  # Calcula o erro padrão da média
+    margin_of_error = stderr * stats.t.ppf((1 + confidence) / 2., n-1)
+    margin_of_error_percent = (margin_of_error / mean) * 100 if mean != 0 else np.inf
+    return f"{mean:.2f} ± {margin_of_error:.2f} ({margin_of_error_percent:.2f}%)"
+
+# Aplicar a função a cada coluna (exceto "Modelo") para calcular a média e o intervalo de confiança
+confidence_intervals = cons_transformed_df_coletivas.groupby('Modelo').agg(lambda x: calc_confidence_interval(x)).reset_index()
+
+colunas_para_remover = ['Iteracao']
+
+ic_escolhacoletiva = confidence_intervals.drop(columns=colunas_para_remover)
+
+# Gerar a tabela com tabulate
+html_table_aaa = tabulate.tabulate(ic_escolhacoletiva.head(150), headers='keys', tablefmt='html')
+
+html_table_aaa
+
+```
+
+Perceba que o Benefício/Custo da escolha coletiva é superior à escolha puramente aleatória atualmente feita pela Auditoria (BC = 1,34) somente quando ao menos 9 ou mais modelos concordam entre si.
+
+
+## Calculando os intervalos de confiança das escolhas individuais
+
+A partir do dataframe consolidado ***cons_transformed_df***, é possível calcular os intervalos de confiança da escolha de cada modelo para cada subconjunto estabelecido de acordo com o grau de consenso, com confiança de 95%. Vejamos:
+
+```{python}
+#| echo: true
+#| eval: true
+
+# Filtrar as linhas onde "Modelo" contém '6', '7' ou '8'
+cons_transformed_df_ind = cons_transformed_df[cons_transformed_df['Modelo'].str.contains(' - ')]
+
+filtered_678df = cons_transformed_df_ind[cons_transformed_df_ind['Modelo'].str.contains('6|7|8')]
+
+filtered_678df['Nome_Modelo'] = filtered_678df['Modelo'].str.split(' - ').str[-1]
+
+grouped_678df = filtered_678df.groupby(['Iteracao', 'Nome_Modelo']).agg({
+    'TN': 'sum',
+    'FP': 'sum',
+    'FN': 'sum',
+    'TP': 'sum'
+}).reset_index()
+
+# Adicionar uma coluna "Modelo" indicando o agrupamento
+grouped_678df["Modelo"] = "Subconjunto Consenso 8 ou menos" + " - " + grouped_678df["Nome_Modelo"]
+grouped_678df['Beneficio/Custo'] = grouped_678df['TN'] / grouped_678df['FN']
+
+# Adicionar as linhas derivadas do agrupamento ao dataframe original
+cons_transformed_df_ind = pd.concat([cons_transformed_df_ind, grouped_678df], ignore_index=True)
+
+import pandas as pd
+import scipy.stats as stats
+import numpy as np
+
+cons_transformed_df_ind = cons_transformed_df_ind.drop(columns=["Nome_Modelo"])
+
+# Supondo que o dataframe se chame cons_transformed_df
+# Função para calcular a margem de erro e o intervalo de confiança
+def calc_confidence_interval(data, confidence=0.95):
+    n = len(data)
+    mean = np.mean(data)
+    stderr = stats.sem(data)  # Calcula o erro padrão da média
+    margin_of_error = stderr * stats.t.ppf((1 + confidence) / 2., n-1)
+    margin_of_error_percent = (margin_of_error / mean) * 100 if mean != 0 else np.inf
+    return f"{mean:.2f} ± {margin_of_error:.2f} ({margin_of_error_percent:.2f}%)"
+
+# Aplicar a função a cada coluna (exceto "Modelo") para calcular a média e o intervalo de confiança
+confidence_intervals_ind = cons_transformed_df_ind.groupby('Modelo').agg(lambda x: calc_confidence_interval(x)).reset_index()
+
+colunas_para_remover = ['Iteracao']
+
+ic_escolhaindividual = confidence_intervals_ind.drop(columns=colunas_para_remover)
+
+# Gerar a tabela com tabulate
+html_table_aab = tabulate.tabulate(ic_escolhaindividual.head(150), headers='keys', tablefmt='html')
+
+html_table_aab
+
+```
+
+# Conclusão
+
+A partir dos dados de todas as iterações dos modelos e da formação dos intervalos de confiança, torna-se possível a comparação entre os modelos, a escolha coletiva e a escolha puramente aleatória atualmente realizada pela Auditoria, conforme discorrido na dissertação.
+
+<p class="no-indent">**Agradeço a atenção.**</p>
+
+<p class="no-indent">**Qualquer dúvida, favor enviar para psfleury\@gmail.com**</p>
+

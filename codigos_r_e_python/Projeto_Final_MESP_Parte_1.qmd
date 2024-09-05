@@ -1,0 +1,2540 @@
+---
+# title: "Dissertação de Mestrado em Economia do Setor Público (MESP) - UFPB"
+# author: "Pedro de Souza Fleury"
+# date: 06/11/2024
+format:
+  html:
+    toc: true
+    toc-expand: 2
+    code-fold: false
+editor: visual
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+```
+
+```{=html}
+<style>
+
+/* Estilo para centralizar a imagem no topo */
+.header-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px; /* Espaçamento abaixo da imagem */
+}
+
+.header-image {
+  max-width: 150px; /* Ajuste a largura conforme necessário */
+  height: auto; /* Mantém a proporção da imagem */
+}
+
+  /* Ajustar o tamanho da fonte do sumário */
+  nav#TOC {
+    font-size: 0.7em; /* Ajuste o valor conforme necessário */
+  }
+  
+/* Justificação de texto e recuo */
+
+.figure {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  margin-bottom: 1em;
+}
+.figure .fig-cap {
+  margin-bottom: 0.5em;
+  text-align: center;
+}
+
+p {
+  text-align: justify;
+  text-indent: 4em; /* Ajuste este valor conforme necessário */
+  line-height: 1.5; /* Ajuste a altura da linha para melhor legibilidade */
+  margin-bottom: 1em; /* Espaçamento entre parágrafos */
+}
+
+/* Estilo de cabeçalhos */
+h1, h2, h3, h4, h5, h6 {
+  color: #007acc; /* Cor dos cabeçalhos */
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+/* Títulos */
+h1 {
+  font-size: 2em;
+  border-bottom: 2px solid #2c3e50;
+  padding-bottom: 0.3em;
+}
+
+h2 {
+  font-size: 1.5em;
+  border-bottom: 1px solid #2c3e50;
+  padding-bottom: 0.2em;
+}
+
+h3 {
+  font-size: 1.25em;
+}
+
+/* Fontes e cores */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f5f5f5;
+    color: #333;
+    margin: 0;
+    padding: 0;
+  }
+
+  .author, .date {
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 20px;
+  }
+
+
+/* Estilo de links */
+a {
+  color: #3498db;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Estilo de listas */
+ul, ol {
+  margin-left: 20px; /* Espaçamento à esquerda para toda a lista */
+  padding-left: 0; /* Remove o preenchimento padrão */
+}
+
+ul li, ol li {
+  list-style-position: outside; /* Garante que o bullet esteja fora do bloco de texto */
+  margin-left: 0; /* Remove margem adicional entre bullet e texto */
+  padding-left: 0; /* Remove preenchimento adicional entre bullet e texto */
+}
+
+/* Estilo de blocos de código */
+pre {
+  background-color: #f3f3f3;
+  padding: 1em;
+  border: 1px solid #ddd;
+  overflow-x: auto;
+}
+
+code {
+  background-color: #f7f7f7;
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+}
+
+/* Estilo da informação do autor */
+.author-info {
+  font-size: 1.2em;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: #00c6ff;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+  .abstract {
+    border-left: 5px solid #007acc;
+    padding-left: 15px;
+    margin-bottom: 20px;
+    background-color: #e8f4fc;
+  }
+
+/* Estilo para tabelas */
+.table-container {
+  font-size: 0.9em;
+  max-height: 500px; /* Define a altura máxima da janela da tabela */
+  overflow-y: auto; /* Adiciona uma barra de rolagem vertical */
+  margin-bottom: 20px; /* Espaçamento inferior para as tabelas */
+  border: 1px solid #ddd; /* Adiciona uma borda ao redor da tabela */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra sutil para destaque */
+}
+
+table {
+  width: 100%; /* Garante que a tabela ocupe toda a largura do contêiner */
+  border-collapse: collapse; /* Remove os espaços entre as células */
+}
+
+table, th, td {
+  border: 1px solid #ddd; /* Adiciona bordas às células da tabela */
+  padding: 8px; /* Espaçamento interno das células */
+  text-align: left; /* Alinha o texto à esquerda */
+}
+
+th {
+  background-color: #f2f2f2; /* Cor de fundo para os cabeçalhos das colunas */
+}
+
+/* Estilo para blocos de código */
+.code-container {
+  font-size: 0.9em;
+  max-height: 500px; /* Define a altura máxima da janela do código */
+  overflow-y: auto; /* Adiciona uma barra de rolagem vertical */
+  margin-bottom: 20px; /* Espaçamento inferior para os blocos de código */
+  border: 1px solid #ddd; /* Adiciona uma borda ao redor do bloco de código */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra sutil para destaque */
+  background-color: #f7f7f7; /* Cor de fundo para os blocos de código */
+}
+
+.no-indent {
+  text-indent: 0; /* Remove o recuo */
+  margin-left: 0; /* Garante que a margem esquerda também seja zerada */
+}
+
+.footnote {
+  position: relative;
+  cursor: pointer;
+}
+
+.footnote::after {
+  content: attr(data-footnote);
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  transform: translateX(-50%);
+  background-color: #fff;
+  color: #000;
+  padding: 10px;
+  border-radius: 10px;
+  white-space: nowrap;
+  font-size: 1.2em;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s;
+  pointer-events: none;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  font-family: inherit;
+  max-width: none; /* Remove qualquer limite na largura */
+  z-index: 10;
+  text-align: left; /* Garante que o texto dentro do tooltip esteja alinhado à esquerda */
+  margin-left: 0; /* Remove qualquer margem que possa estar causando o espaço */
+  display: block;
+  width: auto;
+  
+}
+
+.footnote:hover::after {
+  opacity: 1;
+  visibility: visible;
+}
+</style>
+```
+```{=html}
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const tables = document.querySelectorAll("table");
+    tables.forEach(table => {
+        const wrapper = document.createElement("div");
+        wrapper.className = "table-container";
+        table.parentNode.insertBefore(wrapper, table);
+        wrapper.appendChild(table);
+    });
+    const codeBlocks = document.querySelectorAll("pre");
+    codeBlocks.forEach(block => {
+        const wrapper = document.createElement("div");
+        wrapper.className = "code-container";
+        block.parentNode.insertBefore(wrapper, block);
+        wrapper.appendChild(block);
+    });
+});
+
+</script>
+```
+```{=html}
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  // Obter todas as notas de rodapé
+  const footnotes = document.querySelectorAll("sup.footnote a");
+
+  footnotes.forEach(footnote => {
+    const targetId = footnote.getAttribute("href").substring(1);
+    const noteText = document.querySelector(`#${targetId}`).textContent.trim();
+    const backrefIndex = noteText.lastIndexOf("↩");
+    
+    // Remover o backref "↩" do texto da nota de rodapé
+    const cleanNoteText = noteText.substring(0, backrefIndex).trim();
+    
+    // Definir o texto da nota de rodapé como o conteúdo do tooltip
+    footnote.parentElement.setAttribute("data-footnote", cleanNoteText);
+  });
+});
+</script>
+```
+<!-- HTML para a imagem no topo -->
+
+```{=html}
+<div class="header-image-container">
+    <img src="Brasão_UFPB.png" alt="UFPB" class="header-image">
+</div>
+```
+<p class="no-indent"> **Universidade Federal da Paraíba - UFPB**</p>
+
+<p class="no-indent">**Programa de Pós Graduação em Economia do Setor Público - PPESP**</p>
+
+<p class="no-indent">**Dissertação de Mestrado**</p>
+
+<p class="no-indent">**Título**: Avaliação de risco em processos de aposentadoria no âmbito do Tribunal de Contas do Estado da Paraíba: uma aplicação baseada em aprendizagem de máquina supervisionada.</p>
+
+<p class="no-indent">**Autor**: Pedro de Souza Fleury</p>
+
+<p class="no-indent">**Data**: `r Sys.Date()`</p>
+
+# Da preparação do ambiente de trabalho e da importação das bibliotecas que serão utilizadas
+
+Inicialmente, é importante que se faça uma limpeza no ambiente de trabalho, removendo os objetos anteriormente armazenados. Em seguida, fixa-se o diretório de trabalho padrão, onde constarão todos os arquivos e documentos necessários ao desenvolvimento pretendido. Então, são incorporadas as bibliotecas que serão necessárias para a execução do código. O código utilizado para tais passos é apresentado abaixo:
+
+```{r}
+#| echo: true
+#| eval: true
+remove(list=ls())
+setwd("C:/Users/pedro/OneDrive/01 - Backups/Área de Trabalho/R/Projeto_Final_MESP")
+
+# biblioteca para uso do banco de dados sqlite
+library(RSQLite)
+# biblioteca de interface comum para comunicação com bancos de dados relacionais em R.
+library(DBI)
+# biblioteca para manipulação de dados de forma eficiente e intuitiva, com verbos para filtrar, selecionar e agrupar.
+library(dplyr)
+# biblioteca para ajudar a transformar uma base desorganizada.
+library(tidyr)
+# biblioteca para leitura de arquivos Excel diretamente em R.
+library(readxl)
+# biblioteca para manipulação e operações com strings de forma simples e consistente.
+library(stringr)
+# biblioteca para facilitar o trabalho com datas e horas, proporcionando funções para parsing, manipulação e ajuste.
+library(lubridate)
+# biblioteca com ferramentas para realizar junções de dados utilizando correspondência aproximada (fuzzy matching).
+library(fuzzyjoin)
+# biblioteca para criação de gráfico e visualização de dados
+library(ggplot2)
+# biblioteca poderosa para a geração dinâmica de relatórios em R
+library(knitr)
+# Essa biblioteca é uma extensão do pacote knitr que permite a criação de tabelas avançadas e formatadas para documentos HTML e LaTeX.
+library(kableExtra)
+
+```
+
+# Dos dados iniciais e da obtenção da base consolidada
+
+Para subsidiar a pesquisa, foram fornecidos, pelo TCE/PB, diversos arquivos em formato ".sql" que contêm os dados estruturados enviados pelos institutos de previdência para cada ato concessório de aposentadoria já julgado pelo tribunal. Cada arquivo se refere a uma tabela do banco de dados que deve ser montado para a análise pretendida.
+
+No projeto, utiliza-se o SQLite3, biblioteca de software que implementa um banco de dados SQL, armazenando as informações em um arquivo único, no caso em análise chamado "mesp_previdencia.db"
+
+Vejamos o código dessa montagem do banco de dados em SQLite3:
+
+```{r}
+#| echo: true
+#| eval: false
+
+# Definição do nome do banco de dados
+db_path <- "mesp_previdencia.db"
+
+# Criação do banco de dados (se não existir) ou abertura de conexão (se existir)
+conn <- dbConnect(RSQLite::SQLite(), db_path)
+
+# Lista de scripts .sql a serem importados ao banco criado
+scripts <- c("01-prev-processo-sqlite3.sql", "02-prev-vinculo-sqlite3.sql", "03-prev-fundamento-sqlite3.sql", "04-prev-sqlite3.sql", "05-prev-arquivo-sqlite3.sql", "06-prev-periodo-sqlite3.sql", "07-prev-proventos-sqlite3.sql")
+
+# Loop para executar cada script disponibilizado pelo TCE/PB
+for (script in scripts) {
+  # Ler o conteúdo do script SQL
+  sql_script <- readLines(script, warn = FALSE)
+  
+  tryCatch({
+    # Executar o script SQL
+    dbExecute(conn, sql_script)
+    print(paste("Script", script, "executado com sucesso!"))
+  }, error = function(e) {
+    print(paste("Erro durante a execução do script", script, ":"))
+    print(e)
+  })
+}
+
+# Commit para salvar as alterações no banco de dados
+dbCommit(conn)
+
+# Disconnect para fechar a conexão com o banco de dados
+dbDisconnect(conn)
+
+```
+
+## Diagrama de Relacionamento do BD fornecido pelo TCE/PB
+
+Após a importação dos dados para o banco, convém apresentar o diagrama de relacionamento das tabelas, para facilitar a compreensão da estruturação dos dados:
+
+```{r}
+#| echo: false
+#| fig-align: "center"
+#| fig-pos: "top"
+#| fig-width: 4
+#| fig-height: 4
+knitr::include_graphics("Diagrama_ER.png")
+```
+
+Apresenta-se a seguir breve descrição de cada uma das tabelas ora indicadas no diagrama relacional:
+
+<p class="no-indent">**Tabela “prev”:** Tabela principal de registros dos processos de aposentadoria, contendo as informações ou chaves necessárias para se obter todos os metadados referentes ao benefício previdenciário objeto de cada processo;</p>
+
+<p class="no-indent">**Tabela “prev_fundamento”:** Tabela auxiliar com informações de todas as regras possíveis de serem referenciadas a cada processo;</p>
+
+<p class="no-indent">**Tabela “prev_vinculo”:** Tabela auxiliar com informações dos servidores subjacentes às aposentadorias analisadas relacionadas ao último vínculo funcional</p>
+
+<p class="no-indent">**Tabela “prev_proventos”:** Tabela auxiliar com informações de todas as parcelas componentes da última remuneração do cargo efetivo, bem como das parcelas componentes dos proventos de aposentadoria que o servidor passou a receber após a concessão pelo instituto de previdência, além do valor da média das remunerações percebidas pelo servidor ao longo da vida funcional;</p>
+
+<p class="no-indent">**Tabela “prev_periodo":** Tabela auxiliar com informações de cada um dos vínculos que compuseram o tempo de contribuição do servidor ao instituto de previdência, com identificação da carreira, do cargo, do tipo de vínculo (público ou privado) além da quantidade de dias de cada vínculo;</p>
+
+<p class="no-indent">**Tabela “prev_processo":** Tabela auxiliar com informações de cada um dos processos de aposentadoria que foram formalizados pelos institutos de previdência perante o Tribunal de Contas do Estado da Paraíba, tais como: número de protocolo no sistema TRAMITA, identificação do instituto de previdência que concedeu e o ano da concessão;</p>
+
+<p class="no-indent">**Tabela “prev_arquivos":** Tabela auxiliar com informações de cada arquivo componente dos autos de cada processo (relatórios de auditoria, despachos, certidões, citações etc.).</p>
+
+## Dos cruzamentos iniciais
+
+Como foi visto, a tabela "prev" é a tabela principal, a partir da qual são feitos os cruzamentos com as demais tabelas para se obter uma tabela consolidada que possa ser utilizada para fins do treinamento dos modelos.
+
+Inicialmente, antes de qualquer cruzamento, é importante que se crie uma nova tabela (qtd_rels_por_processo) que sumarize, para cada processo já julgado, a quantidade de relatórios de auditoria que foram necessários para a instrução processual. Tal informação é gerada a partir do agrupamento da chave "processo_fk" da tabela "prev_arquivo", realizando-se a contagem de "Relatório de Auditoria" gerados em cada processo:
+
+```{r}
+#| echo: true
+#| eval: false
+
+# Comando SQL para criar tabela auxiliar no banco de dados consolidando os relatórios por processo
+sql_command <- "
+CREATE TABLE qtd_rels_por_processo AS
+SELECT processo_fk, COUNT(*) AS total_registros
+FROM prev_arquivo
+WHERE tipo = 'Relatório da Auditoria'
+GROUP BY processo_fk
+ORDER BY total_registros DESC
+"
+
+# Conectar ao banco de dados
+conn <- dbConnect(SQLite(), db_path)
+
+#  Executar uma consulta SQL
+rows <- dbGetQuery(conn, sql_command)
+
+# Commit para salvar as alterações no banco de dados
+dbCommit(conn)
+
+# Fechar a conexão
+dbDisconnect(conn)
+
+```
+
+Então, ainda por meio de comando SQL, faz-se o cruzamento da tabela "prev" com as tabelas "prev_processo", "prev_vinculo", "prev_fundamento" e "qtd_rels_por_processo", uma vez que não há duplicidade de chaves que possam replicar linhas. O código abaixo gera uma primeira versão de tabela consolidada. Vejamos:
+
+```{r}
+#| echo: true
+#| eval: false
+
+# Conectar ao banco de dados SQLite
+conn <- dbConnect(RSQLite::SQLite(), db_path)
+
+# Definir comando SQL a ser executado
+sql_command <- "
+CREATE TABLE tabela_consolidada AS
+SELECT
+  main_tbl.id,
+  main_tbl.tipo,
+  main_tbl.datalaudomedico,
+  main_tbl.revisao,
+  main_tbl.datainicioincapacidade,
+  aux_proc.protocolo,
+  aux_proc.jurisdicionado,
+  aux_proc.exercicio,
+  aux_vinculo.orgao,
+  aux_vinculo.carreira,
+  aux_vinculo.cargo,
+  aux_vinculo.lotacao,
+  aux_vinculo.dataingressocarreira,
+  aux_vinculo.datapossecargo,
+  aux_vinculo.datapublicacaoconcessaobeneficio,
+  aux_vinculo.aposentadoriaespecial,
+  aux_vinculo.meiopublicacaoconcessaobeneficio,
+  aux_vinculo.datanomeacao,
+  aux_fundamento.legislacao,
+  aux_fundamento.descricao,
+  aux_fundamento.tipoato,
+  aux_proc.total_registros as qtd_relatorios_auditoria
+FROM (SELECT * FROM prev WHERE LOWER(tipo) LIKE '%aposentadoria%') AS main_tbl
+LEFT JOIN (SELECT * FROM prev_processo LEFT JOIN qtd_rels_por_processo ON prev_processo.id = qtd_rels_por_processo.processo_fk) as aux_proc ON main_tbl.processo_fk = aux_proc.id
+LEFT JOIN (SELECT * FROM prev_vinculo) as aux_vinculo ON main_tbl.vinculo_fk = aux_vinculo.id
+LEFT JOIN (SELECT * FROM prev_fundamento) as aux_fundamento ON main_tbl.fundamentolegal_fk = aux_fundamento.id
+WHERE LOWER(aux_proc.subcategoria) LIKE '%aposentadoria%' AND aux_fundamento.antesec103 = 1
+"
+
+# Executar a consulta SQL
+result <- dbGetQuery(conn, sql_command)
+
+# Commit para salvar as alterações no banco de dados
+dbCommit(conn)
+
+# Close database connection
+dbDisconnect(conn)
+
+```
+
+Ocorre que ainda há informações das aposentadorias concedidas que não estão presentes na tabela consolidada, relativas às tabelas "prev_proventos" e "prev_periodo". O cruzamento da tabela "prev" com essas tabelas necessita de um cuidado a mais para evitar a replicação de linhas. Por isso, explica-se a seguir, em tópico separado, cada uma das etapas para se atingir a tabela consolidada com todas as informações importantes constantes das tabelas auxiliares.
+
+## Da incorporação dos períodos e das quantidades de vínculos que compõem cada processo de concessão de aposentadoria
+
+Para incorporar as informações dos vínculos componentes da vida funcional do aposentado, é necessário, antes de realizar o cruzamento com a tabela consolidada, agrupar a tabela "prev_periodo", utilizando como chave de agrupamento o campo "prev_fk", obtendo-se informações agregadas, quais sejam:
+
+<p class="no-indent">**soma_dias_vinculo:** soma dos dias de cada um dos vínculos que o aposentado contribuiu em sua vida funcional;</p>
+
+<p class="no-indent">**qtd_vinculos:** conta a quantidade de vínculos que foram utilizados em períodos de contribuição do servidor;</p>
+
+<p class="no-indent">**qtd_vinculos_pub:** conta a quantidade de vínculos no setor público;</p>
+
+<p class="no-indent">**qtd_vinculos_priv:** conta a quantidade de vínculos no setor privado;</p>
+
+<p class="no-indent">**desc_empresas:** concatena o nome das empresas ou órgãos públicos que o servidor teve vínculo ao longo de sua vida funcional, utilizando como separador a string “ / ”;</p>
+
+<p class="no-indent">**soma_dias_ficto:** soma o período contado de forma ficta, nos termos da legislação autorizadora aplicável para aposentadoria diferenciada;</p>
+
+<p class="no-indent">**soma_dias_magisterio:** soma o período que o servidor exerceu magistério, tendo em vista a diferença de regras aplicáveis para aposentadoria de professores;</p>
+
+<p class="no-indent">**qtd_vinculos_mesmo_cargo:** conta a quantidade de vínculos que o servidor ocupou o mesmo cargo;</p>
+
+<p class="no-indent">**qtd_vinculos_mesma_carreira:** conta a quantidade de vínculos que o servidor esteve na mesma carreira;</p>
+
+Para facilitar as transformações, importam-se as tabelas "prev_periodo" e "tabela_consolidada" para dataframes:
+
+```{r}
+#| echo: true
+#| eval: false
+
+# Conectar ao banco de dados SQLite
+conn <- dbConnect(RSQLite::SQLite(), db_path)
+
+# Definir comando SQL a ser executado
+consulta_1 <- "SELECT * from tabela_consolidada;"
+consulta_2 <- "SELECT * FROM prev_periodo WHERE prev_fk IN (SELECT id FROM tabela_consolidada);"
+
+# Executar a consulta SQL
+df_principal <- dbGetQuery(conn, consulta_1)
+df_prevperiodo <- dbGetQuery(conn, consulta_2)
+
+# Commit para salvar as alterações no banco de dados
+dbCommit(conn)
+
+# Close database connection
+dbDisconnect(conn)
+
+```
+
+A partir dos dataframes, são realizadas operações preparatórias para o cruzamento com a tabela consolidada:
+
+```{r}
+#| echo: true
+#| eval: false
+
+# Converter as colunas de data para objeto Date no dataframe
+df_prevperiodo$datainicial <- as.Date(df_prevperiodo$datainicial)
+df_prevperiodo$datafinal <- as.Date(df_prevperiodo$datafinal)
+
+# Calcular número de dias de cada vínculo
+df_prevperiodo$dias_vinculo <- as.numeric(df_prevperiodo$datafinal - df_prevperiodo$datainicial)
+
+# Reordenar as colunas do dataframe
+df_prevperiodo <- df_prevperiodo %>% select(id, prev_fk, datainicial, datafinal, dias_vinculo, mesmacarreira, mesmocargo, servicopublico, empresa, diastempoficto, diastempomagisterio)
+
+print(nrow(df_prevperiodo))
+
+# Transformando o dataframe para só ter um registro para cada processo, incorporando registros de prev_periodo
+
+# Substituindo valores nulos por uma string vazia na coluna 'empresa'
+df_prevperiodo$empresa[is.na(df_prevperiodo$empresa)] <- ''
+
+# Realizando a transformação
+df_resultante <- df_prevperiodo %>%
+  group_by(prev_fk) %>%
+  summarise(
+    soma_dias_vinculo = sum(dias_vinculo, na.rm = TRUE),
+    qtd_vinculos = n(),
+    qtd_vinculos_pub = sum(servicopublico, na.rm = TRUE),
+    qtd_vinculos_priv = n() - sum(servicopublico, na.rm = TRUE),
+    desc_empresas = paste(empresa, collapse = '/'),
+    soma_dias_ficto = sum(diastempoficto, na.rm = TRUE),
+    soma_dias_magisterio = sum(diastempomagisterio, na.rm = TRUE),
+    qtd_vinculos_mesmo_cargo = sum(mesmocargo, na.rm = TRUE),
+    qtd_vinculos_mesma_carreira = sum(mesmacarreira, na.rm = TRUE)
+  ) %>%
+  ungroup()
+
+```
+
+Após o agrupamento, torna-se possível realizar o cruzamento com o dataframe consolidado:
+
+```{r}
+#| echo: true
+#| eval: false
+
+# Agregando a tabela de períodos à base principal
+df_consolidado <- merge(df_principal, df_resultante, by.x = 'id', by.y = 'prev_fk', all = FALSE)
+df_consolidado <- df_principal %>%
+  inner_join(df_resultante, by = c("id" = "prev_fk")) %>%
+  mutate(prev_fk = id)
+
+```
+
+Obtém-se, então, uma nova base consolidada (df_consolidado), agora com informações dos períodos de contribuição de cada aposentadoria formalizada em processo perante o TCE/PB.
+
+## Da incorporação da composição dos proventos que compõem cada processo de aposentadoria
+
+Para incorporar as informações de remuneração ao passar para inatividade e de proventos recebidos pelo aposentado, é necessário, antes de realizar o cruzamento com o dataframe consolidado, agrupar a tabela de "prev_proventos", utilizando como chave de agrupamento o campo "prev_fk", obtendo-se informações agregadas, quais sejam:
+
+<p class="no-indent">**nome_proventos:** concatena o nome das parcelas componentes dos proventos de aposentadoria concedidos pelo instituto de previdência, utilizando como separador a string “ / ”;</p>
+
+<p class="no-indent">**nome_Remuneração Cargo Efetivo:** concatena o nome das parcelas componentes da última remuneração do cargo efetivo percebida pelo servidor enquanto estava na ativa, utilizando como separador a string “ / ”;</p>
+
+<p class="no-indent">**valor_média:** obtem a média de todas as remunerações percebidas ao longo da vida funcional, somente para aqueles servidores que se aposentaram por regra que leva em conta tal média;</p>
+
+<p class="no-indent">**valor_proventos:** soma de todas as parcelas de proventos que percebe na aposentadoria;</p>
+
+<p class="no-indent">**Valor_Remuneração Cargo Efetivo:** soma de todas as parcelas que percebeu em sua última remuneração do cargo efetivo quando estava na ativa.</p>
+
+Para facilitar as transformações, importa-se a tabela "prev_proventos" para dataframe:
+
+```{r}
+#| echo: true
+#| eval: false
+
+# Conectar ao banco de dados SQLite
+conn <- dbConnect(RSQLite::SQLite(), db_path)
+
+# Definir comando SQL a ser executado
+consulta_3 <- "SELECT * FROM prev_proventos WHERE prev_fk IN (SELECT id FROM tabela_consolidada);"
+
+# Executar a consulta SQL
+df_prevproventos <- dbGetQuery(conn, consulta_3)
+
+# Commit para salvar as alterações no banco de dados
+dbCommit(conn)
+
+# Close database connection
+dbDisconnect(conn)
+
+```
+
+A partir dos dataframes, é realizado o agrupamento preparatório para o cruzamento:
+
+```{r}
+#| echo: true
+#| eval: false
+
+# Criando uma tabela dinâmica usando pivot_wider
+df_proventos_ajustada <- df_prevproventos %>%
+  group_by(prev_fk, tipo) %>%
+  summarise(valor = sum(valor), nome = paste(nome, collapse = " / ")) %>%
+  pivot_wider(names_from = tipo, values_from = c(valor, nome))
+
+# Resetando o índice para transformar 'prev_fk' em coluna
+df_proventos_ajustada <- df_proventos_ajustada %>%
+  ungroup() %>%
+  as.data.frame()
+
+# Renomeando as colunas conforme necessário
+colnames(df_proventos_ajustada) <- sapply(colnames(df_proventos_ajustada), function(col) {
+  if (grepl("_", col)) {
+    return(col)
+  } else {
+    return(paste0(col, "_"))
+  }
+})
+
+```
+
+Logo, torna-se possível a realização do cruzamento com o dataframe consolidado anteriormente obtido:
+
+```{r}
+#| echo: true
+#| eval: false
+
+# Ajustada a tabela de proventos, agora estamos prontos para adicioná-la à tabela consolidada
+df_consolidado_2 <- merge(df_consolidado, df_proventos_ajustada, by.x = 'id', by.y = 'prev_fk', all = FALSE)
+
+# Colunas para remover
+colunas_para_remover <- c('prev_fk', 'nome_Média', 'nome_Remuneração', 'valor_Remuneração')
+
+# Remove as colunas do DataFrame
+df_consolidado_2 <- df_consolidado_2 %>%
+  select(-all_of(colunas_para_remover))
+
+```
+
+Com a definição de uma tabela consolidada (df_consolidado_2), com todas as informações necessárias para a análise exploratória de dados, é importante armazená-la no banco de dados:
+
+```{r}
+#| echo: true
+#| eval: false
+
+# Conectar ao banco de dados SQLite
+conn <- dbConnect(SQLite(), db_path)
+
+# armazena o dataframe consolidado em uma nova tabela chamada tabela_final no banco de dados
+dbWriteTable(conexao, 'tabela_final', df_consolidado_2, row.names = TRUE, overwrite = TRUE)
+
+# Fechar a conexão
+dbDisconnect(conn)
+
+```
+
+# Da análise exploratória de dados (AED)
+
+Feitas as operações e cruzamentos necessários à obtenção de uma tabela consolidada, cumpre-nos realizar uma análise exploratória dos dados. Nesse sentido, serão analisados cada um dos campos relevantes para o objeto de estudo.
+
+Antes de passar à análise de cada campo, convém destacar que, ao importar a tabela consolidada do banco de dados SQLITE3, cria-se o dataframe chamado "df_tbl_final":
+
+```{r}
+#| echo: true
+#| eval: true
+
+db_path <- "mesp_previdencia.db"
+
+# Conectar ao banco de dados SQLite
+conn <- dbConnect(SQLite(), db_path)
+
+# Exemplo de consulta SELECT
+consulta_4 <- "SELECT * from tabela_final;"
+
+# Executar a consulta e armazenar o resultado em um dataframe
+df_tbl_final <- dbGetQuery(conn, consulta_4)
+
+# Fechar a conexão
+dbDisconnect(conn)
+
+
+```
+
+A AED é composta de diversas análises ou decisões que são tomadas para preparar os dados para o treinamento dos modelos, destacando-se:
+
+<p class="no-indent">**1. Resumo estatístico das variáveis;**</p>
+
+<p class="no-indent">**2. Visualização gráfica dos atributos;**</p>
+
+<p class="no-indent">**3. Avaliação de domínio;**</p>
+
+<p class="no-indent">**4. Tratamento de dados ausentes;**</p>
+
+<p class="no-indent">**5. Exclusão de atributos redundantes ou irrelevantes;**</p>
+
+<p class="no-indent">**6. Análise de balanceamento de classes;**</p>
+
+<p class="no-indent">**7. Avaliação de dimensionalidade;**</p>
+
+<p class="no-indent">**8. Tratamento para evitar overfitting;**</p>
+
+<p class="no-indent">**9. Engenharia de features.**</p>
+
+A numeração da lista acima será utilizada como nota de rodapé, sempre que alguma das atividades listadas se enquadrar na etapa que se está explanando. Para ver o conteúdo da nota de rodapé, basta passar o mouse por cima do índice da nota.
+
+## Do campo "rotulo"
+
+O primeiro passo da análise exploratória é a criação do rótulo classificatório de cada um dos processos componentes da base de dados. O rótulo (ou label) é fundamental em um modelo de aprendizagem supervisionada porque ele fornece a "resposta correta" que o modelo deve aprender a prever. Em termos mais técnicos:
+
+<p class="no-indent">**Treinamento do Modelo:** O rótulo é a variável dependente que o modelo tenta prever com base nas variáveis independentes (ou características). Durante o treinamento, o modelo ajusta seus parâmetros para minimizar o erro entre suas previsões e os rótulos verdadeiros.</p>
+
+<p class="no-indent">**Avaliação do Desempenho:** Após o treinamento, o desempenho do modelo é avaliado comparando suas previsões com os rótulos reais em um conjunto de dados de teste. Métricas como acurácia, precisão, recall, F1-score, entre outras, são calculadas com base nos rótulos.</p>
+
+<p class="no-indent">**Aprendizagem:** O processo de aprendizagem supervisionada depende diretamente dos rótulos para identificar padrões e relações entre as características dos dados e os resultados esperados. Sem rótulos, o modelo não teria um guia para aprender, tornando-se incapaz de generalizar para novos dados.</p>
+
+<p class="no-indent">**Generalização:** O objetivo final de um modelo supervisionado é generalizar bem para novos dados não rotulados. A qualidade e a representatividade dos rótulos no conjunto de treinamento influenciam diretamente a capacidade do modelo de realizar boas previsões em dados futuros.</p>
+
+Para a presente pesquisa, considera-se apropriado utilizar a quantidade de relatórios de Auditoria que foram necessários na instrução de cada processo que compõe a base de treinamento da ferramenta. Dito de outra forma, se um processo foi julgado após apenas um relatório de auditoria, isso significa que não há irregularidades que tenham exigido explicações ou ajustes complementares pelo instituto de previdência. Ao revés, se um processo teve mais de um relatório de auditoria, isso significa que há maior risco no processo subjacente, sendo, então, o critério de risco diretamente proporcional à quantidade de relatórios técnicos emitidos antes do julgamento definitivo. A partir dessa avaliação, é possível a atribuição de um rótulo binário a cada processo que constitui a base de dados, o qual guiará a etapa de treinamento do algoritmo. Vejamos:
+
+```{r}
+#| echo: true
+#| eval: false
+
+df_tbl_final <- df_tbl_final %>%
+  mutate(rotulo = ifelse(qtd_relatorios_auditoria == 1, 0, 1))
+
+```
+
+## Do campo "tipo"
+
+Em suma, há 3 tipos de aposentadorias que compõem a base de processos do TCE/PB: a) geral; b) por invalidez; e c) compulsória. Vejamos como se dá a composição destes tipos<sup id="fnref-1" class="footnote"><a href="#fn-1">1</a></sup> <sup id="fnref-2" class="footnote"><a href="#fn-2">2</a></sup> <sup id="fnref-3" class="footnote"><a href="#fn-3">3</a></sup>:
+
+```{r}
+#| echo: false
+#| eval: true
+
+# Carregue as bibliotecas necessárias
+library(ggplot2)
+library(dplyr)
+library (knitr)
+
+# Avalie a composição do campo "descrição"
+df_composicao <- df_tbl_final %>%
+  count(tipo) %>%
+  mutate(percent = (n / sum(n)) * 100) %>%
+  arrange(desc(n)) %>%
+  mutate(cum_percent = cumsum(percent)) %>%
+  mutate(percent = round(percent, 1),
+         cum_percent = round(cum_percent, 1))
+
+# Use a função kable() para imprimir a tabela
+kable(df_composicao, caption = "Composição de Descrição")
+
+# Gráfico de barras usando ggplot2
+ggplot(df_composicao, aes(x = reorder(tipo, -n))) +
+  geom_bar(aes(y = n), stat = "identity", fill = "steelblue") +
+  geom_line(aes(y = cum_percent * max(n) / 100, group = 1), color = "red", size = 1) +
+  geom_point(aes(y = cum_percent * max(n) / 100), color = "red", size = 2) +
+  scale_y_continuous(
+    name = "Frequência Absoluta (n)",
+    sec.axis = sec_axis(~ . / max(df_composicao$n) * 100, name = "Frequência Acumulada (%)")
+  ) +
+  labs(title = "Composição do Campo 'tipo'",
+       x = "tipo") +
+  theme_minimal() +
+  theme(
+    axis.text.x = element_blank(), # Remove os rótulos do eixo horizontal
+    axis.title.y.right = element_text(color = "red"), # Cor do título do eixo secundário
+    axis.text.y.right = element_text(color = "red"), # Cor dos rótulos do eixo secundário
+    panel.grid.major = element_line(color = "grey80", linetype = "dashed", size = 0.5), # Linhas de grade principais
+    panel.grid.minor = element_line(color = "grey90", linetype = "dashed", size = 0.25)  # Linhas de grade menores
+  )
+
+```
+
+No que se refere à aposentadoria compulsória, observa-se que sua representatividade é de apenas 1% da base histórica de processos julgados. Nesse norte, essa composição quase irrelevante enseja a remoção de tais processos da base<sup id="fnref-10" class="footnote"><a href="#fn-10">10</a></sup>, seja pelo risco de *overfitting*<sup id="fnref-8" class="footnote"><a href="#fn-8">8</a></sup>, seja pelo ganho irrisório que adviria da automatização para tais instâncias.
+
+As aposentadorias por invalidez, por sua vez, perfazem apenas 6.2% da base de dados. Embora seja mais representativa, há diversos requisitos distintos que permeiam a análise de invalidez quando comparado às aposentadorias em geral, os quais não estão bem demonstrados nos atributos da base de dados disponível. Assim, a melhor solução é não incluir tais processos na automatização pretendida<sup id="fnref-10" class="footnote"><a href="#fn-10">10</a></sup>, considerando-os sempre prioritários para a análise pela Auditoria.
+
+Tais exclusões estão dispostas no código a seguir, vejamos:
+
+```{r}
+#| echo: true
+#| eval: true
+
+valor_excluir_1 <- "Aposentadoria Compulsória"
+valor_excluir_2 <- "Aposentadoria por Invalidez"
+
+df_tbl_final <- df_tbl_final %>% filter(tipo != valor_excluir_1 & tipo != valor_excluir_2)
+
+```
+
+## Do campo "aposentadoriaespecial"
+
+Tal atributo indica se o processo corresponde a alguma aposentadoria que tem regra particular derivada de sua natureza especial. Sobre esse tópico, destacam-se as aposentadorias de professores da educação básica, de serviços penosos, de policiais e de deficientes. Vejamos a composição inicial de tal campo<sup id="fnref-1" class="footnote"><a href="#fn-1">1</a></sup> <sup id="fnref-2" class="footnote"><a href="#fn-2">2</a></sup> <sup id="fnref-3" class="footnote"><a href="#fn-3">3</a></sup>:
+
+```{r}
+#| echo: false
+#| eval: true
+
+# Carregue as bibliotecas necessárias
+library(ggplot2)
+library(dplyr)
+library (knitr)
+
+# Substitua os valores NA por "Aposentadoria Comum"
+df_tbl_final <- df_tbl_final %>%
+  mutate(aposentadoriaespecial = ifelse(is.na(aposentadoriaespecial), "Aposentadoria Comum", aposentadoriaespecial))
+
+
+# Avalie a composição do campo "aposentadoriaespecial"
+df_composicao <- df_tbl_final %>%
+  count(aposentadoriaespecial) %>%
+  mutate(percent = (n / sum(n)) * 100) %>%
+  arrange(desc(n)) %>%
+  mutate(cum_percent = cumsum(percent)) %>%
+  mutate(percent = round(percent, 1),
+         cum_percent = round(cum_percent, 1))
+
+# Use a função kable() para imprimir a tabela
+kable(df_composicao, caption = "Composição de aposentadoriaespecial")
+
+# Gráfico de barras usando ggplot2
+ggplot(df_composicao, aes(x = reorder(aposentadoriaespecial, -n))) +
+  geom_bar(aes(y = n), stat = "identity", fill = "steelblue") +
+  geom_line(aes(y = cum_percent * max(n) / 100, group = 1), color = "red", size = 1) +
+  geom_point(aes(y = cum_percent * max(n) / 100), color = "red", size = 2) +
+  scale_y_continuous(
+    name = "Frequência Absoluta (n)",
+    sec.axis = sec_axis(~ . / max(df_composicao$n) * 100, name = "Frequência Acumulada (%)")
+  ) +
+  labs(title = "Composição do Campo 'aposentadoriaespecial'",
+       x = "aposentadoriaespecial") +
+  theme_minimal() +
+  theme(
+    axis.text.x = element_blank(), # Remove os rótulos do eixo horizontal
+    axis.title.y.right = element_text(color = "red"), # Cor do título do eixo secundário
+    axis.text.y.right = element_text(color = "red"), # Cor dos rótulos do eixo secundário
+    panel.grid.major = element_line(color = "grey80", linetype = "dashed", size = 0.5), # Linhas de grade principais
+    panel.grid.minor = element_line(color = "grey90", linetype = "dashed", size = 0.25)  # Linhas de grade menores
+  )
+
+```
+
+Sobre tal tema, tendo em vista a baixíssima representatividade das aposentadorias especiais que não são de professores, para evitar problemas de **overfitting**, é desejável que tal campo seja convertido em um **flag** binário que identifique apenas se o processo é derivado de aposentadoria especial ou não. Tal transformação está disposta no código a seguir<sup id="fnref-9" class="footnote"><a href="#fn-9">9</a></sup>, vejamos:
+
+```{r}
+#| echo: true
+#| eval: true
+
+# Criando flag de aposentadoria especial
+df_tbl_final$PARA_aposentadoriaespecial <- ifelse((df_tbl_final$aposentadoriaespecial!="Aposentadoria Comum"), 1, 0)
+
+```
+
+```{r}
+#| echo: false
+#| eval: true
+
+# Carregue as bibliotecas necessárias
+library(ggplot2)
+library(dplyr)
+library (knitr)
+
+# Avalie a composição do campo "aposentadoriaespecial"
+df_composicao <- df_tbl_final %>%
+  count(PARA_aposentadoriaespecial) %>%
+  mutate(percent = (n / sum(n)) * 100) %>%
+  arrange(desc(n)) %>%
+  mutate(cum_percent = cumsum(percent)) %>%
+  mutate(percent = round(percent, 1),
+         cum_percent = round(cum_percent, 1))
+
+# Use a função kable() para imprimir a tabela
+kable(df_composicao, caption = "Composição de aposentadoriaespecial")
+
+# Gráfico de barras usando ggplot2
+ggplot(df_composicao, aes(x = reorder(PARA_aposentadoriaespecial, -n))) +
+  geom_bar(aes(y = n), stat = "identity", fill = "steelblue") +
+  geom_line(aes(y = cum_percent * max(n) / 100, group = 1), color = "red", size = 1) +
+  geom_point(aes(y = cum_percent * max(n) / 100), color = "red", size = 2) +
+  scale_y_continuous(
+    name = "Frequência Absoluta (n)",
+    sec.axis = sec_axis(~ . / max(df_composicao$n) * 100, name = "Frequência Acumulada (%)")
+  ) +
+  labs(title = "Composição do Campo 'aposentadoriaespecial'",
+       x = "aposentadoriaespecial") +
+  theme_minimal() +
+  theme(
+    axis.text.x = element_blank(), # Remove os rótulos do eixo horizontal
+    axis.title.y.right = element_text(color = "red"), # Cor do título do eixo secundário
+    axis.text.y.right = element_text(color = "red"), # Cor dos rótulos do eixo secundário
+    panel.grid.major = element_line(color = "grey80", linetype = "dashed", size = 0.5), # Linhas de grade principais
+    panel.grid.minor = element_line(color = "grey90", linetype = "dashed", size = 0.25)  # Linhas de grade menores
+  )
+
+```
+
+## Do campo "jurisdicionado"
+
+Jurisdicionados, para os fins do presente projeto, são os institutos de previdência que aprovaram a concessão de cada aposentadoria. São eles que enviam os dados ao TCE/PB e, a depender da qualidade do trabalho que realizam, sua identificação é importante para a percepção do risco implícito no processo.
+
+### Composição inicial dos institutos de previdência
+
+Inicialmente, convém avaliarmos a composição dos dados<sup id="fnref-3" class="footnote"><a href="#fn-3">3</a></sup> de tal campo antes de qualquer transformação, para que se possa ter uma percepção acerca da quantidade de registros por categoria existente na base de dados<sup id="fnref-1" class="footnote"><a href="#fn-1">1</a></sup>. A partir de tal dataframe, observa-se a seguinte composição inicial do campo, em versões tabulada e gráfica<sup id="fnref-2" class="footnote"><a href="#fn-2">2</a></sup>:
+
+```{r}
+#| echo: false
+#| eval: true
+
+# Avalie a composição do campo "jurisdicionado"
+df_composicao <- df_tbl_final %>%
+  count(jurisdicionado)  %>%
+  mutate(percent = (n / sum(n)) * 100) %>%
+  arrange(desc(n)) %>%
+  mutate(cum_percent = cumsum(percent)) %>%
+  mutate(percent = round(percent, 1),
+         cum_percent = round(cum_percent, 1))
+
+# Use a função kable() para imprimir a tabela
+kable(df_composicao, caption = "Composição de Jurisdicionado")
+
+ggplot(df_composicao, aes(x = reorder(jurisdicionado, -n))) +
+  geom_bar(aes(y = n), stat = "identity", fill = "steelblue") +
+  geom_line(aes(y = cum_percent * max(n) / 100, group = 1), color = "red", size = 1) +
+  geom_point(aes(y = cum_percent * max(n) / 100), color = "red", size = 2) +
+  scale_y_continuous(
+    name = "Frequência Absoluta (n)",
+    sec.axis = sec_axis(~ . / max(df_composicao$n) * 100, name = "Frequência Acumulada (%)")
+  ) +
+  labs(title = "Composição do Campo 'Jurisdicionado'",
+       x = "Jurisdicionado") +
+  theme_minimal() +
+  theme(
+    axis.text.x = element_blank(), # Remove os rótulos do eixo horizontal
+    axis.title.y.right = element_text(color = "red"), # Cor do título do eixo secundário
+    axis.text.y.right = element_text(color = "red"), # Cor dos rótulos do eixo secundário
+    panel.grid.major = element_line(color = "grey80", linetype = "dashed", size = 0.5), # Linhas de grade principais
+    panel.grid.minor = element_line(color = "grey90", linetype = "dashed", size = 0.25)  # Linhas de grade menores
+  )
+
+# Criar de_para da coluna "jurisdicionado", conforme análise de composição feita no excel
+# Supondo que você tenha uma lista chamada 'lista'
+lista <- c('Paraíba Previdência', 'Instituto de Previdência do Município de João Pessoa', 
+           'Instituto de Prev. dos Serv. Mun. de Campina Grande', 
+           'Instituto de Prev. e Assistência dos Serv. Pub. do Mun. de Bayeux', 
+           'Instituto de Previdência do Município de Santa Rita')
+
+# Função para aplicar à coluna 'jurisdicionado'
+verificar_jurisdicionado <- function(valor) {
+  if (valor %in% lista) {
+    return(valor)
+  } else {
+    return('Outros')
+  }
+}
+
+# Aplicando a função à coluna 'jurisdicionado' para criar a nova coluna
+df_tbl_final$PARA_Jurisdicionado <- sapply(df_tbl_final$jurisdicionado, verificar_jurisdicionado)
+
+
+```
+
+### Transformação de categorias
+
+Perceba que há muitas categorias com pouca representatividade que pouco acrescentarão ao aprendizado. Ademais, categorias com pouca representatividade contribuem para risco de **overfitting** e, para evitar tal problema, é preciso que tal campo seja tratado<sup id="fnref-8" class="footnote"><a href="#fn-8">8</a></sup>. Para tanto, cria-se uma categoria residual chamada "Outros", realizando um corte das categorias que tenham 300 ou mais instâncias<sup id="fnref-9" class="footnote"><a href="#fn-9">9</a></sup>, vejamos:
+
+```{r}
+#| echo: true
+#| eval: true
+
+# Carregue as bibliotecas necessárias
+library(dplyr)
+
+# Substitua as categorias com menos de 300 ocorrências por "Outros"
+df_tbl_final <- df_tbl_final %>%
+  group_by(jurisdicionado) %>%
+  mutate(count = n()) %>%
+  ungroup() %>%
+  mutate(jurisdicionado = ifelse(count < 300, "Outros", jurisdicionado)) %>%
+  select(-count)
+
+# Verifique a nova composição do campo "jurisdicionado"
+df_composicao <- df_tbl_final %>%
+  count(jurisdicionado) %>%
+  mutate(percent = (n / sum(n)) * 100) %>%
+  arrange(desc(n)) %>%
+  mutate(cum_percent = cumsum(percent)) %>%
+  mutate(percent = round(percent, 1),
+         cum_percent = round(cum_percent, 1))
+
+```
+
+### Composição final dos jurisdicionados
+
+Após a transformação, chega-se à seguinte composição para o campo "Jurisdicionado"<sup id="fnref-2" class="footnote"><a href="#fn-2">2</a></sup> <sup id="fnref-3" class="footnote"><a href="#fn-3">3</a></sup>:
+
+```{r}
+#| echo: false
+#| eval: true
+
+# Carregue as bibliotecas necessárias
+library(dplyr)
+
+# Use a função kable() para imprimir a tabela
+kable(df_composicao, caption = "Composição de Jurisdicionado")
+
+ggplot(df_composicao, aes(x = reorder(jurisdicionado, -n))) +
+  geom_bar(aes(y = n), stat = "identity", fill = "steelblue") +
+  geom_line(aes(y = cum_percent * max(n) / 100, group = 1), color = "red", size = 1) +
+  geom_point(aes(y = cum_percent * max(n) / 100), color = "red", size = 2) +
+  scale_y_continuous(
+    name = "Contagem",
+    sec.axis = sec_axis(~ . / max(df_composicao$n) * 100, name = "Frequência Acumulada (%)")
+  ) +
+  labs(title = "Composição do Campo 'Jurisdicionado'",
+       x = "Jurisdicionado") +
+  theme_minimal() +
+  theme(
+    axis.text.x = element_blank(), # Remove os rótulos do eixo horizontal
+    axis.title.y.right = element_text(color = "red"), # Cor do título do eixo secundário
+    axis.text.y.right = element_text(color = "red"), # Cor dos rótulos do eixo secundário
+    panel.grid.major = element_line(color = "grey80", linetype = "dashed", size = 0.5), # Linhas de grade principais
+    panel.grid.minor = element_line(color = "grey90", linetype = "dashed", size = 0.25)  # Linhas de grade menores
+  )
+
+# Contagem das ocorrências de cada conteúdo na coluna "descricao"
+contagem_descricao <- table(df_tbl_final$descricao)
+
+# Lista dos valores que ocorrem mais de 500 vezes
+valores_mais_de_500 <- names(contagem_descricao[contagem_descricao > 500])
+
+valores_mais_de_500
+
+# Mapeando os valores para "Outros" se ocorrerem menos de 500 vezes
+df_tbl_final <- df_tbl_final %>%
+  mutate(PARA_descricao = ifelse(descricao %in% valores_mais_de_500, descricao, "Outros"))
+
+
+
+```
+
+## Do campo "descrição"
+
+O campo "descrição" é categórico e apresenta a descrição resumida da regra de aposentadoria que foi utilizada como fundamento para cada ato concessório.
+
+### Composição inicial das regras
+
+Inicialmente, convém avaliarmos a composição dos dados de tal campo antes de qualquer transformação<sup id="fnref-3" class="footnote"><a href="#fn-3">3</a></sup>, para que se possa ter uma percepção acerca da quantidade de registros por categoria existente na base de dados<sup id="fnref-1" class="footnote"><a href="#fn-1">1</a></sup>. Vejamos isso de forma tabulada e gráfica<sup id="fnref-2" class="footnote"><a href="#fn-2">2</a></sup>:
+
+```{r}
+#| echo: false
+#| eval: true
+
+# Avalie a composição do campo "descrição"
+df_composicao <- df_tbl_final %>%
+  count(descricao) %>%
+  mutate(percent = (n / sum(n)) * 100) %>%
+  arrange(desc(n)) %>%
+  mutate(cum_percent = cumsum(percent)) %>%
+  mutate(percent = round(percent, 1),
+         cum_percent = round(cum_percent, 1))
+
+# Use a função kable() para imprimir a tabela
+kable(df_composicao, caption = "Composição de Descrição")
+
+# Gráfico de barras usando ggplot2
+ggplot(df_composicao, aes(x = reorder(descricao, -n))) +
+  geom_bar(aes(y = n), stat = "identity", fill = "steelblue") +
+  geom_line(aes(y = cum_percent * max(n) / 100, group = 1), color = "red", size = 1) +
+  geom_point(aes(y = cum_percent * max(n) / 100), color = "red", size = 2) +
+  scale_y_continuous(
+    name = "Frequência Absoluta (n)",
+    sec.axis = sec_axis(~ . / max(df_composicao$n) * 100, name = "Frequência Acumulada (%)")
+  ) +
+  labs(title = "Composição do Campo 'Descrição'",
+       x = "Descrição") +
+  theme_minimal() +
+  theme(
+    axis.text.x = element_blank(), # Remove os rótulos do eixo horizontal
+    axis.title.y.right = element_text(color = "red"), # Cor do título do eixo secundário
+    axis.text.y.right = element_text(color = "red"), # Cor dos rótulos do eixo secundário
+    panel.grid.major = element_line(color = "grey80", linetype = "dashed", size = 0.5), # Linhas de grade principais
+    panel.grid.minor = element_line(color = "grey90", linetype = "dashed", size = 0.25)  # Linhas de grade menores
+  )
+
+```
+
+### Transformação de categorias
+
+Perceba que há muitas categorias com pouca representatividade que pouco acrescentarão ao aprendizado. Ademais, categorias com pouca representatividade contribuem para risco de ***overfitting*** e, para evitar tal problema, é preciso que tal campo seja tratado<sup id="fnref-8" class="footnote"><a href="#fn-8">8</a></sup>. Para tanto, cria-se uma categoria residual chamada "Outros", realizando um corte das categorias que tenham 500 ou mais instâncias<sup id="fnref-9" class="footnote"><a href="#fn-9">9</a></sup>, vejamos:
+
+```{r}
+#| echo: true
+#| eval: true
+
+# Carregue as bibliotecas necessárias
+library(dplyr)
+
+# Substitua as categorias com menos de 200 ocorrências por "Outros"
+df_tbl_final <- df_tbl_final %>%
+  group_by(descricao) %>%
+  mutate(count = n()) %>%
+  ungroup() %>%
+  mutate(descricao = ifelse(count < 500, "Outros", descricao)) %>%
+  select(-count)
+
+# Verifique a nova composição do campo "descricao"
+df_composicao <- df_tbl_final %>%
+  count(descricao) %>%
+  mutate(percent = (n / sum(n)) * 100) %>%
+  arrange(desc(n)) %>%
+  mutate(cum_percent = cumsum(percent)) %>%
+  mutate(percent = round(percent, 1),
+         cum_percent = round(cum_percent, 1))
+
+```
+
+### Composição final das regras
+
+Após a transformação, chega-se à seguinte composição final para o campo "descrição"<sup id="fnref-2" class="footnote"><a href="#fn-2">2</a></sup> <sup id="fnref-3" class="footnote"><a href="#fn-3">3</a></sup>:
+
+```{r}
+#| echo: false
+#| eval: true
+
+# Carregue as bibliotecas necessárias
+library(dplyr)
+
+# Use a função kable() para imprimir a tabela
+kable(df_composicao, caption = "Composição de Descrição")
+
+ggplot(df_composicao, aes(x = reorder(descricao, -n))) +
+  geom_bar(aes(y = n), stat = "identity", fill = "steelblue") +
+  geom_line(aes(y = cum_percent * max(n) / 100, group = 1), color = "red", size = 1) +
+  geom_point(aes(y = cum_percent * max(n) / 100), color = "red", size = 2) +
+  scale_y_continuous(
+    name = "Contagem",
+    sec.axis = sec_axis(~ . / max(df_composicao$n) * 100, name = "Frequência Acumulada (%)")
+  ) +
+  labs(title = "Composição do Campo 'Descrição'",
+       x = "Descrição") +
+  theme_minimal() +
+  theme(
+    axis.text.x = element_blank(), # Remove os rótulos do eixo horizontal
+    axis.title.y.right = element_text(color = "red"), # Cor do título do eixo secundário
+    axis.text.y.right = element_text(color = "red"), # Cor dos rótulos do eixo secundário
+    panel.grid.major = element_line(color = "grey80", linetype = "dashed", size = 0.5), # Linhas de grade principais
+    panel.grid.minor = element_line(color = "grey90", linetype = "dashed", size = 0.25)  # Linhas de grade menores
+  )
+
+```
+
+## Do campo "órgão"
+
+O campo "órgão" corresponde ao órgão ao qual o servidor estava vinculado ao ter sua aposentadoria concedida pelo instituto de previdência. É um campo livre que possivelmente terá pouco potencial explicativo na avaliação de risco. No entanto, faz-se uma mínima análise a seguir.
+
+### Composição inicial dos órgãos
+
+Inicialmente, convém avaliarmos a composição dos dados<sup id="fnref-3" class="footnote"><a href="#fn-3">3</a></sup> de tal campo antes de qualquer transformação, para que se possa ter uma percepção acerca da quantidade de registros por categoria existente na base de dados<sup id="fnref-1" class="footnote"><a href="#fn-1">1</a></sup>. A seguir, observa-se a seguinte composição inicial do campo, em versões tabulada e gráfica<sup id="fnref-2" class="footnote"><a href="#fn-2">2</a></sup>:
+
+```{r}
+#| echo: false
+#| eval: true
+
+# Avalie a composição do campo "órgão"
+df_composicao <- df_tbl_final %>%
+  count(orgao) %>%
+  mutate(percent = (n / sum(n)) * 100) %>%
+  arrange(desc(n)) %>%
+  mutate(cum_percent = cumsum(percent)) %>%
+  mutate(percent = round(percent, 1),
+         cum_percent = round(cum_percent, 1))
+
+# Use a função kable() para imprimir a tabela
+kable(df_composicao, caption = "Composição de Órgão")
+
+# Gráfico de barras usando ggplot2
+ggplot(df_composicao, aes(x = reorder(orgao, -n))) +
+  geom_bar(aes(y = n), stat = "identity", fill = "steelblue") +
+  geom_line(aes(y = cum_percent * max(n) / 100, group = 1), color = "red", size = 1) +
+  geom_point(aes(y = cum_percent * max(n) / 100), color = "red", size = 2) +
+  scale_y_continuous(
+    name = "Frequência Absoluta (n)",
+    sec.axis = sec_axis(~ . / max(df_composicao$n) * 100, name = "Frequência Acumulada (%)")
+  ) +
+  labs(title = "Composição do Campo 'Órgão'",
+       x = "Órgão") +
+  theme_minimal() +
+  theme(
+    axis.text.x = element_blank(), # Remove os rótulos do eixo horizontal
+    axis.title.y.right = element_text(color = "red"), # Cor do título do eixo secundário
+    axis.text.y.right = element_text(color = "red"), # Cor dos rótulos do eixo secundário
+    panel.grid.major = element_line(color = "grey80", linetype = "dashed", size = 0.5), # Linhas de grade principais
+    panel.grid.minor = element_line(color = "grey90", linetype = "dashed", size = 0.25)  # Linhas de grade menores
+  )
+
+```
+
+### Transformação de categorias
+
+Perceba que, pelo fato de ser um campo descritivo de livre preenchimento, há uma dispersão enorme dos dados. Para que tal campo agregue minimamente algum valor, é preciso padronização. Tal padronização foi feita a partir da criação de um arquivo excel chamado "DE_PARA_ORGAO.xlsx" com categorias que puderam ser identificadas do que fora preenchido. Aqueles registros em que não foi possível identificar o conteúdo foi chamado de OUTROS. Além disso, transformou-se nessa categoria residual as instâncias com baixa frequência. Categorias com pouca representatividade contribuem para risco de **overfitting**<sup id="fnref-8" class="footnote"><a href="#fn-8">8</a></sup> e, para evitar tal problema, é preciso que tal campo seja tratado<sup id="fnref-9" class="footnote"><a href="#fn-9">9</a></sup>. Abaixo o código:
+
+```{r}
+#| echo: true
+#| eval: true
+
+# Importando tabela "DE_PARA_ORGAO" para cruzamento
+df_orgao <- read_excel('DE_PARA_ORGAO.xlsx')
+
+df_orgao <- df_orgao %>%
+  rename(orgao = DE)
+
+# Convertendo a coluna 'orgao' para caixa alta em df_orgao
+df_orgao <- df_orgao %>%
+  mutate(orgao_UC = toupper(orgao))
+
+# Convertendo a coluna 'orgao' para caixa alta em df_tbl_final
+df_tbl_final <- df_tbl_final %>%
+  mutate(orgao_UC = toupper(orgao))
+
+# Realizando a junção (merge) dos DataFrames
+df_tbl_final <- df_tbl_final %>%
+  left_join(df_orgao %>% select(orgao_UC, PARA_ORGAO_PADR), by = "orgao_UC")
+
+df_composicao <- df_tbl_final %>%
+  count(PARA_ORGAO_PADR) %>%
+  mutate(percent = (n / sum(n)) * 100) %>%
+  arrange(desc(n)) %>%
+  mutate(cum_percent = cumsum(percent)) %>%
+  mutate(percent = round(percent, 1),
+         cum_percent = round(cum_percent, 1)) %>%
+  mutate(PARA_ORGAO_PADR = ifelse(cum_percent > 80, "OUTROS", PARA_ORGAO_PADR)) %>%
+  group_by(PARA_ORGAO_PADR) %>%
+  summarise(n = sum(n)) %>%
+  ungroup() %>%
+  mutate(percent = (n / sum(n)) * 100) %>%
+  arrange(desc(n)) %>%
+  mutate(cum_percent = cumsum(percent)) %>%
+  mutate(percent = round(percent, 1),
+         cum_percent = round(cum_percent, 1))
+
+```
+
+### Composição final dos órgãos
+
+Após a transformação, chega-se à seguinte composição final para o campo "órgão"<sup id="fnref-2" class="footnote"><a href="#fn-2">2</a></sup> <sup id="fnref-3" class="footnote"><a href="#fn-3">3</a></sup>:
+
+```{r}
+#| echo: false
+#| eval: true
+
+# Carregue as bibliotecas necessárias
+library(dplyr)
+
+# Use a função kable() para imprimir a tabela
+kable(df_composicao, caption = "Composição de Órgão")
+
+ggplot(df_composicao, aes(x = reorder(PARA_ORGAO_PADR, -n))) +
+  geom_bar(aes(y = n), stat = "identity", fill = "steelblue") +
+  geom_line(aes(y = cum_percent * max(n) / 100, group = 1), color = "red", size = 1) +
+  geom_point(aes(y = cum_percent * max(n) / 100), color = "red", size = 2) +
+  scale_y_continuous(
+    name = "Contagem",
+    sec.axis = sec_axis(~ . / max(df_composicao$n) * 100, name = "Frequência Acumulada (%)")
+  ) +
+  labs(title = "Composição do Campo 'Órgão'",
+       x = "Órgão") +
+  theme_minimal() +
+  theme(
+    axis.text.x = element_blank(), # Remove os rótulos do eixo horizontal
+    axis.title.y.right = element_text(color = "red"), # Cor do título do eixo secundário
+    axis.text.y.right = element_text(color = "red"), # Cor dos rótulos do eixo secundário
+    panel.grid.major = element_line(color = "grey80", linetype = "dashed", size = 0.5), # Linhas de grade principais
+    panel.grid.minor = element_line(color = "grey90", linetype = "dashed", size = 0.25)  # Linhas de grade menores
+  )
+
+```
+
+Veja que a categoria residual é muito frequente, o que nos indica que o potencial explicativo deste atributo provavelmente é reduzido.
+
+## Do campo "carreira"
+
+O campo "carreira" corresponde à carreira ao qual o servidor estava vinculado ao ter sua aposentadoria concedida pelo instituto de previdência. É um campo livre que possivelmente terá pouco potencial explicativo na avaliação de risco. No entanto, faz-se uma mínima análise a seguir.
+
+### Composição inicial das carreiras
+
+Inicialmente, convém avaliarmos a composição dos dados<sup id="fnref-3" class="footnote"><a href="#fn-3">3</a></sup> de tal campo antes de qualquer transformação, para que se possa ter uma percepção acerca da quantidade de registros por categoria existente na base de dados<sup id="fnref-1" class="footnote"><a href="#fn-1">1</a></sup>. A seguir, observa-se a composição inicial do campo, em versões tabulada e gráfica<sup id="fnref-2" class="footnote"><a href="#fn-2">2</a></sup>:
+
+```{r}
+#| echo: false
+#| eval: true
+
+# Avalie a composição do campo "carreira"
+df_composicao <- df_tbl_final %>%
+  count(carreira) %>%
+  mutate(percent = (n / sum(n)) * 100) %>%
+  arrange(desc(n)) %>%
+  mutate(cum_percent = cumsum(percent)) %>%
+  mutate(percent = round(percent, 1),
+         cum_percent = round(cum_percent, 1))
+
+# Use a função kable() para imprimir a tabela
+kable(df_composicao, caption = "Composição de Carreira")
+
+# Gráfico de barras usando ggplot2
+ggplot(df_composicao, aes(x = reorder(carreira, -n))) +
+  geom_bar(aes(y = n), stat = "identity", fill = "steelblue") +
+  geom_line(aes(y = cum_percent * max(n) / 100, group = 1), color = "red", size = 1) +
+  geom_point(aes(y = cum_percent * max(n) / 100), color = "red", size = 2) +
+  scale_y_continuous(
+    name = "Frequência Absoluta (n)",
+    sec.axis = sec_axis(~ . / max(df_composicao$n) * 100, name = "Frequência Acumulada (%)")
+  ) +
+  labs(title = "Composição do Campo 'Carreira'",
+       x = "Carreira") +
+  theme_minimal() +
+  theme(
+    axis.text.x = element_blank(), # Remove os rótulos do eixo horizontal
+    axis.title.y.right = element_text(color = "red"), # Cor do título do eixo secundário
+    axis.text.y.right = element_text(color = "red"), # Cor dos rótulos do eixo secundário
+    panel.grid.major = element_line(color = "grey80", linetype = "dashed", size = 0.5), # Linhas de grade principais
+    panel.grid.minor = element_line(color = "grey90", linetype = "dashed", size = 0.25)  # Linhas de grade menores
+  )
+
+```
+
+### Transformação de categorias
+
+Perceba que, pelo fato de ser um campo descritivo de livre preenchimento, há uma dispersão enorme dos dados. Para que tal campo agregue minimamente algum valor, é preciso padronização. Tal padronização foi feita a partir da criação de um arquivo excel chamado "DE_PARA_CARREIRA.xlsx" com categorias padrão, transformando em categoria residual "Outros" as instâncias menos frequentes que representem os 20% finais da distribuição. Categorias com pouca representatividade contribuem para risco de overfitting<sup id="fnref-8" class="footnote"><a href="#fn-8">8</a></sup> e, para evitar tal problema, é preciso que tal campo seja tratado<sup id="fnref-9" class="footnote"><a href="#fn-9">9</a></sup>. Abaixo o código:
+
+```{r}
+#| echo: true
+#| eval: true
+
+# Importando tabela "DE_PARA_CARREIRA" para cruzamento
+df_carreira <- read_excel('DE_PARA_CARREIRA.xlsx')
+
+df_carreira <- df_carreira %>%
+  rename(carreira = DE)
+
+# Convertendo a coluna 'carreira' para caixa alta em df_carreira
+df_carreira <- df_carreira %>%
+  mutate(carreira_UC = toupper(carreira))
+
+# Convertendo a coluna 'carreira' para caixa alta em df_tbl_final
+df_tbl_final <- df_tbl_final %>%
+  mutate(carreira_UC = toupper(carreira))
+
+# Realizando a junção (merge) dos DataFrames
+df_tbl_final <- df_tbl_final %>%
+  left_join(df_carreira %>% select(carreira_UC, PARA_CARREIRA_PADR), by = "carreira_UC")
+
+df_composicao <- df_tbl_final %>%
+  count(PARA_CARREIRA_PADR) %>%
+  mutate(percent = (n / sum(n)) * 100) %>%
+  arrange(desc(n)) %>%
+  mutate(cum_percent = cumsum(percent)) %>%
+  mutate(percent = round(percent, 1),
+         cum_percent = round(cum_percent, 1)) %>%
+  mutate(PARA_CARREIRA_PADR = ifelse(cum_percent > 94, "OUTROS", PARA_CARREIRA_PADR)) %>%
+  group_by(PARA_CARREIRA_PADR) %>%
+  summarise(n = sum(n)) %>%
+  ungroup() %>%
+  mutate(percent = (n / sum(n)) * 100) %>%
+  arrange(desc(n)) %>%
+  mutate(cum_percent = cumsum(percent)) %>%
+  mutate(percent = round(percent, 1),
+         cum_percent = round(cum_percent, 1))
+
+```
+
+### Composição final das carreiras
+
+Após a transformação, chega-se à seguinte composição final para o campo "carreira"<sup id="fnref-2" class="footnote"><a href="#fn-2">2</a></sup> <sup id="fnref-3" class="footnote"><a href="#fn-3">3</a></sup>:
+
+```{r}
+#| echo: false
+#| eval: true
+
+# Carregue as bibliotecas necessárias
+library(dplyr)
+
+# Use a função kable() para imprimir a tabela
+kable(df_composicao, caption = "Composição de Carreira")
+
+ggplot(df_composicao, aes(x = reorder(PARA_CARREIRA_PADR, -n))) +
+  geom_bar(aes(y = n), stat = "identity", fill = "steelblue") +
+  geom_line(aes(y = cum_percent * max(n) / 100, group = 1), color = "red", size = 1) +
+  geom_point(aes(y = cum_percent * max(n) / 100), color = "red", size = 2) +
+  scale_y_continuous(
+    name = "Contagem",
+    sec.axis = sec_axis(~ . / max(df_composicao$n) * 100, name = "Frequência Acumulada (%)")
+  ) +
+  labs(title = "Composição do Campo 'Carreira'",
+       x = "Carreira") +
+  theme_minimal() +
+  theme(
+    axis.text.x = element_blank(), # Remove os rótulos do eixo horizontal
+    axis.title.y.right = element_text(color = "red"), # Cor do título do eixo secundário
+    axis.text.y.right = element_text(color = "red"), # Cor dos rótulos do eixo secundário
+    panel.grid.major = element_line(color = "grey80", linetype = "dashed", size = 0.5), # Linhas de grade principais
+    panel.grid.minor = element_line(color = "grey90", linetype = "dashed", size = 0.25)  # Linhas de grade menores
+  )
+
+```
+
+Veja que a categoria residual e outras categorias um tanto quanto genéricas são muito frequentes, o que nos indica que o potencial explicativo deste atributo deve ser reduzido.
+
+## Do campo "meiodepublicação"
+
+O campo "meiodepublicação" corresponde ao meio de publicação utilizado para a publicação do ato concessório de aposentadoria. É um campo livre que possivelmente terá pouco potencial explicativo na avaliação de risco. No entanto, faz-se uma mínima análise a seguir.
+
+### Composição inicial dos meios de publicação utilizados para concessão dos benefícios
+
+Inicialmente, convém avaliarmos a composição dos dados<sup id="fnref-3" class="footnote"><a href="#fn-3">3</a></sup> de tal campo antes de qualquer transformação, para que se possa ter uma percepção acerca da quantidade de registros por categoria existente na base de dados<sup id="fnref-1" class="footnote"><a href="#fn-1">1</a></sup>. A seguir, apresenta-se a composição inicial de tal campo, em versões tabulada e gráfica<sup id="fnref-2" class="footnote"><a href="#fn-2">2</a></sup>:
+
+```{r}
+#| echo: false
+#| eval: true
+
+# Avalie a composição do campo "meiopublicacaoconcessaobeneficio"
+df_composicao <- df_tbl_final %>%
+  count(meiopublicacaoconcessaobeneficio) %>%
+  mutate(percent = (n / sum(n)) * 100) %>%
+  arrange(desc(n)) %>%
+  mutate(cum_percent = cumsum(percent)) %>%
+  mutate(percent = round(percent, 1),
+         cum_percent = round(cum_percent, 1))
+
+# Use a função kable() para imprimir a tabela
+kable(df_composicao, caption = "Composição de Carreira")
+
+# Gráfico de barras usando ggplot2
+ggplot(df_composicao, aes(x = reorder(meiopublicacaoconcessaobeneficio, -n))) +
+  geom_bar(aes(y = n), stat = "identity", fill = "steelblue") +
+  geom_line(aes(y = cum_percent * max(n) / 100, group = 1), color = "red", size = 1) +
+  geom_point(aes(y = cum_percent * max(n) / 100), color = "red", size = 2) +
+  scale_y_continuous(
+    name = "Frequência Absoluta (n)",
+    sec.axis = sec_axis(~ . / max(df_composicao$n) * 100, name = "Frequência Acumulada (%)")
+  ) +
+  labs(title = "Composição do Campo 'Meio de Publicação Concessão Benefício'",
+       x = "Meio de Publicação") +
+  theme_minimal() +
+  theme(
+    axis.text.x = element_blank(), # Remove os rótulos do eixo horizontal
+    axis.title.y.right = element_text(color = "red"), # Cor do título do eixo secundário
+    axis.text.y.right = element_text(color = "red"), # Cor dos rótulos do eixo secundário
+    panel.grid.major = element_line(color = "grey80", linetype = "dashed", size = 0.5), # Linhas de grade principais
+    panel.grid.minor = element_line(color = "grey90", linetype = "dashed", size = 0.25)  # Linhas de grade menores
+  )
+
+```
+
+### Transformação de categorias
+
+Perceba que, pelo fato de ser um campo descritivo de livre preenchimento, há uma dispersão enorme dos dados. Para que tal campo agregue minimamente algum valor, é preciso uma padronização. Tal padronização foi feita a partir da criação de um arquivo excel chamado "DE_PARA_MEIOP.xlsx" com categorias padrão, transformando em categoria residual "Outros" as instâncias menos frequentes que representem os 20% finais da distribuição. Categorias com pouca representatividade contribuem para risco de overfitting<sup id="fnref-8" class="footnote"><a href="#fn-8">8</a></sup> e, para evitar tal problema, é preciso que tal campo seja tratado<sup id="fnref-9" class="footnote"><a href="#fn-9">9</a></sup>. Abaixo o código:
+
+```{r}
+#| echo: true
+#| eval: true
+
+# Importando tabela "DE_PARA_MEIOP" para cruzamento
+df_meiop <- read_excel('DE_PARA_MEIOP.xlsx')
+
+df_meiop <- df_meiop %>%
+  rename(meiopublicacaoconcessaobeneficio = DE)
+
+# Convertendo a coluna 'carreira' para caixa alta em df_carreira
+df_meiop <- df_meiop %>%
+  mutate(meiop_UC = toupper(meiopublicacaoconcessaobeneficio))
+
+# Convertendo a coluna 'carreira' para caixa alta em df_tbl_final
+df_tbl_final <- df_tbl_final %>%
+  mutate(meiop_UC = toupper(meiopublicacaoconcessaobeneficio))
+
+# Realizando a junção (merge) dos DataFrames
+df_tbl_final <- df_tbl_final %>%
+  left_join(df_meiop %>% select(meiop_UC, PARA_MEIOP_PADR), by = "meiop_UC")
+
+df_tbl_final <- df_tbl_final %>%
+  mutate(PARA_MEIOP_PADR = ifelse(is.na(PARA_MEIOP_PADR), 'OUTROS', PARA_MEIOP_PADR))
+
+df_composicao <- df_tbl_final %>%
+  count(PARA_MEIOP_PADR) %>%
+  mutate(percent = (n / sum(n)) * 100) %>%
+  arrange(desc(n)) %>%
+  mutate(cum_percent = cumsum(percent)) %>%
+  mutate(percent = round(percent, 1),
+         cum_percent = round(cum_percent, 1)) %>%
+  mutate(PARA_MEIOP_PADR = ifelse(cum_percent > 90, "OUTROS", PARA_MEIOP_PADR)) %>%
+  group_by(PARA_MEIOP_PADR) %>%
+  summarise(n = sum(n)) %>%
+  ungroup() %>%
+  mutate(percent = (n / sum(n)) * 100) %>%
+  arrange(desc(n)) %>%
+  mutate(cum_percent = cumsum(percent)) %>%
+  mutate(percent = round(percent, 1),
+         cum_percent = round(cum_percent, 1))
+
+```
+
+### Composição final dos meios de publicação utilizados para concessão dos benefícios
+
+Após a transformação, chega-se à seguinte composição final para o campo "PARA_MEIOP_PADR"<sup id="fnref-2" class="footnote"><a href="#fn-2">2</a></sup> <sup id="fnref-3" class="footnote"><a href="#fn-3">3</a></sup>:
+
+```{r}
+#| echo: false
+#| eval: true
+
+# Carregue as bibliotecas necessárias
+library(dplyr)
+
+# Use a função kable() para imprimir a tabela
+kable(df_composicao, caption = "Composição de Meio de Publicação")
+
+ggplot(df_composicao, aes(x = reorder(PARA_MEIOP_PADR, -n))) +
+  geom_bar(aes(y = n), stat = "identity", fill = "steelblue") +
+  geom_line(aes(y = cum_percent * max(n) / 100, group = 1), color = "red", size = 1) +
+  geom_point(aes(y = cum_percent * max(n) / 100), color = "red", size = 2) +
+  scale_y_continuous(
+    name = "Contagem",
+    sec.axis = sec_axis(~ . / max(df_composicao$n) * 100, name = "Frequência Acumulada (%)")
+  ) +
+  labs(title = "Composição do Campo 'Meio de Publicação'",
+       x = "Meio de Publicação") +
+  theme_minimal() +
+  theme(
+    axis.text.x = element_blank(), # Remove os rótulos do eixo horizontal
+    axis.title.y.right = element_text(color = "red"), # Cor do título do eixo secundário
+    axis.text.y.right = element_text(color = "red"), # Cor dos rótulos do eixo secundário
+    panel.grid.major = element_line(color = "grey80", linetype = "dashed", size = 0.5), # Linhas de grade principais
+    panel.grid.minor = element_line(color = "grey90", linetype = "dashed", size = 0.25)  # Linhas de grade menores
+  )
+
+```
+
+## Do campo "qtd_de_vinculos"
+
+Os campos "total_vinculos", "qtd_vinculos_priv", "qtd_vinculos_pub", "qtd_vinculos_mesmo_cargo" e "qtd_vinculos_mesma_carreira" representam, respectivamente, a quantidade de vínculos totais, privados, públicos, no mesmo cargo e na mesma carreira que o aposentado teve ao longo de sua vida funcional. O código abaixo cria categorias para tais variáveis, de maneira a permitir sua interpretação pelos modelos de aprendizagem de máquina a serem aplicados<sup id="fnref-9" class="footnote"><a href="#fn-9">9</a></sup>:
+
+```{r}
+#| echo: true
+#| eval: true
+
+# Criar categorias para a quantidade de vínculos totais 
+# Função para categorização
+categorizar_vinculos <- function(qtd) {
+  if (qtd == 1) {
+    return('1 vínculo')
+  } else if (qtd == 2) {
+    return('2 vínculos')
+  } else if (qtd == 3) {
+    return('3 vínculos')
+  } else if (qtd == 4) {
+    return('4 vínculos')
+  } else {
+    return('5 ou mais vínculos')
+  }
+}
+
+# Aplicar a função à coluna e atribuir o resultado a uma nova coluna
+df_tbl_final <- df_tbl_final %>%
+  mutate(qtd_vinculos_padr = sapply(qtd_vinculos, categorizar_vinculos))
+
+# Criar categorias para a quantidade de vínculos privados 
+# Função para aplicar a lógica desejada
+categorizar_vinculos_priv <- function(qtd) {
+  if (qtd == 0) {
+    return('Nenhum vínculo privado')
+  } else if (qtd == 1) {
+    return('1 vínculo privado')
+  } else if (qtd == 2) {
+    return('2 vínculos privados')
+  } else {
+    return('3 ou mais vínculos privados')
+  }
+}
+
+# Aplicar a função à coluna e atribuir o resultado a uma nova coluna
+df_tbl_final <- df_tbl_final %>%
+  mutate(qtd_vinculos_privados_padr = sapply(qtd_vinculos_priv, categorizar_vinculos_priv))
+
+# Criar categorias para a quantidade de vínculos públicos
+# Função para aplicar a lógica desejada
+categorizar_vinculos_pub <- function(qtd) {
+  if (qtd == 0) {
+    return('Nenhum vínculo público')
+  } else if (qtd == 1) {
+    return('1 vínculo público')
+  } else if (qtd == 2) {
+    return('2 vínculos públicos')
+  } else if (qtd == 3) {
+    return('3 vínculos públicos')
+  } else {
+    return('4 ou mais vínculos públicos')
+  }
+}
+
+# Aplicar a função à coluna e atribuir o resultado a uma nova coluna
+df_tbl_final <- df_tbl_final %>%
+  mutate(qtd_vinculos_pub_padr = sapply(qtd_vinculos_pub, categorizar_vinculos_pub))
+
+# Criar categorias para a quantidade de vínculos no mesmo cargo
+# Função para aplicar a lógica desejada
+categorizar_vinculos_mesmo_cargo <- function(qtd) {
+  if (qtd == 1) {
+    return('1 vínculo')
+  } else if (qtd == 2) {
+    return('2 vínculos')
+  } else {
+    return('3 ou mais vínculos')
+  }
+}
+
+# Aplicar a função à coluna e atribuir o resultado a uma nova coluna
+df_tbl_final <- df_tbl_final %>%
+  mutate(qtd_vinculos_mesmo_cargo_padr = sapply(qtd_vinculos_mesmo_cargo, categorizar_vinculos_mesmo_cargo))
+
+# Criar categorias para a quantidade de vínculos na mesma carreira
+# Função para aplicar a lógica desejada
+categorizar_vinculos_mesma_carreira <- function(qtd) {
+  if (qtd == 1) {
+    return('1 vínculo')
+  } else if (qtd == 2) {
+    return('2 vínculos')
+  } else {
+    return('3 ou mais vínculos')
+  }
+}
+
+# Aplicar a função à coluna e atribuir o resultado a uma nova coluna
+df_tbl_final <- df_tbl_final %>%
+  mutate(qtd_vinculos_mesma_carreira_padr = sapply(qtd_vinculos_mesma_carreira, categorizar_vinculos_mesma_carreira))
+
+```
+
+Após tais categorizações, chega-se às seguintes composições finais<sup id="fnref-2" class="footnote"><a href="#fn-2">2</a></sup> <sup id="fnref-3" class="footnote"><a href="#fn-3">3</a></sup>
+
+```{r}
+#| echo: false
+#| eval: true
+
+# Carregue as bibliotecas necessárias
+library(dplyr)
+
+# Verifique a nova composição do campo "vinculos totais"
+df_composicao <- df_tbl_final %>%
+  count(qtd_vinculos_padr) %>%
+  mutate(percent = (n / sum(n)) * 100) %>%
+  arrange(desc(n)) %>%
+  mutate(cum_percent = cumsum(percent)) %>%
+  mutate(percent = round(percent, 1),
+         cum_percent = round(cum_percent, 1))
+
+# Use a função kable() para imprimir a tabela
+kable(df_composicao, caption = "Composição de Vínculos Totais")
+
+# Verifique a nova composição do campo "Composição de Vínculos Privados"
+df_composicao <- df_tbl_final %>%
+  count(qtd_vinculos_privados_padr) %>%
+  mutate(percent = (n / sum(n)) * 100) %>%
+  arrange(desc(n)) %>%
+  mutate(cum_percent = cumsum(percent)) %>%
+  mutate(percent = round(percent, 1),
+         cum_percent = round(cum_percent, 1))
+
+# Use a função kable() para imprimir a tabela
+kable(df_composicao, caption = "Composição de Vínculos Privados")
+
+
+# Verifique a nova composição do campo "Composição de Vínculos Públicos"
+df_composicao <- df_tbl_final %>%
+  count(qtd_vinculos_pub_padr) %>%
+  mutate(percent = (n / sum(n)) * 100) %>%
+  arrange(desc(n)) %>%
+  mutate(cum_percent = cumsum(percent)) %>%
+  mutate(percent = round(percent, 1),
+         cum_percent = round(cum_percent, 1))
+
+# Use a função kable() para imprimir a tabela
+kable(df_composicao, caption = "Composição de Vínculos Públicos")
+
+# Verifique a nova composição do campo "Composição de Vínculos no mesmo cargo"
+df_composicao <- df_tbl_final %>%
+  count(qtd_vinculos_mesmo_cargo_padr) %>%
+  mutate(percent = (n / sum(n)) * 100) %>%
+  arrange(desc(n)) %>%
+  mutate(cum_percent = cumsum(percent)) %>%
+  mutate(percent = round(percent, 1),
+         cum_percent = round(cum_percent, 1))
+
+# Use a função kable() para imprimir a tabela
+kable(df_composicao, caption = "Composição de Vínculos no mesmo cargo")
+
+# Verifique a nova composição do campo "Composição de Vínculos na mesma carreira"
+df_composicao <- df_tbl_final %>%
+  count(qtd_vinculos_mesma_carreira_padr) %>%
+  mutate(percent = (n / sum(n)) * 100) %>%
+  arrange(desc(n)) %>%
+  mutate(cum_percent = cumsum(percent)) %>%
+  mutate(percent = round(percent, 1),
+         cum_percent = round(cum_percent, 1))
+
+# Use a função kable() para imprimir a tabela
+kable(df_composicao, caption = "Composição de Vínculos na mesma carreira")
+
+```
+
+## Do campo "cargo"
+
+O campo cargo é importantíssimo para a avaliação de risco, pois cada cargo tem previsão própria na legislação, com parcelas remuneratórias específicas à sua natureza. No entanto, de igual modo à maioria dos campos nesta base de dados, é de preenchimento livre pelo instituto de previdência, o que tem permitido o envio de dados com erros de escrita e que muitas vezes não se consegue extrair sentido.
+
+### Composição inicial dos cargos
+
+Inicialmente, convém avaliarmos a composição dos dados<sup id="fnref-3" class="footnote"><a href="#fn-3">3</a></sup> de tal campo antes de qualquer transformação, para que se possa ter uma percepção acerca da quantidade de registros por categoria existente na base de dados<sup id="fnref-1" class="footnote"><a href="#fn-1">1</a></sup>. A seguir, apresenta-se a composição inicial de tal campo, em versões tabulada e gráfica<sup id="fnref-2" class="footnote"><a href="#fn-2">2</a></sup>:
+
+```{r}
+#| echo: false
+#| eval: true
+
+# Avalie a composição do campo "cargo"
+df_composicao <- df_tbl_final %>%
+  count(cargo) %>%
+  mutate(percent = (n / sum(n)) * 100) %>%
+  arrange(desc(n)) %>%
+  mutate(cum_percent = cumsum(percent)) %>%
+  mutate(percent = round(percent, 1),
+         cum_percent = round(cum_percent, 1))
+
+# Use a função kable() para imprimir a tabela
+kable(df_composicao, caption = "Composição de Cargo")
+
+# Gráfico de barras usando ggplot2
+ggplot(df_composicao, aes(x = reorder(cargo, -n))) +
+  geom_bar(aes(y = n), stat = "identity", fill = "steelblue") +
+  geom_line(aes(y = cum_percent * max(n) / 100, group = 1), color = "red", size = 1) +
+  geom_point(aes(y = cum_percent * max(n) / 100), color = "red", size = 2) +
+  scale_y_continuous(
+    name = "Frequência Absoluta (n)",
+    sec.axis = sec_axis(~ . / max(df_composicao$n) * 100, name = "Frequência Acumulada (%)")
+  ) +
+  labs(title = "Composição do Campo 'Cargo'",
+       x = "Cargo") +
+  theme_minimal() +
+  theme(
+    axis.text.x = element_blank(), # Remove os rótulos do eixo horizontal
+    axis.title.y.right = element_text(color = "red"), # Cor do título do eixo secundário
+    axis.text.y.right = element_text(color = "red"), # Cor dos rótulos do eixo secundário
+    panel.grid.major = element_line(color = "grey80", linetype = "dashed", size = 0.5), # Linhas de grade principais
+    panel.grid.minor = element_line(color = "grey90", linetype = "dashed", size = 0.25)  # Linhas de grade menores
+  )
+
+```
+
+### Transformação de categorias
+
+Nesse contexto, à luz da alta dispersão, é importante fazer um tratamento amplo para padronização, identificando os cargos ou categorias de cargos que possuem características similares<sup id="fnref-9" class="footnote"><a href="#fn-9">9</a></sup>. Isso é atingido a partir do código abaixo:
+
+```{r, results='hide'}
+#| echo: true
+#| eval: true
+
+# Convertendo a coluna 'cargo' para string
+df_tbl_final$cargo <- as.character(df_tbl_final$cargo)
+
+# Tratamento 1: uniformizando para letras minúsculas
+df_tbl_final$cargo <- tolower(df_tbl_final$cargo)
+
+df_tbl_final['cargo_antigo'] = df_tbl_final['cargo']
+
+# Tratamento 2: Separando todos os que são professores
+
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("prof|pedago| mag 1|porof|prefessora|mag 1|prfoessor", ignore_case = FALSE))] <- "Professor"
+
+# Tratamento 3: Separando os regentes de ensino
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("regente|ensino", ignore_case = FALSE))] <- "Regente de Ensino"
+
+# Tratamento 4: Separando os administrativos
+
+# Agente Administrativo
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("ag administrativo|agente de apoio administrativo|agente de at.adm|técnico adm|agente de ativ administrat|tecnico adm|asist tecnico adm|agente de adm|agente de ativ. adm|assessor p/ ass adm|agende administrativo|agente de administração|agente adm", ignore_case = FALSE))] <- "Agente Administrativo"
+
+# Auxiliar Administrativo
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("apoio administrativo|assistente em administração|assitente administrativo|assit.adm|assistente adm|assistente de administração|assitente de adm|auxiliar tec adm|assessor p/ ass. adm.|acessor p ass adm|assessor p ass adm|auxilia adm|assistent tec adm|assist.adm|assistente de administracao|agente aux atvi adm|aux de administração|auxiliar de adm|ag adm auxiliar|assistente p/ ass adm geral|assessor adm|ag. atv. adm.|auxiliar de administração|assistente administrativo|auxiliar adm|aux adm|aux. adm| aux. de adm|aux. de adm.|assist. adm|assessor de adm", ignore_case = FALSE))] <- "Auxiliar Administrativo"
+
+# Administrador
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("administrador", ignore_case = FALSE))] <- "Administrador"
+
+# Tratamento 5: Separando os auxiliares por classe.. até a residual
+# Auxiliar de Serviços
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("agende de serviços gerais|agente de serviços gerais|auxiliar oper. serv. diversos|auxiliar operacional serv diversos|auxilio de serviço|auxiliar operacional de serviços|auxilair de serviço|auxiiliar de serviços gerai|aux de serv gerais|aux.de servicos|auxiliar de sreviços|aux serv diversos|auxilar de serviços|auxiliar de serviço|aux de serviço|auxiliar de serviços|agente de serv auxiliares|auxiliar de servico|aux. serv. gerais|aux serviços gerais|auxiliar serviços|auxilair de serviços|auxíliar de serviços|auxiliar servicos gerais|auxilia de serviço gerais|auxiliar de sreviço|auxiliar operacional de serviços|auxiliar de seriços gerais|auxiliar de serv, gerais|auxíliar de serviços gerais|auxiliar de serv, gerais|auxilia de serviços gerais|auxiliar de seviços|auxiliar de servisos gerais|auxiliar de servições gerais|auxiliar de sreviço gerias|aux. de serviços|auxuliar de serviços|aux.serviços gerais|auxilair de serviços gerais|aux oper ser diversos|aux serv|aux. ser gerais|aux.de servico|aux. serviços|auxiliar de servços|auxiliar oper serv diversos|aux. ser. gerais|aux ser gerais|agente de servicos gerais", ignore_case = FALSE))] <- "Auxiliar de Serviços"
+
+# Auxiliar Legislativo
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("leg", ignore_case = FALSE)) & str_detect(df_tbl_final$cargo, regex("aux", ignore_case = FALSE))] <- "Auxiliar Legislativo"
+
+# Auxiliar de Limpeza Urbana
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("limp", ignore_case = FALSE)) & str_detect(df_tbl_final$cargo, regex("aux", ignore_case = FALSE))] <- "Auxiliar de Limpeza Urbana"
+
+# Auxiliar de Limpeza Urbana (outras descrições)
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("agente limpeza publica|agente de limpeza|gari|garí", ignore_case = FALSE))] <- "Auxiliar de Limpeza Urbana"
+
+# Auxiliar Técnico
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("tecn|técn", ignore_case = FALSE)) & str_detect(df_tbl_final$cargo, regex("aux", ignore_case = FALSE))] <- "Auxiliar Técnico"
+
+# Auxiliar de Enfermagem
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("enf", ignore_case = FALSE)) & str_detect(df_tbl_final$cargo, regex("aux", ignore_case = FALSE))] <- "Auxiliar de Enfermagem"
+
+# Auxiliar de Biblioteca
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("bib|cult", ignore_case = FALSE)) & str_detect(df_tbl_final$cargo, regex("aux", ignore_case = FALSE))] <- "Auxiliar de Biblioteca"
+
+# Monitor de Creche
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("creche|ass. de berçário", ignore_case = FALSE))] <- "Monitor de Creche"
+
+# Auxiliares - Residual
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("aux", ignore_case = FALSE))] <- "Auxiliares - Residual"
+
+# Tratamento 6: Grupo da Enfermagem
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("enf", ignore_case = FALSE)) & str_detect(df_tbl_final$cargo, regex("tec|téc", ignore_case = FALSE))] <- "Técnico em Enfermagem"
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("tecnico de emfermagem", ignore_case = FALSE))] <- "Técnico em Enfermagem"
+
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("enferme", ignore_case = FALSE))] <- "Enfermeiro"
+
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("enf", ignore_case = FALSE))] <- "Assistente de Enfermagem"
+
+# Tratamento 7: Técnicos
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("téc|tec", ignore_case = FALSE)) & str_detect(df_tbl_final$cargo, regex("médio|medio", ignore_case = FALSE))] <- "Técnicos - Nível Médio"
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("tec. niv. med. contabil|tenico de nivel medio", ignore_case = FALSE))] <- "Técnicos - Nível Médio"
+
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("téc|tec", ignore_case = FALSE)) & str_detect(df_tbl_final$cargo, regex("sup", ignore_case = FALSE))] <- "Técnicos - Nível Superior"
+
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("téc|tec", ignore_case = FALSE)) & str_detect(df_tbl_final$cargo, regex("legi", ignore_case = FALSE))] <- "Técnico Legislativo"
+
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("cons", ignore_case = FALSE)) & str_detect(df_tbl_final$cargo, regex("tecni|técni|jur|leg|sup", ignore_case = FALSE))] <- "Consultor"
+
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("téc|tec", ignore_case = FALSE)) & str_detect(df_tbl_final$cargo, regex("jud", ignore_case = FALSE))] <- "Técnico Judiciário"
+
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("técn|tecn", ignore_case = FALSE)) & str_detect(df_tbl_final$cargo, regex("assi", ignore_case = FALSE))] <- "Assistente Técnico"
+
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("parteira|apurador de dados|ilustrador|vendedor|diagramador|consultor de sistema|terapeuta ocupacional|relações publicas|ofic registro|agente documentarista|estatistico|tesoureiro|programador|almoxarife|publicitario|ag previdencia|tec.minist.delig.apoio|tec pol publicas e gestão gov|tec. de plan e desenv rural|técn|tecn|ag tec metrologico|tec.pol.publicas e gestao gov.|tec. de gestao organizacional|mecanico|laboratorista|mecanografo|mecânico|desenhista|encanador|soldador", ignore_case = FALSE))] <- "Técnicos Especializados"
+
+# Tratamento 7: Peritos, Médicos, Dentistas, Psicólogos e Fisioterapeutas
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("perit", ignore_case = FALSE))] <- "Peritos"
+
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("med|méd", ignore_case = FALSE))] <- "Médicos"
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("clin|veterinário|veterinario", ignore_case = FALSE))] <- "Médicos"
+
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("odont|dentis", ignore_case = FALSE))] <- "Odontólogos"
+
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("psi|psocologa", ignore_case = FALSE))] <- "Psicólogos"
+
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("fisio", ignore_case = FALSE))] <- "Fisioterapeutas"
+
+# Tratamento 8: Agentes de Saúde
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("agente com|agente de com|acs", ignore_case = FALSE))] <- "Agente Comunitário de Saúde"
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("agende com|agente de sa", ignore_case = FALSE))] <- "Agente Comunitário de Saúde"
+
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("endemia|saude|saúde", ignore_case = FALSE))] <- "Agente de Combate à Endemias"
+
+# Tratamento 9: Agentes Fiscais
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("trib", ignore_case = FALSE)) & str_detect(df_tbl_final$cargo, regex("fis", ignore_case = FALSE))] <- "Agentes Fiscais - Tributos"
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("agente de tributos e posturas|auditor fiscal|agente arrecadador|agente de arrecadação|ag.f.de trib.munic|agente fiscal merc|fiscal de arrecadação", ignore_case = FALSE))] <- "Agentes Fiscais - Tributos"
+
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("fis", ignore_case = FALSE))] <- "Agentes Fiscais - Outros"
+
+# Tratamento 10: Profissionais de Biblioteca
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("biblio", ignore_case = FALSE))] <- "Agentes de Biblioteca - Não auxiliares"
+# Modificar a coluna 'cargo_novo' para "Atendentes" com base no padrão regex
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("atenden|recep|por", ignore_case = TRUE))] <- "Atendentes"
+
+# Tratamento 11: Juízes, Advogados, Auditores, Arquitetos, Engenheiros, Arquivistas etc...
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("juiz|desembargador", ignore_case = FALSE))] <- "Juiz"
+
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("adv", ignore_case = FALSE))] <- "Advogado"
+
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("procurad", ignore_case = FALSE))] <- "Procurador"
+
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("conta", ignore_case = FALSE))] <- "Contabilistas"
+
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("analista", ignore_case = FALSE))] <- "Analistas"
+
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("eng", ignore_case = FALSE)) & !str_detect(df_tbl_final$cargo, regex("engomadeira", ignore_case = FALSE))] <- "Engenheiro"
+
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("arquit", ignore_case = FALSE))] <- "Arquiteto"
+
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("arq", ignore_case = FALSE))] <- "Arquivista"
+
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("bioq", ignore_case = FALSE))] <- "Bioquímico"
+
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("bió|bio", ignore_case = FALSE))] <- "Biólogo"
+
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("econ", ignore_case = FALSE))] <- "Economista"
+
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("farm", ignore_case = FALSE))] <- "Farmacêutico"
+
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("ofici", ignore_case = FALSE))] <- "Oficial de Justiça"
+
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("dele", ignore_case = FALSE))] <- "Delegado"
+
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("nutri", ignore_case = FALSE))] <- "Nutricionista"
+
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("quim", ignore_case = FALSE))] <- "Químico"
+
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("repor|locu|jornalista", ignore_case = FALSE))] <- "Jornalista"
+
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("reda|revisor", ignore_case = FALSE))] <- "Redator"
+
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("fot|geo|geó|géo", ignore_case = FALSE))] <- "Fotógrafos, Geólogos e Geógrafos"
+
+# Tratamento 12: Profissionais da Educação - Exceto Professores
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("edu|escolar|pedagó", ignore_case = FALSE))] <- "Profissionais de Educação - Exceto Professores"
+
+# Tratamento 13: Agentes de Segurança
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("investigador|vigilantte|vigia|vigilante|segu|guarda|sar|agente protetivo|agente de vifilância|agente de investigação|agente de vigilância|escrivao", ignore_case = FALSE))] <- "Agentes de Segurança"
+
+# Tratamento 14: Motoristas e Merendeiras
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("moto|tratorista|condutor socorrista", ignore_case = FALSE))] <- "Motoristas"
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("meren|coz", ignore_case = FALSE))] <- "Cozinheiros"
+
+# Tratamento 15: Assistente Legislativo
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("legis", ignore_case = FALSE))] <- "Assistente Legislativo"
+
+# Tratamento 16: Assistente Social
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("social", ignore_case = FALSE))] <- "Assistente Social"
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("soci", ignore_case = FALSE))] <- "Sociólogo"
+
+# Tratamento 17: Trabalhadores, Zeladores e Escriturários
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("escri|escrtiturária|esvriturário", ignore_case = FALSE))] <- "Escriturário"
+
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("protoco|paginado|costur|lavadeir|engoma|cabe|varr|pod|pol|serv|efetivo|asc|pintor|perf|borda|sani|jard|marc|carp|serviços diversos|serviços gerais|trab|servente|pedreiro|operario|operário|montador|monitor", ignore_case = FALSE))] <- "Trabalhador sem especificicação"
+
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("zel", ignore_case = FALSE))] <- "Zelador"
+
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("tel", ignore_case = FALSE))] <- "Telefonista"
+
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("agente de", ignore_case = FALSE))] <- "Agentes Especializados"
+
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("digi|dati|datrilógrafo", ignore_case = FALSE))] <- "Digitador"
+
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("cov", ignore_case = FALSE))] <- "Coveiro"
+
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("elet", ignore_case = FALSE))] <- "Eletricista"
+
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("mus|mús|violinista", ignore_case = FALSE))] <- "Músico"
+
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("asse|chefe|secre|super|assist", ignore_case = FALSE))] <- "Assessor"
+
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("artí|arti", ignore_case = FALSE))] <- "Artífice"
+
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("op|contro", ignore_case = FALSE))] <- "Operadores em Geral"
+
+df_tbl_final$cargo[str_detect(df_tbl_final$cargo, regex("a.s.g|a.g.s|a.g.s.", ignore_case = FALSE))] <- "ASG"
+
+#### Visão Geral: Classificados
+
+classificados <- c("Professor", "Regente de Ensino", "Agente Administrativo", "Auxiliar Administrativo", "Administrador",
+                   "Auxiliar de Serviços", "Auxiliar Legislativo", "Auxiliar de Limpeza Urbana", "Auxiliar Técnico",
+                   "Auxiliar de Enfermagem", "Auxiliar de Biblioteca", "Monitor de Creche", "Auxiliares - Residual",
+                   "Técnico em Enfermagem", "Enfermeiro", "Assistente de Enfermagem", "Técnicos - Nível Médio",
+                   "Técnicos - Nível Superior", "Técnico Legislativo", "Consultor", "Assistente Técnico", "Técnico Judiciário",
+                   "Técnicos Especializados", "Peritos", "Médicos", "Odontólogos", "Psicólogos", "Fisioterapeutas", "Agente Comunitário de Saúde",
+                   "Agente de Combate à Endemias", "Agentes Fiscais - Tributos", "Agentes Fiscais - Outros", "Agentes de Biblioteca - Não auxiliares",
+                   "Atendentes", "Juiz", "Advogado", "Procurador", "Defensor", "Auditor", "Contabilistas", "Analistas", "Engenheiro", "Arquiteto", "Arquivista",
+                   "Profissionais de Educação - Exceto Professores", "Agentes de Segurança", "Motoristas", "Cozinheiros",
+                   "Assistente Legislativo", "Assistente Social", "Sociólogo", "Bioquímico", "Biólogo", "Economista", "Escriturário",
+                   "Trabalhador sem especificicação", "Telefonista", "Agentes Especializados", "Zelador", "Farmacêutico", "Oficial de Justiça",
+                   "Digitador", "Delegado", "Nutricionista", "Coveiro", "Eletricista", "Músico", "Assessor", "Artífice", "Químico", "Operadores em Geral",
+                   "Jornalista", "Redator", "ASG", "Fotógrafos, Geológos e Geógrafos")
+
+class(classificados)
+
+# Create a copy of the DataFrame to avoid modifying the original data
+df_modified <- df_tbl_final
+
+# Identify rows where "cargo" is not in "classificados"
+mask <- !df_modified$cargo %in% classificados
+
+#### Tratamento 18: Residual - Classe: Outros. Profissionais em que não consegui identificar o nível de comprlexidade (Médio, Superior ou Fundamental e, de acordo com a quantidade deles, não valeu a pena criar uma categoria própria para eles
+
+# Atualiza as linhas onde a condição é verdadeira com o valor "Outros"
+df_tbl_final$cargo[mask] <- "Outros"
+
+# Contagem das ocorrências de cada conteúdo na coluna "descricao"
+contagem_cargo <- table(df_tbl_final$cargo)
+
+# Lista dos valores que ocorrem mais de 50 vezes
+cargos_mais_de_50 <- names(contagem_cargo[contagem_cargo > 50])
+
+# Mapeando os valores para "Outros" se ocorrerem menos de 50 vezes
+df_tbl_final$PARA_cargo <- sapply(df_tbl_final$cargo, function(x) if (x %in% cargos_mais_de_50) x else "Outros")
+```
+
+### Composição final dos cargos
+
+Após a transformação, chega-se ao seguinte resultado para o campo "cargo", após as transformações<sup id="fnref-2" class="footnote"><a href="#fn-2">2</a></sup> <sup id="fnref-3" class="footnote"><a href="#fn-3">3</a></sup>:
+
+```{r}
+#| echo: false
+#| eval: true
+
+# Avalie a composição do campo "cargo"
+df_composicao <- df_tbl_final %>%
+  count(PARA_cargo) %>%
+  mutate(percent = (n / sum(n)) * 100) %>%
+  arrange(desc(n)) %>%
+  mutate(cum_percent = cumsum(percent)) %>%
+  mutate(percent = round(percent, 1),
+         cum_percent = round(cum_percent, 1))
+
+# Use a função kable() para imprimir a tabela
+kable(df_composicao, caption = "Composição de Cargo")
+
+ggplot(df_composicao, aes(x = reorder(PARA_cargo, -n))) +
+  geom_bar(aes(y = n), stat = "identity", fill = "steelblue") +
+  geom_line(aes(y = cum_percent * max(n) / 100, group = 1), color = "red", size = 1) +
+  geom_point(aes(y = cum_percent * max(n) / 100), color = "red", size = 2) +
+  scale_y_continuous(
+    name = "Contagem",
+    sec.axis = sec_axis(~ . / max(df_composicao$n) * 100, name = "Frequência Acumulada (%)")
+  ) +
+  labs(title = "Composição do Campo 'Cargo'",
+       x = "Cargo") +
+  theme_minimal() +
+  theme(
+    axis.text.x = element_blank(), # Remove os rótulos do eixo horizontal
+    axis.title.y.right = element_text(color = "red"), # Cor do título do eixo secundário
+    axis.text.y.right = element_text(color = "red"), # Cor dos rótulos do eixo secundário
+    panel.grid.major = element_line(color = "grey80", linetype = "dashed", size = 0.5), # Linhas de grade principais
+    panel.grid.minor = element_line(color = "grey90", linetype = "dashed", size = 0.25)  # Linhas de grade menores
+  )
+
+```
+
+## Incorporação de indicador de salário mínimo sobre o benefício
+
+Tendo em vista serem processos que os Auditores dão menos atenção pela baixa materialidade, é importante que se crie um campo para identificar todas as concessões de aposentadoria que tem valores de proventos menores ou iguais ao salário mínimo. Trata-se de importante etapa de ***feature engineering***<sup id="fnref-9" class="footnote"><a href="#fn-9">9</a></sup>. Isso é feito utilizando-se a tabela auxiliar "Salario_Minimo.xlsx", a qual contém os valores oficiais do salário mínimo nacional de acordo com as datas iniciais e finais de vigência.
+
+Perceba que tal indicador só é possível de ser calculado quando o campo "datapublicacaoconcessaobeneficio" for devidamente preenchido pelo instituto de previdência. Portanto, para que não haja valores ausentes<sup id="fnref-4" class="footnote"><a href="#fn-4">4</a></sup>, os registros em que tal data não estiver preenchida são excluídos<sup id="fnref-10" class="footnote"><a href="#fn-10">10</a></sup>. Vejamos:
+
+```{r}
+#| echo: true
+#| eval: true
+
+# Importar tabela auxiliar de salário mínimo
+df_salariominimo <- read_excel('Salario_Minimo.xlsx')
+
+# Descartando os benefícios que não tiveram data de concessão registrada
+df_tbl_final <- df_tbl_final %>% drop_na(datapublicacaoconcessaobeneficio)
+
+# Convertendo as colunas de data para o tipo datetime, se necessário
+df_tbl_final$datapublicacaoconcessaobeneficio <- as_datetime(df_tbl_final$datapublicacaoconcessaobeneficio)
+df_salariominimo$`Data Inicio` <- as_datetime(df_salariominimo$`Data Inicio`)
+df_salariominimo$`Data Fim` <- as_datetime(df_salariominimo$`Data Fim`)
+
+# Ordenando os DataFrames pela coluna de data
+df_tbl_final <- df_tbl_final %>% arrange(datapublicacaoconcessaobeneficio)
+df_salariominimo <- df_salariominimo %>% arrange(`Data Inicio`)
+
+# Realizando a mesclagem dos DataFrames
+# install.packages("fuzzyjoin")
+library(fuzzyjoin)
+df_tbl_final <- df_tbl_final %>%
+  fuzzy_left_join(df_salariominimo, 
+                  by = c("datapublicacaoconcessaobeneficio" = "Data Inicio",
+                         "datapublicacaoconcessaobeneficio" = "Data Fim"),
+                  match_fun = list(`>=`, `<=`))
+
+# Filtrando os registros e selecionando as colunas desejadas
+df_tbl_final <- df_tbl_final %>%
+  filter(!is.na(`Valor em reais`))
+
+# Se desejar, você pode remover linhas duplicadas, se houver
+df_tbl_final <- df_tbl_final %>% distinct()
+
+# Criando o novo campo com base na lógica fornecida
+df_tbl_final <- df_tbl_final %>%
+  mutate(indicador_sm = ifelse(valor_Proventos <= `Valor em reais`, 1, 0))
+
+```
+
+## Do campo "proventos"
+
+Lembre-se que o campo "proventos" foi obtido a partir da tabela auxiliar "prev_proventos" e que, ao ser incorporado na tabela consolidada, foi criado o campo "nome_Proventos", no qual há o nome das parcelas que compõem os proventos de aposentadoria separados por barras. Observa abaixo um exemplo de 10 registros<sup id="fnref-3" class="footnote"><a href="#fn-3">3</a></sup>:
+
+```{r}
+#| echo: false
+#| eval: true
+
+# Avalie a composição do campo "cargo"
+sample(df_tbl_final$nome_Proventos,10)
+
+```
+
+Perceba que não faz muito sentido apresentarmos a composição inicial, uma vez que as combinações possíveis são muito diversas. A ideia do código é padronizar as diferentes possíveis categorias de proventos e transformar essa coluna em tantas colunas quantas forem as categorias de proventos padronizadas. Cada uma dessas novas colunas será binária e indicará se cada processo de aposentadoria possui ou não aquele tipo de parcela de proventos sendo paga ao beneficiário<sup id="fnref-9" class="footnote"><a href="#fn-9">9</a></sup>. Além disso, filtram-se os registros que não há proventos preenchidos<sup id="fnref-10" class="footnote"><a href="#fn-10">10</a></sup>. Vejamos:
+
+```{r, results='hide'}
+#| echo: true
+#| eval: true
+
+dados_df <- df_tbl_final
+
+# Tratamento 1: uniformizando para letras minúsculas e em uma nova coluna
+
+dados_df$proventos <- tolower(dados_df$nome_Proventos)
+
+# Tratamento 3: Tentando o split no subdataframe com o expand.
+# Retirando os "NA" e os substituindo por "zero"
+
+df_proventos <- dados_df[, c("protocolo", "proventos")] %>%
+  filter(!is.na(proventos)) %>%
+  mutate(proventos = as.character(proventos)) %>%
+  separate(proventos, into = paste0("col", 1:10), sep = "/", fill = "right", remove = FALSE, convert = FALSE) %>%
+  replace_na(list(col1 = "0", col2 = "0", col3 = "0", col4 = "0", col5 = "0", col6 = "0", col7 = "0", col8 = "0", col9 = "0", col10 = "0"))
+
+# Tratamento 3.1: Tratando as subcolunas obtidas com o split
+
+# Movimento na coluna 1:
+
+# Reclassificar os valores na coluna col1
+
+df_proventos$col1 <- ifelse(grepl("hora|6 parte|adicional t|adts|temp.serviço|adic.temp.serv |sexta parte|temp. serviço|anueni|quadri|quiquenio|quinq|anuenio|anuênio|tempo ser|tempo de serviço|tmepo ser|tempo de srv|adicional por tempo de ser|adic. por tempo de seriço|adic. temp.serv.|adic. por tempo de seviço|adicionais por tempo de serv.|adic.por tempo de ser viços|anuencio|adicionais tempo srrviço|adicional de tempo de ser|adicional de tempo de servico|trienio|quiqnenio|trmpo serviço|adicional por tempo de servico|adic. por tempod e serviço|tmepo de serviço|tempos serviço|adc. tempo|de serviço inativo|adicionais por tempode serviço|tempo de  serviços|temp. de serviço|adicional de t. serviço|acréscimo por ano excedido 10%|adc. tem. sev.|quiqu|trênio|tempo de servicos|tempo de contribuição|triênio|adic. temp. de serviço|hora|6 parte|adicional t|adts|temp.serviço|adic.temp.serv |sexta parte|temp. serviço|anueni|quadri|quiquenio|quinq|anuenio|anuênio|tempo ser|tempo de serviço|tmepo ser|tempo de srv|ad. t.", df_proventos$col1, ignore.case = TRUE), "ATS", df_proventos$col1)
+df_proventos$col1 <- ifelse(grepl("vent. pess|vant|vpni|v.pes|v. pes|vatnatagem|abono|diferença do pccr|a.pess|a.pes|vent. pess|vant|vpni|v.pes|v. pes|vatnatagem|abono|diferença do pccr|a.pess|a.pes|complement", df_proventos$col1, ignore.case = TRUE), "Vantagem Pessoal", df_proventos$col1)
+df_proventos$col1 <- ifelse(grepl("pensão|provent|outros acresc. inatividade|provnto|aposent|prov|média|media|resultado|propor|rpovento|prvento|posent", df_proventos$col1, ignore.case = TRUE), "Proventos", df_proventos$col1)
+df_proventos$col1 <- ifelse(grepl("sal. incorp.|vencimento|vecimento|piso nacional|venc.|vertical|dif pccr|diferença pccr|sal.incorp|venvi|salári|salari|remun|base|subsidio|subsídio|venecimento", df_proventos$col1, ignore.case = TRUE), "Vencimento", df_proventos$col1)
+df_proventos$col1 <- ifelse(grepl("insalubri|isalu|insalub", df_proventos$col1, ignore.case = TRUE), "Insalubridade", df_proventos$col1)
+df_proventos$col1 <- ifelse(grepl("antec", df_proventos$col1, ignore.case = TRUE), "Antecipação de Aumento", df_proventos$col1)
+df_proventos$col1 <- ifelse(grepl("represen|rep.|represetação", df_proventos$col1, ignore.case = TRUE), "Representação", df_proventos$col1)
+df_proventos$col1 <- ifelse(grepl("gifs|qualif|titul|especialização", df_proventos$col1, ignore.case = TRUE), "Adc. Qualificação", df_proventos$col1)
+df_proventos$col1 <- ifelse(grepl("adicional|risco de vida|pó de giz|acrescimo 20|produção e prod.|outros acrescimos pecuniarios|periculosidade|adicionais de permanência|gead|adic. de permanencia|regencia de classe|serv. extra.|produção prod.|serviço extra incorporado|horas|outros acresc.pecuniarios|bolsa avaliacao desemp.docente|gal|assidui|grat|magistério|magisterio|vpnr|complemento|produtivid|gcex|gpcex|noturno|adic. not.|gae|jornada ampliada|bolsa de sempenho fiscal|efetivo desempenho|adi.jorn.ampl|risco de vida|pó de giz|acrescimo 20|produção e prod.|outros acrescimos pecuniarios|periculosidade|adicionais de permanência|gead|adic. de permanencia|regencia de classe|serv. extra.|produção prod.|serviço extra incorporado|horas|outros acresc.pecuniarios|bolsa avaliacao desemp.docente|gal|assidui|grat|magistério|magisterio|vpnr|complemento|produtivid|gcex|gpcex|noturno|adic. not.|gaj|g.a.p|gap|gati|gshu|gdp|grat|gal|noturno|vpnr|prod. s. bucal", df_proventos$col1, ignore.case = TRUE), "Gratificação", df_proventos$col1)
+df_proventos$col1 <- ifelse(grepl("ajuda de custo|auxilio saude", df_proventos$col1, ignore.case = TRUE), "Indenizatorio", df_proventos$col1)
+df_proventos$col1 <- ifelse(grepl("^[0-9]|90", df_proventos$col1, ignore.case = TRUE), "0", df_proventos$col1)
+# Definindo valores que não se enquadram nas categorias acima como "0"
+df_proventos$col1 <- ifelse(!grepl("Proventos|Ind|Rep|ATS|Venc|Insa|Qualif|Antec|Vant|Grat", df_proventos$col1, ignore.case = TRUE), "0", df_proventos$col1)
+
+# Movimento na coluna 2:
+
+df_proventos$col2 <- ifelse(grepl("hora|6 parte|adicional t|adts|temp.serviço|adic.temp.serv |sexta parte|temp. serviço|anueni|quadri|quiquenio|quinq|anuenio|anuênio|tempo ser|tempo de serviço|tmepo ser|tempo de srv|adicional por tempo de ser|adic. por tempo de seriço|adic. temp.serv.|adic. por tempo de seviço|adicionais por tempo de serv.|adic.por tempo de ser viços|anuencio|adicionais tempo srrviço|adicional de tempo de ser|adicional de tempo de servico|trienio|quiqnenio|trmpo serviço|adicional por tempo de servico|adic. por tempod e serviço|tmepo de serviço|tempos serviço|adc. tempo|de serviço inativo|adicionais por tempode serviço|tempo de  serviços|temp. de serviço|adicional de t. serviço|acréscimo por ano excedido 10%|adc. tem. sev.|quiqu|trênio|tempo de servicos|tempo de contribuição|triênio|adic. temp. de serviço|hora|6 parte|adicional t|adts|temp.serviço|adic.temp.serv |sexta parte|temp. serviço|anueni|quadri|quiquenio|quinq|anuenio|anuênio|tempo ser|tempo de serviço|tmepo ser|tempo de srv|ad. t.", df_proventos$col2, ignore.case = TRUE), "ATS", df_proventos$col2)
+df_proventos$col2 <- ifelse(grepl("vent. pess|vant|vpni|v.pes|v. pes|vatnatagem|abono|diferença do pccr|a.pess|a.pes|vent. pess|vant|vpni|v.pes|v. pes|vatnatagem|abono|diferença do pccr|a.pess|a.pes|complement", df_proventos$col2, ignore.case = TRUE), "Vantagem Pessoal", df_proventos$col2)
+df_proventos$col2 <- ifelse(grepl("pensão|provent|outros acresc. inatividade|provnto|aposent|prov|média|media|resultado|propor|rpovento|prvento|posent", df_proventos$col2, ignore.case = TRUE), "Proventos", df_proventos$col2)
+df_proventos$col2 <- ifelse(grepl("sal. incorp.|vencimento|vecimento|piso nacional|venc.|vertical|dif pccr|diferença pccr|sal.incorp|venvi|salári|salari|remun|base|subsidio|subsídio|venecimento", df_proventos$col2, ignore.case = TRUE), "Vencimento", df_proventos$col2)
+df_proventos$col2 <- ifelse(grepl("insalubri|isalu|insalub", df_proventos$col2, ignore.case = TRUE), "Insalubridade", df_proventos$col2)
+df_proventos$col2 <- ifelse(grepl("antec", df_proventos$col2, ignore.case = TRUE), "Antecipação de Aumento", df_proventos$col2)
+df_proventos$col2 <- ifelse(grepl("represen|rep.|represetação", df_proventos$col2, ignore.case = TRUE), "Representação", df_proventos$col2)
+df_proventos$col2 <- ifelse(grepl("gifs|qualif|titul|especialização", df_proventos$col2, ignore.case = TRUE), "Adc. Qualificação", df_proventos$col2)
+df_proventos$col2 <- ifelse(grepl("adicional|risco de vida|pó de giz|acrescimo 20|produção e prod.|outros acrescimos pecuniarios|periculosidade|adicionais de permanência|gead|adic. de permanencia|regencia de classe|serv. extra.|produção prod.|serviço extra incorporado|horas|outros acresc.pecuniarios|bolsa avaliacao desemp.docente|gal|assidui|grat|magistério|magisterio|vpnr|complemento|produtivid|gcex|gpcex|noturno|adic. not.|gae|jornada ampliada|bolsa de sempenho fiscal|efetivo desempenho|adi.jorn.ampl|risco de vida|pó de giz|acrescimo 20|produção e prod.|outros acrescimos pecuniarios|periculosidade|adicionais de permanência|gead|adic. de permanencia|regencia de classe|serv. extra.|produção prod.|serviço extra incorporado|horas|outros acresc.pecuniarios|bolsa avaliacao desemp.docente|gal|assidui|grat|magistério|magisterio|vpnr|complemento|produtivid|gcex|gpcex|noturno|adic. not.|gaj|g.a.p|gap|gati|gshu|gdp|grat|gal|noturno|vpnr|prod. s. bucal", df_proventos$col2, ignore.case = TRUE), "Gratificação", df_proventos$col2)
+df_proventos$col2 <- ifelse(grepl("ajuda de custo|auxilio saude", df_proventos$col2, ignore.case = TRUE), "Indenizatorio", df_proventos$col2)
+df_proventos$col2 <- ifelse(grepl("^[0-9]|90", df_proventos$col2, ignore.case = TRUE), "0", df_proventos$col2)
+# Definindo valores que não se enquadram nas categorias acima como "0"
+df_proventos$col2 <- ifelse(!grepl("Proventos|Ind|Rep|ATS|Venc|Insa|Qualif|Antec|Vant|Grat", df_proventos$col2, ignore.case = TRUE), "0", df_proventos$col2)
+
+# Movimento na coluna 3:
+
+df_proventos$col3 <- ifelse(grepl("hora|6 parte|adicional t|adts|temp.serviço|adic.temp.serv |sexta parte|temp. serviço|anueni|quadri|quiquenio|quinq|anuenio|anuênio|tempo ser|tempo de serviço|tmepo ser|tempo de srv|adicional por tempo de ser|adic. por tempo de seriço|adic. temp.serv.|adic. por tempo de seviço|adicionais por tempo de serv.|adic.por tempo de ser viços|anuencio|adicionais tempo srrviço|adicional de tempo de ser|adicional de tempo de servico|trienio|quiqnenio|trmpo serviço|adicional por tempo de servico|adic. por tempod e serviço|tmepo de serviço|tempos serviço|adc. tempo|de serviço inativo|adicionais por tempode serviço|tempo de  serviços|temp. de serviço|adicional de t. serviço|acréscimo por ano excedido 10%|adc. tem. sev.|quiqu|trênio|tempo de servicos|tempo de contribuição|triênio|adic. temp. de serviço|hora|6 parte|adicional t|adts|temp.serviço|adic.temp.serv |sexta parte|temp. serviço|anueni|quadri|quiquenio|quinq|anuenio|anuênio|tempo ser|tempo de serviço|tmepo ser|tempo de srv|ad. t.", df_proventos$col3, ignore.case = TRUE), "ATS", df_proventos$col3)
+df_proventos$col3 <- ifelse(grepl("vent. pess|vant|vpni|v.pes|v. pes|vatnatagem|abono|diferença do pccr|a.pess|a.pes|vent. pess|vant|vpni|v.pes|v. pes|vatnatagem|abono|diferença do pccr|a.pess|a.pes|complement", df_proventos$col3, ignore.case = TRUE), "Vantagem Pessoal", df_proventos$col3)
+df_proventos$col3 <- ifelse(grepl("pensão|provent|outros acresc. inatividade|provnto|aposent|prov|média|media|resultado|propor|rpovento|prvento|posent", df_proventos$col3, ignore.case = TRUE), "Proventos", df_proventos$col3)
+df_proventos$col3 <- ifelse(grepl("sal. incorp.|vencimento|vecimento|piso nacional|venc.|vertical|dif pccr|diferença pccr|sal.incorp|venvi|salári|salari|remun|base|subsidio|subsídio|venecimento", df_proventos$col3, ignore.case = TRUE), "Vencimento", df_proventos$col3)
+df_proventos$col3 <- ifelse(grepl("insalubri|isalu|insalub", df_proventos$col3, ignore.case = TRUE), "Insalubridade", df_proventos$col3)
+df_proventos$col3 <- ifelse(grepl("antec", df_proventos$col3, ignore.case = TRUE), "Antecipação de Aumento", df_proventos$col3)
+df_proventos$col3 <- ifelse(grepl("represen|rep.|represetação", df_proventos$col3, ignore.case = TRUE), "Representação", df_proventos$col3)
+df_proventos$col3 <- ifelse(grepl("gifs|qualif|titul|especialização", df_proventos$col3, ignore.case = TRUE), "Adc. Qualificação", df_proventos$col3)
+df_proventos$col3 <- ifelse(grepl("adicional|risco de vida|pó de giz|acrescimo 20|produção e prod.|outros acrescimos pecuniarios|periculosidade|adicionais de permanência|gead|adic. de permanencia|regencia de classe|serv. extra.|produção prod.|serviço extra incorporado|horas|outros acresc.pecuniarios|bolsa avaliacao desemp.docente|gal|assidui|grat|magistério|magisterio|vpnr|complemento|produtivid|gcex|gpcex|noturno|adic. not.|gae|jornada ampliada|bolsa de sempenho fiscal|efetivo desempenho|adi.jorn.ampl|risco de vida|pó de giz|acrescimo 20|produção e prod.|outros acrescimos pecuniarios|periculosidade|adicionais de permanência|gead|adic. de permanencia|regencia de classe|serv. extra.|produção prod.|serviço extra incorporado|horas|outros acresc.pecuniarios|bolsa avaliacao desemp.docente|gal|assidui|grat|magistério|magisterio|vpnr|complemento|produtivid|gcex|gpcex|noturno|adic. not.|gaj|g.a.p|gap|gati|gshu|gdp|grat|gal|noturno|vpnr|prod. s. bucal", df_proventos$col3, ignore.case = TRUE), "Gratificação", df_proventos$col3)
+df_proventos$col3 <- ifelse(grepl("ajuda de custo|auxilio saude", df_proventos$col3, ignore.case = TRUE), "Indenizatorio", df_proventos$col3)
+df_proventos$col3 <- ifelse(grepl("^[0-9]|90", df_proventos$col3, ignore.case = TRUE), "0", df_proventos$col3)
+# Definindo valores que não se enquadram nas categorias acima como "0"
+df_proventos$col3 <- ifelse(!grepl("Proventos|Ind|Rep|ATS|Venc|Insa|Qualif|Antec|Vant|Grat", df_proventos$col3, ignore.case = TRUE), "0", df_proventos$col3)
+
+# Movimento na coluna 4:
+
+df_proventos$col4 <- ifelse(grepl("hora|6 parte|adicional t|adts|temp.serviço|adic.temp.serv |sexta parte|temp. serviço|anueni|quadri|quiquenio|quinq|anuenio|anuênio|tempo ser|tempo de serviço|tmepo ser|tempo de srv|adicional por tempo de ser|adic. por tempo de seriço|adic. temp.serv.|adic. por tempo de seviço|adicionais por tempo de serv.|adic.por tempo de ser viços|anuencio|adicionais tempo srrviço|adicional de tempo de ser|adicional de tempo de servico|trienio|quiqnenio|trmpo serviço|adicional por tempo de servico|adic. por tempod e serviço|tmepo de serviço|tempos serviço|adc. tempo|de serviço inativo|adicionais por tempode serviço|tempo de  serviços|temp. de serviço|adicional de t. serviço|acréscimo por ano excedido 10%|adc. tem. sev.|quiqu|trênio|tempo de servicos|tempo de contribuição|triênio|adic. temp. de serviço|hora|6 parte|adicional t|adts|temp.serviço|adic.temp.serv |sexta parte|temp. serviço|anueni|quadri|quiquenio|quinq|anuenio|anuênio|tempo ser|tempo de serviço|tmepo ser|tempo de srv|ad. t.|serviço|serviço 30%|serviço 20%|serviço 10%|adc. tempo de serv|quinq|anuenio|anuênio|tempo e ser|tempo de serviç|sexta parte", df_proventos$col4, ignore.case = TRUE), "ATS", df_proventos$col4)
+df_proventos$col4 <- ifelse(grepl("vent. pess|vant|vpni|v.pes|v. pes|vatnatagem|abono|diferença do pccr|a.pess|a.pes|vent. pess|vant|vpni|v.pes|v. pes|vatnatagem|abono|diferença do pccr|a.pess|a.pes|complement", df_proventos$col4, ignore.case = TRUE), "Vantagem Pessoal", df_proventos$col4)
+df_proventos$col4 <- ifelse(grepl("pensão|provent|outros acresc. inatividade|provnto|aposent|prov|média|media|resultado|propor|rpovento|prvento|posent", df_proventos$col4, ignore.case = TRUE), "Proventos", df_proventos$col4)
+df_proventos$col4 <- ifelse(grepl("sal. incorp.|vencimento|vecimento|piso nacional|venc.|vertical|dif pccr|diferença pccr|sal.incorp|venvi|salári|salari|remun|base|subsidio|subsídio|venecimento", df_proventos$col4, ignore.case = TRUE), "Vencimento", df_proventos$col4)
+df_proventos$col4 <- ifelse(grepl("insalubri|isalu|insalub", df_proventos$col4, ignore.case = TRUE), "Insalubridade", df_proventos$col4)
+df_proventos$col4 <- ifelse(grepl("antec", df_proventos$col4, ignore.case = TRUE), "Antecipação de Aumento", df_proventos$col4)
+df_proventos$col4 <- ifelse(grepl("represen|rep.|represetação", df_proventos$col4, ignore.case = TRUE), "Representação", df_proventos$col4)
+df_proventos$col4 <- ifelse(grepl("gifs|qualif|titul|especialização", df_proventos$col4, ignore.case = TRUE), "Adc. Qualificação", df_proventos$col4)
+df_proventos$col4 <- ifelse(grepl("adicional|risco de vida|pó de giz|acrescimo 20|produção e prod.|outros acrescimos pecuniarios|periculosidade|adicionais de permanência|gead|adic. de permanencia|regencia de classe|serv. extra.|produção prod.|serviço extra incorporado|horas|outros acresc.pecuniarios|bolsa avaliacao desemp.docente|gal|assidui|grat|magistério|magisterio|vpnr|complemento|produtivid|gcex|gpcex|noturno|adic. not.|gae|jornada ampliada|bolsa de sempenho fiscal|efetivo desempenho|adi.jorn.ampl|risco de vida|pó de giz|acrescimo 20|produção e prod.|outros acrescimos pecuniarios|periculosidade|adicionais de permanência|gead|adic. de permanencia|regencia de classe|serv. extra.|produção prod.|serviço extra incorporado|horas|outros acresc.pecuniarios|bolsa avaliacao desemp.docente|gal|assidui|grat|magistério|magisterio|vpnr|complemento|produtivid|gcex|gpcex|noturno|adic. not.|gaj|g.a.p|gap|gati|gshu|gdp|grat|gal|noturno|vpnr|prod. s. bucal", df_proventos$col4, ignore.case = TRUE), "Gratificação", df_proventos$col4)
+df_proventos$col4 <- ifelse(grepl("ajuda de custo|auxilio saude", df_proventos$col4, ignore.case = TRUE), "Indenizatorio", df_proventos$col4)
+df_proventos$col4 <- ifelse(grepl("^[0-9]|90", df_proventos$col4, ignore.case = TRUE), "0", df_proventos$col4)
+# Definindo valores que não se enquadram nas categorias acima como "0"
+df_proventos$col4 <- ifelse(!grepl("Proventos|Ind|Rep|ATS|Venc|Insa|Qualif|Antec|Vant|Grat", df_proventos$col4, ignore.case = TRUE), "0", df_proventos$col4)
+
+# Movimento na coluna 5:
+
+df_proventos$col5 <- ifelse(grepl("hora|6 parte|adicional t|adts|temp.serviço|adic.temp.serv |sexta parte|temp. serviço|anueni|quadri|quiquenio|quinq|anuenio|anuênio|tempo ser|tempo de serviço|tmepo ser|tempo de srv|adicional por tempo de ser|adic. por tempo de seriço|adic. temp.serv.|adic. por tempo de seviço|adicionais por tempo de serv.|adic.por tempo de ser viços|anuencio|adicionais tempo srrviço|adicional de tempo de ser|adicional de tempo de servico|trienio|quiqnenio|trmpo serviço|adicional por tempo de servico|adic. por tempod e serviço|tmepo de serviço|tempos serviço|adc. tempo|de serviço inativo|adicionais por tempode serviço|tempo de  serviços|temp. de serviço|adicional de t. serviço|acréscimo por ano excedido 10%|adc. tem. sev.|quiqu|trênio|tempo de servicos|tempo de contribuição|triênio|adic. temp. de serviço|hora|6 parte|adicional t|adts|temp.serviço|adic.temp.serv |sexta parte|temp. serviço|anueni|quadri|quiquenio|quinq|anuenio|anuênio|tempo ser|tempo de serviço|tmepo ser|tempo de srv|ad. t.", df_proventos$col5, ignore.case = TRUE), "ATS", df_proventos$col5)
+df_proventos$col5 <- ifelse(grepl("vent. pess|vant|vpni|v.pes|v. pes|vatnatagem|abono|diferença do pccr|a.pess|a.pes|vent. pess|vant|vpni|v.pes|v. pes|vatnatagem|abono|diferença do pccr|a.pess|a.pes|complement", df_proventos$col5, ignore.case = TRUE), "Vantagem Pessoal", df_proventos$col5)
+df_proventos$col5 <- ifelse(grepl("pensão|provent|outros acresc. inatividade|provnto|aposent|prov|média|media|resultado|propor|rpovento|prvento|posent", df_proventos$col5, ignore.case = TRUE), "Proventos", df_proventos$col5)
+df_proventos$col5 <- ifelse(grepl("sal. incorp.|vencimento|vecimento|piso nacional|venc.|vertical|dif pccr|diferença pccr|sal.incorp|venvi|salári|salari|remun|base|subsidio|subsídio|venecimento", df_proventos$col5, ignore.case = TRUE), "Vencimento", df_proventos$col5)
+df_proventos$col5 <- ifelse(grepl("insalubri|isalu|insalub", df_proventos$col5, ignore.case = TRUE), "Insalubridade", df_proventos$col5)
+df_proventos$col5 <- ifelse(grepl("antec", df_proventos$col5, ignore.case = TRUE), "Antecipação de Aumento", df_proventos$col5)
+df_proventos$col5 <- ifelse(grepl("represen|rep.|represetação", df_proventos$col5, ignore.case = TRUE), "Representação", df_proventos$col5)
+df_proventos$col5 <- ifelse(grepl("gifs|qualif|titul|especialização", df_proventos$col5, ignore.case = TRUE), "Adc. Qualificação", df_proventos$col5)
+df_proventos$col5 <- ifelse(grepl("adicional|risco de vida|pó de giz|acrescimo 20|produção e prod.|outros acrescimos pecuniarios|periculosidade|adicionais de permanência|gead|adic. de permanencia|regencia de classe|serv. extra.|produção prod.|serviço extra incorporado|horas|outros acresc.pecuniarios|bolsa avaliacao desemp.docente|gal|assidui|grat|magistério|magisterio|vpnr|complemento|produtivid|gcex|gpcex|noturno|adic. not.|gae|jornada ampliada|bolsa de sempenho fiscal|efetivo desempenho|adi.jorn.ampl|risco de vida|pó de giz|acrescimo 20|produção e prod.|outros acrescimos pecuniarios|periculosidade|adicionais de permanência|gead|adic. de permanencia|regencia de classe|serv. extra.|produção prod.|serviço extra incorporado|horas|outros acresc.pecuniarios|bolsa avaliacao desemp.docente|gal|assidui|grat|magistério|magisterio|vpnr|complemento|produtivid|gcex|gpcex|noturno|adic. not.|gaj|g.a.p|gap|gati|gshu|gdp|grat|gal|noturno|vpnr|prod. s. bucal", df_proventos$col5, ignore.case = TRUE), "Gratificação", df_proventos$col5)
+df_proventos$col5 <- ifelse(grepl("ajuda de custo", df_proventos$col5, ignore.case = TRUE), "Indenizatorio", df_proventos$col5)
+df_proventos$col5 <- ifelse(grepl("^[0-9]|90", df_proventos$col5, ignore.case = TRUE), "0", df_proventos$col5)
+# Definindo valores que não se enquadram nas categorias acima como "0"
+df_proventos$col5 <- ifelse(!grepl("Proventos|Ind|Rep|ATS|Venc|Insa|Qualif|Antec|Vant|Grat", df_proventos$col5, ignore.case = TRUE), "0", df_proventos$col5)
+
+# Movimento na coluna 6:
+
+df_proventos$col6 <- ifelse(grepl("hora|6 parte|adicional t|adts|temp.serviço|adic.temp.serv |sexta parte|temp. serviço|anueni|quadri|quiquenio|quinq|anuenio|anuênio|tempo ser|tempo de serviço|tmepo ser|tempo de srv|adicional por tempo de ser|adic. por tempo de seriço|adic. temp.serv.|adic. por tempo de seviço|adicionais por tempo de serv.|adic.por tempo de ser viços|anuencio|adicionais tempo srrviço|adicional de tempo de ser|adicional de tempo de servico|trienio|quiqnenio|trmpo serviço|adicional por tempo de servico|adic. por tempod e serviço|tmepo de serviço|tempos serviço|adc. tempo|de serviço inativo|adicionais por tempode serviço|tempo de  serviços|temp. de serviço|adicional de t. serviço|acréscimo por ano excedido 10%|adc. tem. sev.|quiqu|trênio|tempo de servicos|tempo de contribuição|triênio|adic. temp. de serviço|hora|6 parte|adicional t|adts|temp.serviço|adic.temp.serv |sexta parte|temp. serviço|anueni|quadri|quiquenio|quinq|anuenio|anuênio|tempo ser|tempo de serviço|tmepo ser|tempo de srv|ad. t.", df_proventos$col6, ignore.case = TRUE), "ATS", df_proventos$col6)
+df_proventos$col6 <- ifelse(grepl("vent. pess|vant|vpni|v.pes|v. pes|vatnatagem|abono|diferença do pccr|a.pess|a.pes|vent. pess|vant|vpni|v.pes|v. pes|vatnatagem|abono|diferença do pccr|a.pess|a.pes|complement", df_proventos$col6, ignore.case = TRUE), "Vantagem Pessoal", df_proventos$col6)
+df_proventos$col6 <- ifelse(grepl("pensão|provent|outros acresc. inatividade|provnto|aposent|prov|média|media|resultado|propor|rpovento|prvento|posent", df_proventos$col6, ignore.case = TRUE), "Proventos", df_proventos$col6)
+df_proventos$col6 <- ifelse(grepl("sal. incorp.|vencimento|vecimento|piso nacional|venc.|vertical|dif pccr|diferença pccr|sal.incorp|venvi|salári|salari|remun|base|subsidio|subsídio|venecimento", df_proventos$col6, ignore.case = TRUE), "Vencimento", df_proventos$col6)
+df_proventos$col6 <- ifelse(grepl("insalubri|isalu|insalub", df_proventos$col6, ignore.case = TRUE), "Insalubridade", df_proventos$col6)
+df_proventos$col6 <- ifelse(grepl("antec", df_proventos$col6, ignore.case = TRUE), "Antecipação de Aumento", df_proventos$col6)
+df_proventos$col6 <- ifelse(grepl("represen|rep.|represetação", df_proventos$col6, ignore.case = TRUE), "Representação", df_proventos$col6)
+df_proventos$col6 <- ifelse(grepl("gifs|qualif|titul|especialização", df_proventos$col6, ignore.case = TRUE), "Adc. Qualificação", df_proventos$col6)
+df_proventos$col6 <- ifelse(grepl("adicional|risco de vida|pó de giz|acrescimo 20|produção e prod.|outros acrescimos pecuniarios|periculosidade|adicionais de permanência|gead|adic. de permanencia|regencia de classe|serv. extra.|produção prod.|serviço extra incorporado|horas|outros acresc.pecuniarios|bolsa avaliacao desemp.docente|gal|assidui|grat|magistério|magisterio|vpnr|complemento|produtivid|gcex|gpcex|noturno|adic. not.|gae|jornada ampliada|bolsa de sempenho fiscal|efetivo desempenho|adi.jorn.ampl|risco de vida|pó de giz|acrescimo 20|produção e prod.|outros acrescimos pecuniarios|periculosidade|adicionais de permanência|gead|adic. de permanencia|regencia de classe|serv. extra.|produção prod.|serviço extra incorporado|horas|outros acresc.pecuniarios|bolsa avaliacao desemp.docente|gal|assidui|grat|magistério|magisterio|vpnr|complemento|produtivid|gcex|gpcex|noturno|adic. not.|gaj|g.a.p|gap|gati|gshu|gdp|grat|gal|noturno|vpnr|prod. s. bucal", df_proventos$col6, ignore.case = TRUE), "Gratificação", df_proventos$col6)
+df_proventos$col6 <- ifelse(grepl("ajuda de custo", df_proventos$col6, ignore.case = TRUE), "Indenizatorio", df_proventos$col6)
+df_proventos$col6 <- ifelse(grepl("^[0-9]|90", df_proventos$col6, ignore.case = TRUE), "0", df_proventos$col6)
+# Definindo valores que não se enquadram nas categorias acima como "0"
+df_proventos$col6 <- ifelse(!grepl("Proventos|Ind|Rep|ATS|Venc|Insa|Qualif|Antec|Vant|Grat", df_proventos$col6, ignore.case = TRUE), "0", df_proventos$col6)
+
+# Movimento na coluna 7:
+
+df_proventos$col7 <- ifelse(grepl("hora|6 parte|adicional t|adts|temp.serviço|adic.temp.serv |sexta parte|temp. serviço|anueni|quadri|quiquenio|quinq|anuenio|anuênio|tempo ser|tempo de serviço|tmepo ser|tempo de srv|adicional por tempo de ser|adic. por tempo de seriço|adic. temp.serv.|adic. por tempo de seviço|adicionais por tempo de serv.|adic.por tempo de ser viços|anuencio|adicionais tempo srrviço|adicional de tempo de ser|adicional de tempo de servico|trienio|quiqnenio|trmpo serviço|adicional por tempo de servico|adic. por tempod e serviço|tmepo de serviço|tempos serviço|adc. tempo|de serviço inativo|adicionais por tempode serviço|tempo de  serviços|temp. de serviço|adicional de t. serviço|acréscimo por ano excedido 10%|adc. tem. sev.|quiqu|trênio|tempo de servicos|tempo de contribuição|triênio|adic. temp. de serviço|hora|6 parte|adicional t|adts|temp.serviço|adic.temp.serv |sexta parte|temp. serviço|anueni|quadri|quiquenio|quinq|anuenio|anuênio|tempo ser|tempo de serviço|tmepo ser|tempo de srv|ad. t.", df_proventos$col7, ignore.case = TRUE), "ATS", df_proventos$col7)
+df_proventos$col7 <- ifelse(grepl("vent. pess|vant|vpni|v.pes|v. pes|vatnatagem|abono|diferença do pccr|a.pess|a.pes|vent. pess|vant|vpni|v.pes|v. pes|vatnatagem|abono|diferença do pccr|a.pess|a.pes|complement", df_proventos$col7, ignore.case = TRUE), "Vantagem Pessoal", df_proventos$col7)
+df_proventos$col7 <- ifelse(grepl("pensão|provent|outros acresc. inatividade|provnto|aposent|prov|média|media|resultado|propor|rpovento|prvento|posent", df_proventos$col7, ignore.case = TRUE), "Proventos", df_proventos$col7)
+df_proventos$col7 <- ifelse(grepl("sal. incorp.|vencimento|vecimento|piso nacional|venc.|vertical|dif pccr|diferença pccr|sal.incorp|venvi|salári|salari|remun|base|subsidio|subsídio|venecimento", df_proventos$col7, ignore.case = TRUE), "Vencimento", df_proventos$col7)
+df_proventos$col7 <- ifelse(grepl("insalubri|isalu|insalub", df_proventos$col7, ignore.case = TRUE), "Insalubridade", df_proventos$col7)
+df_proventos$col7 <- ifelse(grepl("antec", df_proventos$col7, ignore.case = TRUE), "Antecipação de Aumento", df_proventos$col7)
+df_proventos$col7 <- ifelse(grepl("represen|rep.|represetação", df_proventos$col7, ignore.case = TRUE), "Representação", df_proventos$col7)
+df_proventos$col7 <- ifelse(grepl("gifs|qualif|titul|especialização", df_proventos$col7, ignore.case = TRUE), "Adc. Qualificação", df_proventos$col7)
+df_proventos$col7 <- ifelse(grepl("adicional|risco de vida|pó de giz|acrescimo 20|produção e prod.|outros acrescimos pecuniarios|periculosidade|adicionais de permanência|gead|adic. de permanencia|regencia de classe|serv. extra.|produção prod.|serviço extra incorporado|horas|outros acresc.pecuniarios|bolsa avaliacao desemp.docente|gal|assidui|grat|magistério|magisterio|vpnr|complemento|produtivid|gcex|gpcex|noturno|adic. not.|gae|jornada ampliada|bolsa de sempenho fiscal|efetivo desempenho|adi.jorn.ampl|risco de vida|pó de giz|acrescimo 20|produção e prod.|outros acrescimos pecuniarios|periculosidade|adicionais de permanência|gead|adic. de permanencia|regencia de classe|serv. extra.|produção prod.|serviço extra incorporado|horas|outros acresc.pecuniarios|bolsa avaliacao desemp.docente|gal|assidui|grat|magistério|magisterio|vpnr|complemento|produtivid|gcex|gpcex|noturno|adic. not.|gaj|g.a.p|gap|gati|gshu|gdp|grat|gal|noturno|vpnr|prod. s. bucal", df_proventos$col7, ignore.case = TRUE), "Gratificação", df_proventos$col7)
+df_proventos$col7 <- ifelse(grepl("ajuda de custo", df_proventos$col7, ignore.case = TRUE), "Indenizatorio", df_proventos$col7)
+df_proventos$col7 <- ifelse(grepl("^[0-9]|90", df_proventos$col7, ignore.case = TRUE), "0", df_proventos$col7)
+# Definindo valores que não se enquadram nas categorias acima como "0"
+df_proventos$col7 <- ifelse(!grepl("Proventos|Ind|Rep|ATS|Venc|Insa|Qualif|Antec|Vant|Grat", df_proventos$col7, ignore.case = TRUE), "0", df_proventos$col7)
+
+# Movimento na coluna 8:
+
+df_proventos$col8 <- ifelse(grepl("hora|6 parte|adicional t|adts|temp.serviço|adic.temp.serv |sexta parte|temp. serviço|anueni|quadri|quiquenio|quinq|anuenio|anuênio|tempo ser|tempo de serviço|tmepo ser|tempo de srv|adicional por tempo de ser|adic. por tempo de seriço|adic. temp.serv.|adic. por tempo de seviço|adicionais por tempo de serv.|adic.por tempo de ser viços|anuencio|adicionais tempo srrviço|adicional de tempo de ser|adicional de tempo de servico|trienio|quiqnenio|trmpo serviço|adicional por tempo de servico|adic. por tempod e serviço|tmepo de serviço|tempos serviço|adc. tempo|de serviço inativo|adicionais por tempode serviço|tempo de  serviços|temp. de serviço|adicional de t. serviço|acréscimo por ano excedido 10%|adc. tem. sev.|quiqu|trênio|tempo de servicos|tempo de contribuição|triênio|adic. temp. de serviço|hora|6 parte|adicional t|adts|temp.serviço|adic.temp.serv |sexta parte|temp. serviço|anueni|quadri|quiquenio|quinq|anuenio|anuênio|tempo ser|tempo de serviço|tmepo ser|tempo de srv|ad. t.", df_proventos$col8, ignore.case = TRUE), "ATS", df_proventos$col8)
+df_proventos$col8 <- ifelse(grepl("vent. pess|vant|vpni|v.pes|v. pes|vatnatagem|abono|diferença do pccr|a.pess|a.pes|vent. pess|vant|vpni|v.pes|v. pes|vatnatagem|abono|diferença do pccr|a.pess|a.pes|complement", df_proventos$col8, ignore.case = TRUE), "Vantagem Pessoal", df_proventos$col8)
+df_proventos$col8 <- ifelse(grepl("pensão|provent|outros acresc. inatividade|provnto|aposent|prov|média|media|resultado|propor|rpovento|prvento|posent", df_proventos$col8, ignore.case = TRUE), "Proventos", df_proventos$col8)
+df_proventos$col8 <- ifelse(grepl("sal. incorp.|vencimento|vecimento|piso nacional|venc.|vertical|dif pccr|diferença pccr|sal.incorp|venvi|salári|salari|remun|base|subsidio|subsídio|venecimento", df_proventos$col8, ignore.case = TRUE), "Vencimento", df_proventos$col8)
+df_proventos$col8 <- ifelse(grepl("insalubri|isalu|insalub", df_proventos$col8, ignore.case = TRUE), "Insalubridade", df_proventos$col8)
+df_proventos$col8 <- ifelse(grepl("antec", df_proventos$col8, ignore.case = TRUE), "Antecipação de Aumento", df_proventos$col8)
+df_proventos$col8 <- ifelse(grepl("represen|rep.|represetação", df_proventos$col8, ignore.case = TRUE), "Representação", df_proventos$col8)
+df_proventos$col8 <- ifelse(grepl("gifs|qualif|titul|especialização", df_proventos$col8, ignore.case = TRUE), "Adc. Qualificação", df_proventos$col8)
+df_proventos$col8 <- ifelse(grepl("adicional|risco de vida|pó de giz|acrescimo 20|produção e prod.|outros acrescimos pecuniarios|periculosidade|adicionais de permanência|gead|adic. de permanencia|regencia de classe|serv. extra.|produção prod.|serviço extra incorporado|horas|outros acresc.pecuniarios|bolsa avaliacao desemp.docente|gal|assidui|grat|magistério|magisterio|vpnr|complemento|produtivid|gcex|gpcex|noturno|adic. not.|gae|jornada ampliada|bolsa de sempenho fiscal|efetivo desempenho|adi.jorn.ampl|risco de vida|pó de giz|acrescimo 20|produção e prod.|outros acrescimos pecuniarios|periculosidade|adicionais de permanência|gead|adic. de permanencia|regencia de classe|serv. extra.|produção prod.|serviço extra incorporado|horas|outros acresc.pecuniarios|bolsa avaliacao desemp.docente|gal|assidui|grat|magistério|magisterio|vpnr|complemento|produtivid|gcex|gpcex|noturno|adic. not.|gaj|g.a.p|gap|gati|gshu|gdp|grat|gal|noturno|vpnr|prod. s. bucal", df_proventos$col8, ignore.case = TRUE), "Gratificação", df_proventos$col8)
+df_proventos$col8 <- ifelse(grepl("ajuda de custo", df_proventos$col8, ignore.case = TRUE), "Indenizatorio", df_proventos$col8)
+df_proventos$col8 <- ifelse(grepl("^[0-9]|90", df_proventos$col8, ignore.case = TRUE), "0", df_proventos$col8)
+# Definindo valores que não se enquadram nas categorias acima como "0"
+df_proventos$col8 <- ifelse(!grepl("Proventos|Ind|Rep|ATS|Venc|Insa|Qualif|Antec|Vant|Grat", df_proventos$col8, ignore.case = TRUE), "0", df_proventos$col8)
+
+# Movimento na coluna 9:
+
+df_proventos$col9 <- ifelse(grepl("hora|6 parte|adicional t|adts|temp.serviço|adic.temp.serv |sexta parte|temp. serviço|anueni|quadri|quiquenio|quinq|anuenio|anuênio|tempo ser|tempo de serviço|tmepo ser|tempo de srv|adicional por tempo de ser|adic. por tempo de seriço|adic. temp.serv.|adic. por tempo de seviço|adicionais por tempo de serv.|adic.por tempo de ser viços|anuencio|adicionais tempo srrviço|adicional de tempo de ser|adicional de tempo de servico|trienio|quiqnenio|trmpo serviço|adicional por tempo de servico|adic. por tempod e serviço|tmepo de serviço|tempos serviço|adc. tempo|de serviço inativo|adicionais por tempode serviço|tempo de  serviços|temp. de serviço|adicional de t. serviço|acréscimo por ano excedido 10%|adc. tem. sev.|quiqu|trênio|tempo de servicos|tempo de contribuição|triênio|adic. temp. de serviço|hora|6 parte|adicional t|adts|temp.serviço|adic.temp.serv |sexta parte|temp. serviço|anueni|quadri|quiquenio|quinq|anuenio|anuênio|tempo ser|tempo de serviço|tmepo ser|tempo de srv|ad. t.", df_proventos$col9, ignore.case = TRUE), "ATS", df_proventos$col9)
+df_proventos$col9 <- ifelse(grepl("vent. pess|vant|vpni|v.pes|v. pes|vatnatagem|abono|diferença do pccr|a.pess|a.pes|vent. pess|vant|vpni|v.pes|v. pes|vatnatagem|abono|diferença do pccr|a.pess|a.pes|complement", df_proventos$col9, ignore.case = TRUE), "Vantagem Pessoal", df_proventos$col9)
+df_proventos$col9 <- ifelse(grepl("pensão|provent|outros acresc. inatividade|provnto|aposent|prov|média|media|resultado|propor|rpovento|prvento|posent", df_proventos$col9, ignore.case = TRUE), "Proventos", df_proventos$col9)
+df_proventos$col9 <- ifelse(grepl("sal. incorp.|vencimento|vecimento|piso nacional|venc.|vertical|dif pccr|diferença pccr|sal.incorp|venvi|salári|salari|remun|base|subsidio|subsídio|venecimento", df_proventos$col9, ignore.case = TRUE), "Vencimento", df_proventos$col9)
+df_proventos$col9 <- ifelse(grepl("insalubri|isalu|insalub", df_proventos$col9, ignore.case = TRUE), "Insalubridade", df_proventos$col9)
+df_proventos$col9 <- ifelse(grepl("antec", df_proventos$col9, ignore.case = TRUE), "Antecipação de Aumento", df_proventos$col9)
+df_proventos$col9 <- ifelse(grepl("represen|rep.|represetação", df_proventos$col9, ignore.case = TRUE), "Representação", df_proventos$col9)
+df_proventos$col9 <- ifelse(grepl("gifs|qualif|titul|especialização", df_proventos$col9, ignore.case = TRUE), "Adc. Qualificação", df_proventos$col9)
+df_proventos$col9 <- ifelse(grepl("adicional|risco de vida|pó de giz|acrescimo 20|produção e prod.|outros acrescimos pecuniarios|periculosidade|adicionais de permanência|gead|adic. de permanencia|regencia de classe|serv. extra.|produção prod.|serviço extra incorporado|horas|outros acresc.pecuniarios|bolsa avaliacao desemp.docente|gal|assidui|grat|magistério|magisterio|vpnr|complemento|produtivid|gcex|gpcex|noturno|adic. not.|gae|jornada ampliada|bolsa de sempenho fiscal|efetivo desempenho|adi.jorn.ampl|risco de vida|pó de giz|acrescimo 20|produção e prod.|outros acrescimos pecuniarios|periculosidade|adicionais de permanência|gead|adic. de permanencia|regencia de classe|serv. extra.|produção prod.|serviço extra incorporado|horas|outros acresc.pecuniarios|bolsa avaliacao desemp.docente|gal|assidui|grat|magistério|magisterio|vpnr|complemento|produtivid|gcex|gpcex|noturno|adic. not.|gaj|g.a.p|gap|gati|gshu|gdp|grat|gal|noturno|vpnr|prod. s. bucal", df_proventos$col9, ignore.case = TRUE), "Gratificação", df_proventos$col9)
+df_proventos$col9 <- ifelse(grepl("ajuda de custo", df_proventos$col9, ignore.case = TRUE), "Indenizatorio", df_proventos$col9)
+df_proventos$col9 <- ifelse(grepl("^[0-9]|90", df_proventos$col9, ignore.case = TRUE), "0", df_proventos$col9)
+# Definindo valores que não se enquadram nas categorias acima como "0"
+df_proventos$col9 <- ifelse(!grepl("Proventos|Ind|Rep|ATS|Venc|Insa|Qualif|Antec|Vant|Grat", df_proventos$col9, ignore.case = TRUE), "0", df_proventos$col9)
+
+# Movimento na coluna 10:
+
+df_proventos$col10 <- ifelse(grepl("hora|6 parte|adicional t|adts|temp.serviço|adic.temp.serv |sexta parte|temp. serviço|anueni|quadri|quiquenio|quinq|anuenio|anuênio|tempo ser|tempo de serviço|tmepo ser|tempo de srv|adicional por tempo de ser|adic. por tempo de seriço|adic. temp.serv.|adic. por tempo de seviço|adicionais por tempo de serv.|adic.por tempo de ser viços|anuencio|adicionais tempo srrviço|adicional de tempo de ser|adicional de tempo de servico|trienio|quiqnenio|trmpo serviço|adicional por tempo de servico|adic. por tempod e serviço|tmepo de serviço|tempos serviço|adc. tempo|de serviço inativo|adicionais por tempode serviço|tempo de  serviços|temp. de serviço|adicional de t. serviço|acréscimo por ano excedido 10%|adc. tem. sev.|quiqu|trênio|tempo de servicos|tempo de contribuição|triênio|adic. temp. de serviço|hora|6 parte|adicional t|adts|temp.serviço|adic.temp.serv |sexta parte|temp. serviço|anueni|quadri|quiquenio|quinq|anuenio|anuênio|tempo ser|tempo de serviço|tmepo ser|tempo de srv|ad. t.", df_proventos$col10, ignore.case = TRUE), "ATS", df_proventos$col10)
+df_proventos$col10 <- ifelse(grepl("vent. pess|vant|vpni|v.pes|v. pes|vatnatagem|abono|diferença do pccr|a.pess|a.pes|vent. pess|vant|vpni|v.pes|v. pes|vatnatagem|abono|diferença do pccr|a.pess|a.pes|complement", df_proventos$col10, ignore.case = TRUE), "Vantagem Pessoal", df_proventos$col10)
+df_proventos$col10 <- ifelse(grepl("pensão|provent|outros acresc. inatividade|provnto|aposent|prov|média|media|resultado|propor|rpovento|prvento|posent", df_proventos$col10, ignore.case = TRUE), "Proventos", df_proventos$col10)
+df_proventos$col10 <- ifelse(grepl("sal. incorp.|vencimento|vecimento|piso nacional|venc.|vertical|dif pccr|diferença pccr|sal.incorp|venvi|salári|salari|remun|base|subsidio|subsídio|venecimento", df_proventos$col10, ignore.case = TRUE), "Vencimento", df_proventos$col10)
+df_proventos$col10 <- ifelse(grepl("insalubri|isalu|insalub", df_proventos$col10, ignore.case = TRUE), "Insalubridade", df_proventos$col10)
+df_proventos$col10 <- ifelse(grepl("antec", df_proventos$col10, ignore.case = TRUE), "Antecipação de Aumento", df_proventos$col10)
+df_proventos$col10 <- ifelse(grepl("represen|rep.|represetação", df_proventos$col10, ignore.case = TRUE), "Representação", df_proventos$col10)
+df_proventos$col10 <- ifelse(grepl("gifs|qualif|titul|especialização", df_proventos$col10, ignore.case = TRUE), "Adc. Qualificação", df_proventos$col10)
+df_proventos$col10 <- ifelse(grepl("adicional|risco de vida|pó de giz|acrescimo 20|produção e prod.|outros acrescimos pecuniarios|periculosidade|adicionais de permanência|gead|adic. de permanencia|regencia de classe|serv. extra.|produção prod.|serviço extra incorporado|horas|outros acresc.pecuniarios|bolsa avaliacao desemp.docente|gal|assidui|grat|magistério|magisterio|vpnr|complemento|produtivid|gcex|gpcex|noturno|adic. not.|gae|jornada ampliada|bolsa de sempenho fiscal|efetivo desempenho|adi.jorn.ampl|risco de vida|pó de giz|acrescimo 20|produção e prod.|outros acrescimos pecuniarios|periculosidade|adicionais de permanência|gead|adic. de permanencia|regencia de classe|serv. extra.|produção prod.|serviço extra incorporado|horas|outros acresc.pecuniarios|bolsa avaliacao desemp.docente|gal|assidui|grat|magistério|magisterio|vpnr|complemento|produtivid|gcex|gpcex|noturno|adic. not.|gaj|g.a.p|gap|gati|gshu|gdp", df_proventos$col10, ignore.case = TRUE), "Gratificação", df_proventos$col10)
+df_proventos$col10 <- ifelse(grepl("ajuda de custo", df_proventos$col10, ignore.case = TRUE), "Indenizatorio", df_proventos$col10)
+df_proventos$col10 <- ifelse(grepl("^[0-9]|90", df_proventos$col10, ignore.case = TRUE), "0", df_proventos$col10)
+# Definindo valores que não se enquadram nas categorias acima como "0"
+df_proventos$col10 <- ifelse(!grepl("Proventos|Ind|Rep|ATS|Venc|Insa|Qualif|Antec|Vant|Grat", df_proventos$col10, ignore.case = TRUE), "0", df_proventos$col10)
+
+
+# Converter o dataframe para formato long
+df_long <- df_proventos %>%
+  pivot_longer(cols = starts_with("col"), names_to = "original_col", values_to = "value")
+
+# Criar a coluna binária para cada valor distinto
+df_wide <- df_long %>%
+  distinct(protocolo, value) %>%
+  mutate(value = paste0("parc_", value)) %>%
+  pivot_wider(names_from = value, values_from = value, values_fill = 0, values_fn = list(value = ~1))
+
+# Juntar de volta com o dataframe original
+df_final <- df_proventos %>%
+  left_join(df_wide, by = "protocolo")
+
+df_final <- df_final %>%
+  select(-parc_0)
+
+colunas_para_remover <- c("col1", "col2", "col3", "col4", "col5", "col6", "col6", "col7", "col8", "col9", "col10")
+
+# Supondo que df_final é o seu data frame final
+df_final <- df_final %>%
+  select(-one_of(colunas_para_remover))
+
+# Substituir NA por 0
+df_final[is.na(df_final)] <- 0
+
+df_final <- df_final %>%
+  rename(Sequencia = proventos)
+
+# Realize o join entre os DataFrames usando a coluna 'protocolo' como chave de cruzamento
+# E selecione as colunas desejadas do df_proventos usando a lista colunas_desejadas
+dados_df <- merge(dados_df, df_final, by = "protocolo", all.x = TRUE)
+
+dados_df <- dados_df %>% filter(protocolo != "06801/16")
+
+
+```
+
+Após tal transformação, chega-se ao seguinte layout de colunas correspondente ao campo anterior "nome_proventos"<sup id="fnref-9" class="footnote"><a href="#fn-9">9</a></sup>:
+
+```{r}
+#| echo: false
+#| eval: true
+
+df_subset <- df_final %>% sample_n(5)
+
+# Use a função kable() para imprimir a tabela
+kable(df_subset, caption = "Exemplos de colunas de proventos")
+
+```
+
+## Da seleção final das colunas que serão utilizadas no treinamento
+
+Por fim, selecionam-se as colunas a serem utilizadas na aplicação dos modelos, de modo a descartar atributos irrelevantes ou redundantes<sup id="fnref-5" class="footnote"><a href="#fn-5">5</a></sup> que apenas aumentam a dimensionalidade dos dados<sup id="fnref-7" class="footnote"><a href="#fn-7">7</a></sup> e nada acrescentam para a aprendizagem dos modelos a serem aplicados. Por fim, renomeiam-se os campos para termos mais intuitivos:
+
+```{r}
+#| echo: true
+#| eval: true
+
+# Selecionando e renomeando colunas
+colunas_selecionadas <- c('protocolo', 'PARA_Jurisdicionado', 'exercicio', 'PARA_ORGAO_PADR', 'PARA_CARREIRA_PADR','PARA_cargo', 'PARA_aposentadoriaespecial', 'PARA_MEIOP_PADR', 'PARA_descricao','qtd_vinculos_padr', 'qtd_vinculos_pub_padr', 'qtd_vinculos_privados_padr','qtd_vinculos_mesmo_cargo_padr', 'qtd_vinculos_mesma_carreira_padr', 'parc_Vencimento','parc_ATS','parc_Proventos', 'parc_Gratificação', 'parc_Vantagem Pessoal', 'parc_Insalubridade', 'parc_Adc. Qualificação','parc_Representação', 'parc_Antecipação de Aumento', 'parc_Indenizatorio', 'indicador_sm', 'rotulo')
+
+dados_df <- dados_df[, colunas_selecionadas]
+
+# Dicionário de mapeamento para renomear as colunas
+novo_nome_colunas <- c('nr_proc', 'jurisdicionado', 'ano', 'orgao', 'carreira', 'cargo', 'flag_aposesp', 'meio_publi', 'regra_apos','qtd_vinculos', 'qtd_vinculos_pub', 'qtd_vinculos_priv', 'qtd_vinculos_mesmo_cargo','qtd_vinculos_mesma_carreira', 'p_vencimento', 'p_ats', 'p_proventos', 'p_gratificacao','p_vantpessoal','p_insalubridade', 'p_adcqualificacao', 'p_representacao', 'p_antecipacao','p_indenizatorio', 'ind_sm', 'rotulo')
+
+# Renomeando as colunas usando setNames
+colnames(dados_df) <- setNames(novo_nome_colunas, colunas_selecionadas)
+
+```
+
+A base final, após AED, se apresenta da seguinte forma (amostra aleatória de 500 registros):
+
+```{r}
+#| echo: false
+#| eval: true
+
+df_subset <- dados_df %>% sample_n(500)
+
+
+# Use a função kable() para imprimir a tabela
+kable(df_subset, caption = "Composição de Cargo")
+
+```
+
+## Da representatividade das classes
+
+Vejamos, após as etapas de AED, o grau de balanceamento da base pré-treinamento<sup id="fnref-6" class="footnote"><a href="#fn-6">6</a></sup>:
+
+```{r}
+#| echo: false
+#| eval: true
+
+# Carregar as bibliotecas necessárias
+library(ggplot2)
+
+# Calcular a proporção das classes e a quantidade total
+class_counts <- table(dados_df$rotulo)
+class_proportions <- prop.table(class_counts) * 100
+total_count <- sum(class_counts)
+
+# Converter para data frame para facilitar a manipulação no ggplot
+df_proportions <- as.data.frame(class_proportions)
+colnames(df_proportions) <- c("Class", "Proportion")
+
+# Criar o gráfico
+ggplot(df_proportions, aes(x = Class, y = Proportion, fill = Class)) +
+  geom_bar(stat = "identity", width = 0.6) +
+  geom_hline(yintercept = 40, linetype = "dashed", color = "red", size = 1) +
+  labs(title = paste("Composição das Classes (Total de processos: ", total_count, ")", sep = ""), 
+       x = "Classe", 
+       y = "Proporção (%)") +
+  theme_minimal() +
+  theme(legend.position = "none") +
+  geom_text(aes(label = sprintf("%.1f%% (N = %d)", Proportion, class_counts[Class])), 
+            vjust = -0.5) +
+  annotate("text", x = 1.5, y = 42, label = "Limiar de 40%", color = "red")
+
+```
+
+Como se pode perceber, a classe de processos sem risco corresponde a \~57,3% da base de dados, enquanto a classe de processo com risco corresponde a \~42,7% da base de dados. Segundo (MIRZAEI, 2021)<sup id="fnref-11" class="footnote"><a href="#fn-11">11</a></sup>, uma composição de 60%/40% denota uma base de dados razoavelmente balanceada, não havendo necessidade de adoção de técnicas de balanceamento do dataset para aplicação dos modelos.
+
+## Dos dados ausentes
+
+Observa-se que não há dados ausentes nos domínios<sup id="fnref-4" class="footnote"><a href="#fn-4">4</a></sup> nos atributos relevantes para a análise. Por conta disso, não há necessidade de se fazer tratamento específico para esse tipo de ocorrência:
+
+```{r}
+#| echo: true
+#| eval: true
+
+# Avaliar a quantidade absoluta de valores nulos
+na_counts <- sapply(dados_df, function(x) sum(is.na(x)))
+na_counts_sorted <- sort(na_counts, decreasing = TRUE)
+print(na_counts_sorted)
+
+# Avaliar o percentual de valores nulos
+na_percent <- sapply(dados_df, function(x) sum(is.na(x)) * 100 / nrow(dados_df))
+na_percent_sorted <- sort(na_percent, decreasing = TRUE)
+print(na_percent_sorted)
+
+```
+
+# Conclusão
+
+Demonstrada a formação da base de dados e realizada análise exploratória, obtém-se a base pré-treinamento, a qual é utilizada, usando código python, para o treinamento e teste dos modelos aplicados no escopo desta pesquisa.
+
+<p class="no-indent">**Agradeço a atenção.**</p>
+
+<p class="no-indent">**Qualquer dúvida, favor enviar para psfleury\@gmail.com**</p>
+
+# Notas de Rodapé
+
+<ol>
+
+<li id="fn-1">
+
+Etapa da AED: **Resumo estatístico das variáveis**<a href="#fnref-1" class="footnote-backref">↩</a>
+
+</li>
+
+<li id="fn-2">
+
+Etapa da AED: **Visualização gráfica dos atributos**<a href="#fnref-2" class="footnote-backref">↩</a>
+
+</li>
+
+<li id="fn-3">
+
+Etapa da AED: **Avaliação de domínio**<a href="#fnref-3" class="footnote-backref">↩</a>
+
+</li>
+
+<li id="fn-4">
+
+Etapa da AED: **Tratamento de dados ausentes**<a href="#fnref-4" class="footnote-backref">↩</a>
+
+</li>
+
+<li id="fn-5">
+
+Etapa da AED: **Exclusão de atributos redundantes ou irrelevantes**<a href="#fnref-5" class="footnote-backref">↩</a>
+
+</li>
+
+<li id="fn-6">
+
+Etapa da AED: **Análise de balanceamento de classes**<a href="#fnref-6" class="footnote-backref">↩</a>
+
+</li>
+
+<li id="fn-7">
+
+Etapa da AED: **Avaliação de dimensionalidade**<a href="#fnref-7" class="footnote-backref">↩</a>
+
+</li>
+
+<li id="fn-8">
+
+Etapa da AED: **Tratamento para evitar overfitting**<a href="#fnref-8" class="footnote-backref">↩</a>
+
+</li>
+
+<li id="fn-9">
+
+Etapa da AED: **Engenharia de features**<a href="#fnref-9" class="footnote-backref">↩</a>
+
+</li>
+
+<li id="fn-10">
+
+Etapa da AED: **Filtragem de dados ou remoção de outliers**<a href="#fnref-10" class="footnote-backref">↩</a>
+
+</li>
+
+<li id="fn-11">
+
+Artigo: <a href="https://1drv.ms/b/s!Ai0lywhGwU_aj9BzF-p2NrQ6zgaHYQ?e=qTPZQn">https://1drv.ms/b/s!Ai0lywhGwU_aj9BzF-p2NrQ6zgaHYQ?e=qTPZQn</a> <a href="#fnref-11" class="footnote-backref">↩</a>
+
+</li>
+
+</ol>
