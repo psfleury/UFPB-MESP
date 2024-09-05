@@ -383,7 +383,7 @@ document.addEventListener("DOMContentLoaded", function() {
 <strong>Autor</strong>: Pedro de Souza Fleury
 </p>
 <p class="no-indent">
-<strong>Data</strong>: 2024-09-04
+<strong>Data</strong>: 2024-09-05
 </p>
 <section id="da-preparação-do-ambiente-de-trabalho-e-da-importação-das-bibliotecas-que-serão-utilizadas" class="level1">
 <h1>Da preparação do ambiente de trabalho e da importação das bibliotecas que serão utilizadas</h1>
@@ -893,7 +893,7 @@ document.addEventListener("DOMContentLoaded", function() {
 </section>
 <section id="parametrizando-o-pré-processamento-das-features" class="level2">
 <h2 class="anchored" data-anchor-id="parametrizando-o-pré-processamento-das-features">Parametrizando o pré-processamento das features</h2>
-<p>Além disso, devem ser parametrizadas as transformações que serão feitas nos atributos para aplicação dos modelos. Como nesta pesquisa só há campos categóricos, será aplicado somente o OneHotEncoder, o qual é usado para transformar variáveis categóricas em variáveis <strong>dummy</strong>, também conhecidas como variáveis indicadoras. Ele converte cada categoria em uma nova coluna binária, onde um valor de 1 indica a presença da categoria e 0 a ausência.:</p>
+<p>Além disso, devem ser parametrizadas as transformações que serão feitas nos atributos para aplicação dos modelos. Como nesta pesquisa só há campos categóricos, será aplicado somente o OneHotEncoder, o qual é usado para transformar variáveis categóricas em variáveis <strong>dummy</strong>, também conhecidas como variáveis indicadoras. Ele converte cada categoria em uma nova coluna binária, onde um valor de 1 indica a presença da categoria e 0 a ausência:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>categorical_features <span class="op">=</span> [<span class="st">'nr_proc'</span>, <span class="st">'jurisdicionado'</span>, <span class="st">'ano'</span>, <span class="st">'orgao'</span>, <span class="st">'carreira'</span>, <span class="st">'cargo'</span>, <span class="st">'flag_aposesp'</span>, <span class="st">'meio_publi'</span>, <span class="st">'regra_apos'</span>, <span class="st">'qtd_vinculos'</span>, <span class="st">'qtd_vinculos_pub'</span>, <span class="st">'qtd_vinculos_priv'</span>, <span class="st">'qtd_vinculos_mesmo_cargo'</span>, <span class="st">'qtd_vinculos_mesma_carreira'</span>, <span class="st">'p_vencimento'</span>, <span class="st">'p_ats'</span>, <span class="st">'p_proventos'</span>, <span class="st">'p_gratificacao'</span>, <span class="st">'p_vantpessoal'</span>, <span class="st">'p_insalubridade'</span>, <span class="st">'p_adcqualificacao'</span>, <span class="st">'p_representacao'</span>, <span class="st">'p_antecipacao'</span>, <span class="st">'p_indenizatorio'</span>, <span class="st">'ind_sm'</span>]</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>categorical_transformer <span class="op">=</span> OneHotEncoder(handle_unknown<span class="op">=</span><span class="st">"ignore"</span>)</span>
@@ -936,7 +936,7 @@ document.addEventListener("DOMContentLoaded", function() {
 </section>
 <section id="criando-função-para-treinamento-dos-modelos" class="level2">
 <h2 class="anchored" data-anchor-id="criando-função-para-treinamento-dos-modelos">Criando função para treinamento dos modelos</h2>
-<p>Em seguida, é importante criar função que parametriza o treinamento de um modelo definido como <strong><em>input</em></strong>, realiza e preenche tanto as classificações geradas pelos modelos no dataframe df_global quanto as matrizes de confusão no dataframe confusion_matrix_df. Vejamos:</p>
+<p>Em sequência, é importante criar função que parametriza o treinamento de um modelo definido como <strong><em>input</em></strong>, realiza e preenche tanto as classificações geradas pelos modelos no dataframe df_global quanto as matrizes de confusão no dataframe confusion_matrix_df. Vejamos:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cria função que parametriza o treinamento de um modelo definido como input, faz suas predições, cria a matriz de confusão e preenche um dataframe global de informações importantes para o modelo rodado</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -1634,7 +1634,7 @@ teste3-{model}
 </section>
 <section id="obtendo-os-resultados-de-cada-modelo-na-base-de-teste-completa" class="level2">
 <h2 class="anchored" data-anchor-id="obtendo-os-resultados-de-cada-modelo-na-base-de-teste-completa">Obtendo os resultados de cada modelo na base de teste completa</h2>
-<p>Além dos dados referentes à aplicação dos modelos nos subconjuntos, é importante que se tenha também os dados da aplicação à base de testes completa:</p>
+<p>Além dos dados referentes à aplicação dos modelos nos subconjuntos da base de teste, é importante que se tenha também os dados da aplicação dos modelos à base de testes completa:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Obter o classification report de cada modelo</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>rl <span class="op">=</span> classification_report(y_valid, global_df[<span class="st">'Logistic Regression'</span>], digits<span class="op">=</span><span class="dv">6</span>, output_dict<span class="op">=</span><span class="va">True</span>)</span>
@@ -1688,7 +1688,7 @@ teste3-{model}
 </section>
 <section id="consolidando-os-classification-reports-com-as-matrizes-de-confusão" class="level2">
 <h2 class="anchored" data-anchor-id="consolidando-os-classification-reports-com-as-matrizes-de-confusão">Consolidando os classification reports com as matrizes de confusão</h2>
-<p>Para que se possa avaliar os resultados, é importante que os indicadores do classification report e as matrizes de confusão estejam consolidados em uma só tabela. Além disso, deve ser calculado o indicador de benefício/custo de cada registro. Vejamos:</p>
+<p>Para que se possa avaliar os resultados, é importante que os indicadores do <strong><em>classification report</em></strong> (precisão, revocação, f1-score e acurácia) e as matrizes de confusão estejam consolidados em uma só tabela. Além disso, deve ser calculado o indicador de benefício/custo de cada registro. Vejamos:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Transformar o DataFrame usando pivot_table</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>transformed_df <span class="op">=</span> df_final.pivot_table(index<span class="op">=</span><span class="st">'Modelo'</span>, columns<span class="op">=</span><span class="st">'Classe'</span>, values<span class="op">=</span>[<span class="st">'precision'</span>, <span class="st">'recall'</span>, <span class="st">'f1-score'</span>, <span class="st">'support'</span>])</span>
@@ -3416,8 +3416,8 @@ teste3-{model}
 <section id="aplicando-os-modelos-em-150-particionamentos-distintos-do-dataset-entre-base-de-treino-e-base-de-teste" class="level2">
 <h2 class="anchored" data-anchor-id="aplicando-os-modelos-em-150-particionamentos-distintos-do-dataset-entre-base-de-treino-e-base-de-teste">Aplicando os modelos em 150 particionamentos distintos do dataset entre base de treino e base de teste</h2>
 <p>O código visto até agora nos proporcionou os indicadores e a matriz de confusão de cada modelo para a base de teste completa e para cada subconjunto de dados obtidos de acordo com o grau de consenso verificado entre os modelos. Todavia, os resultados derivados do código apresentado são todos dependentes da forma como a o <strong><em>dataset</em></strong> completo foi dividido entre a base de treinamento e a base teste, na execução do comando <strong><em>train_test_split</em></strong>.</p>
-<p>Nesse contexto, para evitar que os resultados apresentados sejam enviesados por uma divisão particular dos dados que possa ter favorecido ou prejudicado determinado(s) modelo(s), todo o código, a partir do tópico <strong>“Segmentação do <strong><em>dataset</em></strong>”</strong>, passa a ser incluído em uma estrutura de código “for … loop”, a ser reiterado 150 vezes, variando o indicador de iteração entre 0 e 149. Esse indicador, chamado <strong><em>rnd_int</em></strong> passa a fazer as vezes do parâmetro <strong><em>random_state</em></strong> da função <strong><em>train_test_split</em></strong>, de forma que, em cada iteração do código, o <strong><em>dataset</em></strong> completo seja dividido de forma distinta.</p>
-<p>Assim, em cada <strong><em>loop</em></strong> do código, vão sendo armazenados no dataframe consolidador global chamado <strong><em>cons_transformed_df</em></strong> os dados de <strong><em>classification_report</em></strong> e das matrizes de confusão da base de testes específica daquela iteração.</p>
+<p>Nesse contexto, para evitar que os resultados apresentados sejam enviesados por uma divisão particular dos dados que possa ter favorecido ou prejudicado determinado(s) modelo(s), todo o código, a partir do tópico <strong>“Segmentação do dataset”</strong>, passa a ser incluído em uma estrutura de código “for … loop”, a ser reiterado 150 vezes, variando o indicador de iteração entre 0 e 149. Esse indicador, chamado <strong><em>rnd_int</em></strong>, passa a fazer as vezes do parâmetro <strong><em>random_state</em></strong> da função <strong><em>train_test_split</em></strong>, de forma que, em cada iteração do código, o <strong><em>dataset</em></strong> completo seja dividido de forma distinta.</p>
+<p>Assim, em cada <strong><em>loop</em></strong> do código, vão sendo armazenados, no dataframe consolidador global chamado <strong><em>cons_transformed_df</em></strong>, os dados de <strong><em>classification_report</em></strong> e das matrizes de confusão da base de testes específica daquela iteração.</p>
 <p>Vejamos o código completo:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> rnd_ind <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="dv">150</span>):</span>
@@ -3678,7 +3678,7 @@ teste3-{model}
 <span id="cb23-256"><a href="#cb23-256" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Concatenar  cons_transformed_df acumulado com os registros da nova iteração</span></span>
 <span id="cb23-257"><a href="#cb23-257" aria-hidden="true" tabindex="-1"></a>    cons_transformed_df <span class="op">=</span> pd.concat([cons_transformed_df, transf_df_iteracao], ignore_index<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Vejamos como ficou o dataframe “cons_transformed_df” após todas as 150 iterações:</p>
+<p>Vejamos como ficou uma amostra do dataframe “cons_transformed_df” após a realização das 150 iterações:</p>
 <div class="cell">
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small" data-quarto-postprocess="true">
@@ -10843,6 +10843,7 @@ teste3-{model}
 </table>
 </div>
 </div>
+<p>Perceba que o Benefício/Custo da escolha coletiva é superior à escolha puramente aleatória atualmente feita pela Auditoria (BC = 1,34) somente quando ao menos 9 ou mais modelos concordam entre si.</p>
 </section>
 <section id="calculando-os-intervalos-de-confiança-das-escolhas-individuais" class="level2">
 <h2 class="anchored" data-anchor-id="calculando-os-intervalos-de-confiança-das-escolhas-individuais">Calculando os intervalos de confiança das escolhas individuais</h2>
@@ -11611,7 +11612,7 @@ teste3-{model}
 </section>
 <section id="conclusão" class="level1">
 <h1>Conclusão</h1>
-<p>A partir dos dados de todas as iterações dos modelos e da escolha coletiva, torna-se possível o preechimento das tabelas dispostas na dissertação.</p>
+<p>A partir dos dados de todas as iterações dos modelos e da formação dos intervalos de confiança, torna-se possível a comparação entre os modelos, a escolha coletiva e a escolha puramente aleatória atualmente realizada pela Auditoria, conforme discorrido na dissertação.</p>
 <p class="no-indent">
 <strong>Agradeço a atenção.</strong>
 </p>
