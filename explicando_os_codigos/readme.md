@@ -7,4 +7,6 @@ Nesta pasta contém o arquivo "MESP_Previdencia_Final.qmd", por meio do qual é 
 
 Além disso, também está disponível o arquivo "MESP_Aplicação_Modelos.qmd", por meio do qual é geral o arquivo "Projeto_Final_MESP_Parte_2.html", no qual é feita a explanação das etapas de aplicação dos modelos e geração de resultados abordados na dissertação. Além de acessar diretamente o arquivo html por meio deste diretório, é possível o acesso por meio do seguinte link publicado no quartopub:
 
+[Acesse o html da aplicação dos modelos neste link - QuartoPub](https://psfleury.quarto.pub/projeto_final_mesp_parte_2/)
+
 [Acesse o html da aplicação dos modelos neste link - Github Pages](https://psfleury.github.io/UFPB-MESP/explicando_os_codigos/Projeto_Final_MESP_Parte_2.html)
